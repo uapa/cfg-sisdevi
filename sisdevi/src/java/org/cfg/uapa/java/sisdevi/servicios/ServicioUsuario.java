@@ -63,7 +63,7 @@ public class ServicioUsuario {
         Connection con = Coneccion.getInstancia().getConeccion();
         Usuario usuario1 = null;
 
-        try (PreparedStatement pstmt = con.prepareStatement("select * from cliente where usuario = ? and clave= ?")) {
+        try (PreparedStatement pstmt = con.prepareStatement("select * from usuarios where usuario = ? and clave= ?")) {
 
             pstmt.setString(1, usuario);
             pstmt.setString(2, clave);

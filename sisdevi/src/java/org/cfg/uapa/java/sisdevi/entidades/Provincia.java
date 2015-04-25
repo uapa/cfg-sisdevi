@@ -9,7 +9,7 @@ package org.cfg.uapa.java.sisdevi.entidades;
  *
  * @author acer
  */
-class Provincia {
+public class Provincia {
     private Integer id;
     private String nombre;
 

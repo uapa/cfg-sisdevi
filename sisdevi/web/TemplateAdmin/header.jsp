@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-	<title>Veterinaria Santiago</title>
+	<title>Sisdevi</title>
 
 	<!--=== CSS ===-->
 
@@ -140,9 +140,9 @@
                 </ul>
 
                 <!-- Logo -->
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="index.jsp">
                     <img src="assets/img/logo.png" alt="logo" />
-                    <strong>Veterinaria</strong>Santiago
+                    <strong>SISDEVI</strong>
                 </a>
                 <!-- /logo -->
 
@@ -538,37 +538,37 @@
                             </a>
                         </li>
                         <li>
-                            <a href="vercitas.jsp">
+                            <a href="verreporte.jsp">
                                 <i class="icon-calendar"></i>
-                                Citas
+                                Reportes por Victimas
                                 </a>
                             
                         </li>
                         <li>
-                            <a href="verdoctores.jsp">
+                            <a href="verreportetestigo.jsp">
                                 <i class="icon-medkit"></i>
-                                Doctores
+                                Reportes por Testigos
                             </a>
                             
                         </li>
                         <li>
-                            <a href="verespecies.jsp">
+                            <a href="vertiposdeviolencia.jsp">
                                 <i class="icon-book"></i>
-                                Especies
+                                Tipos de violencia
                             </a>
                             
                         </li>
                         <li>
                             <a href="verpacientes.jsp">
                                 <i class="icon-ambulance"></i>
-                                Pacientes
+                                Vinculos
                             </a>
                             
                         </li>
                         <li>
                             <a href="verrazas.jsp">
                                 <i class="icon-linux"></i>
-                                Razas
+                                Usuarios
                             </a>
                             
                         </li>

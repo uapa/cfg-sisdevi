@@ -17,6 +17,7 @@ public class Reporte {
     private String telefono;
     private String celular;
     private Provincia provincia;
+    private String correo;
     private String fecha_reporte;
 
     public Integer getId() {
@@ -81,6 +82,20 @@ public class Reporte {
 
     public void setFecha_reporte(String fecha_reporte) {
         this.fecha_reporte = fecha_reporte;
+    }
+
+    /**
+     * @return the correo
+     */
+    public String getCorreo() {
+        return correo;
+    }
+
+    /**
+     * @param correo the correo to set
+     */
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
     
     
