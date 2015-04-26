@@ -8,7 +8,7 @@
     <!--[if IE]>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <![endif]-->
-    <title>Sistema para la detección y abordaje de la violencia</title>
+    <title>SISDEVI</title>
     <!-- BOOTSTRAP CORE CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
     <!-- IONICON STYLE SHEET FOR BEAUTIFUL ICONS -->
@@ -124,7 +124,7 @@
     </section>
     <!-- CONTACT SECTION END -->
     <footer>
-        &copy 2015 YourDomain.com  | <a href="http://www.designbootstrap.com/" target="_blank">by DesignBootstrap</a>
+        &copy 2015 sisdevi.com  | <a href="http://www.designbootstrap.com/" target="_blank">by DesignBootstrap</a>
     </footer>
     <!--FOOTER SECTION END  -->
     <!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
