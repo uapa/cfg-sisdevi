@@ -75,57 +75,8 @@
     <!--HEADER SECTION END  -->
     <section id="services">
         <div class="container">
-            <div class="row text-center">
-                <div class="col-md-6 col-md-offset-3 pad-bottom" data-scroll-reveal="enter from the bottom after 0.2s">
-                    <h2><strong>OUR SERVICES</strong></h2>
-                    Consectetur adipiscing elit felis dolor felis dolor vitae.Eelit felis dolor vitae
-
-                </div>
-            </div>
-            <div class="row text-center pad-bottom" data-scroll-reveal="enter from the bottom after 0.4s">
-                <div class="col-md-3">
-                    <i class="ion-ios-cloud-outline"></i>
-                    <h4><strong>Service Name # 1 </strong></h4>
-                    Consectetur adipiscing elit felis dolor felis dolor vitae.Eelit felis dolor vitae felis dolor vitae
-                </div>
-                <div class="col-md-3">
-                    <i class="ion-card"></i>
-                    <h4><strong>Service Name # 2 </strong></h4>
-                    Consectetur adipiscing elit felis dolor felis dolor vitae.Eelit felis dolor vitae felis dolor vitae
-                </div>
-                <div class="col-md-3">
-                    <i class="ion-speedometer"></i>
-                    <h4><strong>Service Name # 3 </strong></h4>
-                    Consectetur adipiscing elit felis dolor felis dolor vitae.Eelit felis dolor vitae felis dolor vitae
-                </div>
-                <div class="col-md-3">
-                    <i class="ion-ios-settings"></i>
-                    <h4><strong>Service Name # 4 </strong></h4>
-                    Consectetur adipiscing elit felis dolor felis dolor vitae.Eelit felis dolor vitae felis dolor vitae
-                </div>
-            </div>
-            <div class="row text-center" data-scroll-reveal="enter from the bottom after 0.6s">
-                <div class="col-md-3">
-                    <i class="ion-ios-chatboxes-outline"></i>
-                    <h4><strong>Service Name # 5 </strong></h4>
-                    Consectetur adipiscing elit felis dolor felis dolor vitae.Eelit felis dolor vitae felis dolor vitae
-                </div>
-                <div class="col-md-3">
-                    <i class="ion-ios-pulse-strong"></i>
-                    <h4><strong>Service Name # 6 </strong></h4>
-                    Consectetur adipiscing elit felis dolor felis dolor vitae.Eelit felis dolor vitae felis dolor vitae
-                </div>
-                <div class="col-md-3">
-                    <i class="ion-ios-browsers-outline"></i>
-                    <h4><strong>Service Name # 7 </strong></h4>
-                    Consectetur adipiscing elit felis dolor felis dolor vitae.Eelit felis dolor vitae felis dolor vitae
-                </div>
-                <div class="col-md-3">
-                    <i class="ion-ios-people-outline"></i>
-                    <h4><strong>Service Name # 8 </strong></h4>
-                    Consectetur adipiscing elit felis dolor felis dolor vitae.Eelit felis dolor vitae felis dolor vitae
-                </div>
-            </div>
+            
+            
         </div>
 
 
@@ -134,191 +85,21 @@
     <div id="clients">
         <div class="overlay">
             <div class="container">
-                <div class="row text-center">
-                    <div class="col-md-12" data-scroll-reveal="enter from the bottom after 0.2s">
-                        <div class="carousel slide clients-carousel" id="clients-slider">
-                            <div class="carousel-inner">
-                                <div class="item active">
-                                    <div class="row">
-                                        <div class="col-md-3">
-                                            <a class="thumbnail" href="#">
-                                                <img src="assets/img/themeforest.png" alt="" />
-                                            </a>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <a class="thumbnail" href="#">
-                                                <img src="assets/img/facebook.png" alt="" />
-                                            </a>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <a class="thumbnail" href="#">
-                                                <img src="assets/img/google.png" alt="" />
-                                            </a>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <a class="thumbnail" href="#">
-                                                <img src="assets/img/graphic.png" alt="" />
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="row">
-                                        <div class="col-md-3">
-                                            <a class="thumbnail" href="#">
-                                                <img src="assets/img/themeforest.png" alt="" />
-                                            </a>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <a class="thumbnail" href="#">
-                                                <img src="assets/img/facebook.png" alt="" />
-                                            </a>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <a class="thumbnail" href="#">
-                                                <img src="assets/img/google.png" alt="" />
-                                            </a>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <a class="thumbnail" href="#">
-                                                <img src="assets/img/graphic.png" alt="" />
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="row">
-                                        <div class="col-md-3">
-                                            <a class="thumbnail" href="#">
-                                                <img src="assets/img/themeforest.png" alt="" />
-                                            </a>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <a class="thumbnail" href="#">
-                                                <img src="assets/img/facebook.png" alt="" />
-                                            </a>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <a class="thumbnail" href="#">
-                                                <img src="assets/img/google.png" alt="" />
-                                            </a>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <a class="thumbnail" href="#">
-                                                <img src="assets/img/graphic.png" alt="" />
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <a data-slide="prev" href="#clients-slider" class="left carousel-control">?</a>
-                            <a data-slide="next" href="#clients-slider" class="right carousel-control">?</a>
-                        </div>
-                    </div>
-                </div>
+                
             </div>
         </div>
     </div>
     <!-- CLIENTS SECTION END  -->
     <section id="works">
         <div class="container">
-            <div class="row text-center">
-                <div class="col-md-6 col-md-offset-3 pad-bottom" data-scroll-reveal="enter from the bottom after 0.2s">
-                    <h2><strong>WORK PORFOLIO</strong></h2>
-                    Consectetur adipiscing elit felis dolor felis dolor vitae.Eelit felis dolor vitae
-
-                </div>
-            </div>
-
-            <div class="row text-center">
-                <div class="col-md-12 pad-bottom" data-scroll-reveal="enter from the bottom after 0.4s">
-                    <div class="caegories">
-                        <a href="#" data-filter="*" class="active btn btn-info btn-sm">All</a>
-                        <a href="#" data-filter=".html" class="btn btn-info btn-sm">HTML</a>
-                        <a href="#" data-filter=".css" class="btn btn-info btn-sm">CSS</a>
-                        <a href="#" data-filter=".code" class="btn btn-info btn-sm">CODE</a>
-                        <a href="#" data-filter=".script" class="btn btn-info btn-sm">SCRIPT</a>
-                    </div>
-
-                </div>
-            </div>
-
-
-            <div class="row text-center" id="portfolio-div" >
-
-                <div class="col-md-4 col-sm-4 html">
-                    <div class="work-wrapper">
-
-                        <a class="fancybox-media" title="Image Title Goes Here" href="assets/img/portfolio/1.jpg">
-
-                            <img src="assets/img/portfolio/1.jpg" class="img-responsive " alt="" />
-                        </a>
-
-
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-4 css">
-                    <div class="work-wrapper">
-                        <a class="fancybox-media" title="Image Title Goes Here" href="assets/img/portfolio/2.jpg">
-
-                            <img src="assets/img/portfolio/2.jpg" class="img-responsive " alt="" />
-                        </a>
-
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-4 code">
-                    <div class="work-wrapper">
-                        <a class="fancybox-media" title="Image Title Goes Here" href="assets/img/portfolio/3.jpg">
-
-                            <img src="assets/img/portfolio/3.jpg" class="img-responsive " alt="" />
-                        </a>
-
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-4 script">
-                    <div class="work-wrapper">
-                        <a class="fancybox-media" title="Image Title Goes Here" href="assets/img/portfolio/4.jpg">
-
-                            <img src="assets/img/portfolio/4.jpg" class="img-responsive " alt="" />
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-4 html script">
-                    <div class="work-wrapper">
-                        <a class="fancybox-media" title="Image Title Goes Here" href="assets/img/portfolio/5.jpg">
-
-                            <img src="assets/img/portfolio/5.jpg" class="img-responsive " alt="" />
-                        </a>
-
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-4 css code">
-                    <div class="work-wrapper">
-                        <a class="fancybox-media" title="Image Title Goes Here" href="assets/img/portfolio/6.jpg">
-
-                            <img src="assets/img/portfolio/6.jpg" class="img-responsive" alt="" />
-                        </a>
-
-                    </div>
-
-                </div>
-            </div>
+          
         </div>
     </section>
     <!-- WORK SECTION END  -->
     <div id="testimonial" data-scroll-reveal="enter from the bottom after 0.2s">
         <div class="overlay">
             <div class="container">
-                <div class="row text-center">
-                    <div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4">
-                        <i class="ion-ios-drag clr-set f-big"></i>
-                        <br />
-                        <p>
-                            Consectetur adipiscing elit felis dolor felis dolor vitae.
-                     Consectetur adipiscing elit felis dolor felis dolor vitae.Eelit felis dolor vitae felis dolor vitae
-                        </p>
-                    </div>
-                </div>
+                
             </div>
         </div>
     </div>
@@ -326,68 +107,7 @@
     <section id="team">
         <div class="container">
 
-            <div class="row text-center" data-scroll-reveal="enter from the bottom after 0.2s">
-                <div class="col-md-6 col-md-offset-3 pad-bottom">
-                    <h2><strong>AWESOME TEAM</strong></h2>
-                    Consectetur adipiscing elit felis dolor felis dolor vitae.Eelit felis dolor vitae
-
-                </div>
-            </div>
-            <div class="row pad-bottom" data-scroll-reveal="enter from the bottom after 0.4s">
-
-                <div class="col-md-6 col-sm-6">
-                    <div class="media">
-                        <a class="media-left" href="#">
-                            <img src="assets/img/1.jpg" alt="" class="img-circle" />
-                        </a>
-                        <div class="media-body">
-                            <h3 class="media-heading">Technical Director</h3>
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
-           3 wolf moon officia aute, non cupidatat skateboard dolor brunch. 
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-sm-6">
-                    <div class="media">
-                        <a class="media-left" href="#">
-                            <img src="assets/img/2.jpg" alt="" class="img-circle" />
-                        </a>
-                        <div class="media-body">
-                            <h3 class="media-heading">Marketing Director</h3>
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
-           3 wolf moon officia aute, non cupidatat skateboard dolor brunch. 
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row" data-scroll-reveal="enter from the bottom after 0.6s">
-
-                <div class="col-md-6 col-sm-6">
-                    <div class="media">
-                        <a class="media-left" href="#">
-                            <img src="assets/img/3.jpg" alt="" class="img-circle" />
-                        </a>
-                        <div class="media-body">
-                            <h3 class="media-heading">Clients Manager</h3>
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
-           3 wolf moon officia aute, non cupidatat skateboard dolor brunch. 
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-sm-6">
-                    <div class="media">
-                        <a class="media-left" href="#">
-                            <img src="assets/img/4.jpg" alt="" class="img-circle" />
-                        </a>
-                        <div class="media-body">
-                            <h3 class="media-heading">Support Director</h3>
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
-           3 wolf moon officia aute, non cupidatat skateboard dolor brunch. 
-                        </div>
-                    </div>
-                </div>
-            </div>
+           
 
         </div>
     </section>
@@ -395,25 +115,7 @@
     <section id="contact">
         <div class="overlay">
             <div class="container">
-                <div class="row text-center" data-scroll-reveal="enter from the bottom after 0.2s">
-                    <div class="col-md-6 col-md-offset-3 pad-bottom">
-                        <h2><strong>STAY CONNECTED </strong></h2>
-                        Consectetur adipiscing elit felis dolor felis dolor vitae.Eelit felis dolor vitae
-
-                    </div>
-                </div>
-
-                <div class="row text-center" data-scroll-reveal="enter from the bottom after 0.4s">
-
-                    <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
-                        <h3><strong>Address : </strong></h3>
-                        <br />
-                        <h4>102, Melborne City International,</h4>
-                        <h4>United States </h4>
-                        <h4><strong>Email : </strong>info@yourdomain.com</h4>
-                    </div>
-
-                </div>
+                
 
 
 
