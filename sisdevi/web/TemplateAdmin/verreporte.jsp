@@ -6,8 +6,6 @@
 <jsp:include page="header.jsp"/>
 <%
     List<Reporte> reporte = ServicioReporte.getInstancia().getListadoReporte();
-    
-
 %>
 <div class="row">
     <div class="col-md-12">
@@ -33,8 +31,6 @@
                             <th>Telefono</th>
                             <th>Celular</th>
                             <th>Correo</th>
-                            <th>Detalles</th>
-                            <th>Agresor</th>
                             <th>Editar</th>
                             <th>Borrar</th>
                         </tr>
@@ -51,8 +47,6 @@
                             <td>${reporte.getTelefono()}</td>
                             <td>${reporte.getCelular()}</td>
                             <td>${reporte.getCorreo()}</td>
-                            <td></td>
-                            <td></td>
                             <td><a href="editarreporte.jsp?id=${reporte.getId()}"><i class="icon-edit"></i></a></td>
                             <td><a href="borrarreporte.jsp?id=${reporte.getId()}"><i class="icon-trash"></i></a></td>
                             

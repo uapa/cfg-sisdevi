@@ -32,9 +32,6 @@
                             <th>Provincia Victima</th>
                             <th>Telefono Victima</th>
                             <th>Celular Victima</th>
-                            
-                            <th>Detalles</th>
-                            <th>Agresor</th>
                             <th>Editar</th>
                             <th>Borrar</th>
                         </tr>
@@ -50,9 +47,6 @@
                             <td>${reporte.getProvincia().getNombre()}</td>
                             <td>${reporte.getTelefono_victima()}</td>
                             <td>${reporte.getCelular_victima()}</td>
-                            
-                            <td></td>
-                            <td></td>
                             <td><a href="editarreportetestigo.jsp?id=${reporte.getId()}"><i class="icon-edit"></i></a></td>
                             <td><a href="borrarreportetestigo.jsp?id=${reporte.getId()}"><i class="icon-trash"></i></a></td>
                             

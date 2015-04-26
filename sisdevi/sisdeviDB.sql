@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50532
 File Encoding         : 65001
 
-Date: 2015-04-25 19:31:14
+Date: 2015-04-25 21:45:09
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -141,11 +141,13 @@ CREATE TABLE `reporte` (
   PRIMARY KEY (`id`),
   KEY `reporte_provincia_fk` (`provincia_id`),
   CONSTRAINT `reporte_provincia_fk` FOREIGN KEY (`provincia_id`) REFERENCES `provincias` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- ----------------------------
 -- Records of reporte
 -- ----------------------------
+INSERT INTO `reporte` VALUES ('1', 'Jean', 'Perez', 'Urb Los Prados c/14 #9', '8093178156', '809999999', '13', 'juan@gmail.com', '2015-04-25 19:37:18');
+INSERT INTO `reporte` VALUES ('2', 'Persa', 'Almonte', 'Urb Los Prados c/14 #9', '8093178156', '809999999', '3', 'juan@gmail.com', '2015-04-25 20:10:26');
 
 -- ----------------------------
 -- Table structure for `reportetestigo`
@@ -161,7 +163,7 @@ CREATE TABLE `reportetestigo` (
   `vinculo_id` int(11) DEFAULT NULL,
   `nombre_victima` varchar(77) COLLATE utf8_spanish_ci DEFAULT NULL,
   `apellido_victima` varchar(77) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `dirreccion_victima` varchar(77) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `direccion_victima` varchar(77) COLLATE utf8_spanish_ci DEFAULT NULL,
   `provincia_id` int(11) DEFAULT NULL,
   `telefono_victima` varchar(17) COLLATE utf8_spanish_ci DEFAULT NULL,
   `celular_victima` varchar(17) COLLATE utf8_spanish_ci DEFAULT NULL,
@@ -172,11 +174,13 @@ CREATE TABLE `reportetestigo` (
   KEY `reporte_provincias_fk` (`provincia_id`),
   CONSTRAINT `reporte_provincias_fk` FOREIGN KEY (`provincia_id`) REFERENCES `provincias` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `reporte_vinculo_fk` FOREIGN KEY (`vinculo_id`) REFERENCES `vinculo` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- ----------------------------
 -- Records of reportetestigo
 -- ----------------------------
+INSERT INTO `reportetestigo` VALUES ('1', 'ok', 'ok', '898989', '898989', 'adasdas', '5', 'OK', 'ok', 'yhyhy', '4', '8093178156', '80989999', 'okoo', '2015-04-25 19:58:20');
+INSERT INTO `reportetestigo` VALUES ('2', 'Azul', 'Guzman', '8093178156', '809999999', 'juan@gmail.com', '7', 'Juana', 'Martinez', 'Av. 77', '28', '999999999', '0999999999', 'okoko', '2015-04-25 21:43:44');
 
 -- ----------------------------
 -- Table structure for `tipodeviolencia`
