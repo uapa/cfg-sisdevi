@@ -77,25 +77,25 @@
         <div class="container">
             <div class="row text-center">
                 <div class="col-md-6 col-md-offset-3 pad-bottom" data-scroll-reveal="enter from the bottom after 0.2s">
-                    <h2><strong>OUR SERVICES</strong></h2>
-                    Consectetur adipiscing elit felis dolor felis dolor vitae.Eelit felis dolor vitae
+                    <h2><strong>Como utilizar SISDEVI</strong></h2>
+                    Tan facil como crear una cuenta de facebook
 
                 </div>
             </div>
             <div class="row text-center pad-bottom" data-scroll-reveal="enter from the bottom after 0.4s">
                 <div class="col-md-3">
+                    <i class="ion-ios-people-outline"></i>
+                    <h4><strong>Primero # 1 </strong></h4>
+                    Consectetur adipiscing elit felis dolor felis dolor vitae.Eelit felis dolor vitae felis dolor vitae
+                </div>
+                <div class="col-md-3">
+                    <i class="ion-ios-browsers-outline"></i>
+                    <h4><strong>Segundo # 2 </strong></h4>
+                    Consectetur adipiscing elit felis dolor felis dolor vitae.Eelit felis dolor vitae felis dolor vitae
+                </div>
+                <div class="col-md-3">
                     <i class="ion-ios-cloud-outline"></i>
-                    <h4><strong>Service Name # 1 </strong></h4>
-                    Consectetur adipiscing elit felis dolor felis dolor vitae.Eelit felis dolor vitae felis dolor vitae
-                </div>
-                <div class="col-md-3">
-                    <i class="ion-card"></i>
-                    <h4><strong>Service Name # 2 </strong></h4>
-                    Consectetur adipiscing elit felis dolor felis dolor vitae.Eelit felis dolor vitae felis dolor vitae
-                </div>
-                <div class="col-md-3">
-                    <i class="ion-speedometer"></i>
-                    <h4><strong>Service Name # 3 </strong></h4>
+                    <h4><strong>Tercero # 3 </strong></h4>
                     Consectetur adipiscing elit felis dolor felis dolor vitae.Eelit felis dolor vitae felis dolor vitae
                 </div>
                 <div class="col-md-3">
