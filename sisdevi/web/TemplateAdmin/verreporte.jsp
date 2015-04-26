@@ -40,9 +40,9 @@
                         <tr>
                             
                             <td>${reporte.getId()}</td>
-                            <td>${reporte.getNombre}</td>
-                            <td>${reporte.getApellido}</td>
-                            <td>${reporte.getDireccion}</td>
+                            <td>${reporte.getNombre()}</td>
+                            <td>${reporte.getApellido()}</td>
+                            <td>${reporte.getDireccion()}</td>
                             <td>${reporte.getProvincia().getNombre()}</td>
                             <td>${reporte.getTelefono()}</td>
                             <td>${reporte.getCelular()}</td>
