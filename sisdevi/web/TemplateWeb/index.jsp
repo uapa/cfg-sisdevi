@@ -84,31 +84,31 @@
             </div>
             <div class="row text-center pad-bottom" data-scroll-reveal="enter from the bottom after 0.4s">
                 <div class="col-md-3">
-                    <i class="ion-ios-people-outline"></i>
+                    <i class="ion-ios-information-outline"></i>
                     <h4><strong>Primero # 1 </strong></h4>
-                    Consectetur adipiscing elit felis dolor felis dolor vitae.Eelit felis dolor vitae felis dolor vitae
+                    Dar clic en reportar un caso o tu reporte
                 </div>
                 <div class="col-md-3">
-                    <i class="ion-ios-browsers-outline"></i>
+                    <i class="ion-ios-people-outline"></i>
                     <h4><strong>Segundo # 2 </strong></h4>
-                    Consectetur adipiscing elit felis dolor felis dolor vitae.Eelit felis dolor vitae felis dolor vitae
+                    Debes de eligir si eres Victima o Testigo.
                 </div>
                 <div class="col-md-3">
-                    <i class="ion-ios-cloud-outline"></i>
+                    <i class="ion-clipboard"></i>
                     <h4><strong>Tercero # 3 </strong></h4>
-                    Consectetur adipiscing elit felis dolor felis dolor vitae.Eelit felis dolor vitae felis dolor vitae
+                    Llena los datos solicitados.
                 </div>
                 <div class="col-md-3">
-                    <i class="ion-ios-settings"></i>
-                    <h4><strong>Service Name # 4 </strong></h4>
-                    Consectetur adipiscing elit felis dolor felis dolor vitae.Eelit felis dolor vitae felis dolor vitae
+                    <i class="ion-ios-chatboxes-outline"></i>
+                    <h4><strong>Cuarto # 4 </strong></h4>
+                    Dar clic en enviar
                 </div>
             </div>
             <div class="row text-center" data-scroll-reveal="enter from the bottom after 0.6s">
                 <div class="col-md-3">
-                    <i class="ion-ios-chatboxes-outline"></i>
-                    <h4><strong>Service Name # 5 </strong></h4>
-                    Consectetur adipiscing elit felis dolor felis dolor vitae.Eelit felis dolor vitae felis dolor vitae
+                    <i class="ion-ios-search-strong"></i>
+                    <h4><strong>Quinto # 5 </strong></h4>
+                    Busca tu reporte
                 </div>
                 <div class="col-md-3">
                     <i class="ion-ios-pulse-strong"></i>
