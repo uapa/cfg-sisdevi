@@ -9,7 +9,7 @@ package org.cfg.uapa.java.sisdevi.entidades;
  *
  * @author acer
  */
-class EstadoCivil {
+public class EstadoCivil {
     private Integer id;
     private String nombre;
 
