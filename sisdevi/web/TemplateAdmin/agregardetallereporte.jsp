@@ -32,7 +32,7 @@
     <div class="form-group">
         <div class="input-icon">
             <i class="icon-user"></i>
-            <input type="text" name="fecha" class="form-control"  />
+            <input type="text" name="inputFecha" class="form-control"  />
         </div>
     </div>
 

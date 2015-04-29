@@ -20,6 +20,12 @@ import org.cfg.uapa.java.sisdevi.servicios.ServicioDetalleReporte;
 import org.cfg.uapa.java.sisdevi.entidades.DetalleReporte;
 import org.cfg.uapa.java.sisdevi.servicios.ServicioGenero;
 import org.cfg.uapa.java.sisdevi.entidades.Genero;
+import org.cfg.uapa.java.sisdevi.servicios.ServicioEstadoCivil;
+import org.cfg.uapa.java.sisdevi.entidades.EstadoCivil;
+import org.cfg.uapa.java.sisdevi.servicios.ServicioTipodeViolencia;
+import org.cfg.uapa.java.sisdevi.entidades.TipodeViolencia;
+import org.cfg.uapa.java.sisdevi.servicios.ServicioVinculo;
+import org.cfg.uapa.java.sisdevi.entidades.Vinculo;
 /**
  *
  * @author NAM
@@ -38,12 +44,53 @@ public class DetalleReporteServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
         String inputGenero = request.getParameter("inputGenero");
+        String inputEstadocivil = request.getParameter("inputEstadocivil");
+        String inputFecha = request.getParameter("inputFecha");
+        String cedula = request.getParameter("cedula");
         String inputTipoviolencia = request.getParameter("inputTipoviolencia");
-        
+        String inputVinculo = request.getParameter("inputVinculo");
+        String notas = request.getParameter("notas");
+        String inputReporteid = request.getParameter("inputReporteid");
+        String inputGrado = request.getParameter("inputGrado");
+        String hijos = request.getParameter("hijos");
+        String ocupacion = request.getParameter("ocupacion");
+        String inputIngresos = request.getParameter("inputIngresos");
 
         Genero genero = ServicioGenero.getInstancia().getGeneroPorId(Integer.valueOf(inputGenero));
+        EstadoCivil estadocivil = ServicioEstadoCivil.getInstancia().getEstadoCivilPorId(Integer.valueOf(inputEstadocivil));
+        TipodeViolencia tipodeviolencia = ServicioTipodeViolencia.getInstancia().getTipodeViolenciaPorId(Integer.valueOf(inputTipoviolencia));
+        Vinculo vinculo = ServicioVinculo.getInstancia().getVinculoPorId(Integer.valueOf(inputVinculo));
+        Reporte reporte = ServicioReporte.getInstancia().getReportePorId(Integer.valueOf(inputReporteid));
         
+        DetalleReporte detallereporte = new DetalleReporte();
+        detallereporte.setGenero(genero);
+        detallereporte.setEstadocivil(estadocivil);
+        detallereporte.setFecha_nacimiento(inputFecha);
+        detallereporte.setCedula(cedula);
+        detallereporte.setTipodeviolencia(tipodeviolencia);
+        detallereporte.setVinculo(vinculo);
+        detallereporte.setNotas(notas);
+        detallereporte.setReporte(reporte);
+        detallereporte.setGradoacademico(inputGrado);
+        detallereporte.setCantidadhijos(hijos);
+        detallereporte.setOcupacion(ocupacion);
+        detallereporte.setIngresos(inputIngresos);
+        
+         boolean isCreado = ServicioDetalleReporte.getInstancia().crearDetalleReporte(detallereporte);
+        
+        if (isCreado) {
+
+            response.sendRedirect("detallereporte.jsp?id="+Integer.valueOf(inputReporteid));
+
+        } else {
+
+            response.sendRedirect("agregardetallereporte.jsp?id="+Integer.valueOf(inputReporteid));
+
         }
+        
+        
+        
+    }
     
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
