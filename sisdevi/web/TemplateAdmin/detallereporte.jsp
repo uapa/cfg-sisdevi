@@ -2,12 +2,15 @@
 <%@ page import="java.util.List"%>
 <%@ page import="org.cfg.uapa.java.sisdevi.servicios.ServicioDetalleReporte"%>
 <%@ page import="org.cfg.uapa.java.sisdevi.entidades.DetalleReporte"%>
-
-<jsp:include page="header.jsp"/>
 <%
     int id = Integer.parseInt(request.getParameter("id"));
-    DetalleReporte reporte = ServicioDetalleReporte.getInstancia().getDetalleReportePorReporteId(id);
+    DetalleReporte reporte = ServicioDetalleReporte.getInstancia().getDetallePorId(id);
+   if (reporte.getId()==null){
+       response.sendRedirect("agregardetallereporte.jsp?id="+id);
+   }else{
 %>
+<jsp:include page="header.jsp"/>
+
 <div class="row">
     <div class="col-md-12">
         <div class="widget box">
@@ -37,24 +40,24 @@
                         </tr>
                     </thead>
                     <tbody>
-                       <c:forEach items="<%=reporte%>" var="reporte">
+                       
                         <tr>
                             
-                            <td>${reporte.getId()}</td>
-                            <td>${reporte.getGenero().getNombre()}</td>
-                            <td>${reporte.getEstadocivil().getNombre()}</td>
-                            <td>${reporte.getTipodeviolencia().getNombre()}</td>
-                            <td>${reporte.getCedula()}</td>
-                            <td>${reporte.getOcupacion}</td>
-                            <td>${reporte.getFecha_nacimiento()}</td>
-                            <td>${reporte.getGradoacademico()}</td>
-                            <td><a href="editardetallereporte.jsp?id=${reporte.getId()}"><i class="icon-edit"></i></a></td>
+                            <td><%=reporte.getId()%></td>
+                            <td><%=reporte.getGenero().getNombre()%></td>
+                            <td><%=reporte.getEstadocivil().getNombre()%></td>
+                            <td><%=reporte.getTipodeviolencia().getNombre()%></td>
+                            <td><%=reporte.getCedula()%></td>
+                            <td><%=reporte.getOcupacion()%></td>
+                            <td><%=reporte.getFecha_nacimiento()%></td>
+                            <td><%=reporte.getGradoacademico()%></td>
+                            <td><a href="editardetallereporte.jsp?id=<%=id%>"><i class="icon-edit"></i></a></td>
                             
                             
                             
                             
                         </tr>
-                        </c:forEach>
+                       
                     </tbody>
                 </table>
             </div>
@@ -65,3 +68,6 @@
 
 
 <jsp:include page="footer.jsp"/>
+<%
+   }
+ %>

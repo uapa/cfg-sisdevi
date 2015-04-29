@@ -6,7 +6,7 @@
 <jsp:include page="header.jsp"/>
 <%
     int id = Integer.parseInt(request.getParameter("id"));
-    DetalleReporte reporte = ServicioDetalleReporte.getInstancia().getDetalleReportePorReporteId(id);
+    DetalleReporte reporte = ServicioDetalleReporte.getInstancia().getDetallePorReporteId(id);
 %>
 <form class="form-vertical login-form" action="/sisdevi/DetalleReporteServlet" method="post">
 
