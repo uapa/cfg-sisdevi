@@ -32,7 +32,7 @@
                             <th>Celular</th>
                             <th>Correo</th>
                             <th>Editar</th>
-                            <th>Borrar</th>
+                            <th>Detalles</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -48,7 +48,7 @@
                             <td>${reporte.getCelular()}</td>
                             <td>${reporte.getCorreo()}</td>
                             <td><a href="editarreporte.jsp?id=${reporte.getId()}"><i class="icon-edit"></i></a></td>
-                            <td><a href="borrarreporte.jsp?id=${reporte.getId()}"><i class="icon-trash"></i></a></td>
+                            <td><a href="detallereporte.jsp?id=${reporte.getId()}"><i class="icon-edit"></i></a></td>
                             
                             
                             

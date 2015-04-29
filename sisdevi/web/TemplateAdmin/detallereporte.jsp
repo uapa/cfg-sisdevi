@@ -12,7 +12,7 @@
     <div class="col-md-12">
         <div class="widget box">
             <div class="widget-header">
-                <h4><i class="icon-reorder"></i>Detalle del Reporte<a href="agregardetallereporte.jsp?id=<%Integer.parseInt(request.getParameter("id"));%>">Agregar Detalle al Reporte</a></h4>
+                <h4><i class="icon-reorder"></i>Detalle del Reporte<a href="agregardetallereporte.jsp?id=<%=id%>">Agregar Detalle al Reporte</a></h4>
                 <div class="toolbar no-padding">
                     <div class="btn-group">
                         <span class="btn btn-xs widget-collapse"><i class="icon-angle-down"></i></span>

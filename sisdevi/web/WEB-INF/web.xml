@@ -11,6 +11,10 @@
         <servlet-name>ReporteTestigoServlet</servlet-name>
         <servlet-class>org.cfg.uapa.java.sisdevi.controller.ReporteTestigoServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DetalleReporteServlet</servlet-name>
+        <servlet-class>org.cfg.uapa.java.sisdevi.controller.DetalleReporteServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ReporteVictimaServlet</servlet-name>
         <url-pattern>/ReporteVictimaServlet</url-pattern>
@@ -18,6 +22,10 @@
     <servlet-mapping>
         <servlet-name>ReporteTestigoServlet</servlet-name>
         <url-pattern>/ReporteTestigoServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DetalleReporteServlet</servlet-name>
+        <url-pattern>/DetalleReporteServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
