@@ -38,6 +38,7 @@ public class DetalleReporteServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
         String inputGenero = request.getParameter("inputGenero");
+        String inputTipoviolencia = request.getParameter("inputTipoviolencia");
         
 
         Genero genero = ServicioGenero.getInstancia().getGeneroPorId(Integer.valueOf(inputGenero));
