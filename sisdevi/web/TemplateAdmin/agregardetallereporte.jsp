@@ -1,12 +1,21 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="java.util.List"%>
-<%@ page import="org.cfg.uapa.java.sisdevi.servicios.ServicioDetalleReporte"%>
-<%@ page import="org.cfg.uapa.java.sisdevi.entidades.DetalleReporte"%>
+<%@ page import="org.cfg.uapa.java.sisdevi.servicios.ServicioGenero"%>
+<%@ page import="org.cfg.uapa.java.sisdevi.entidades.Genero"%>
+<%@ page import="org.cfg.uapa.java.sisdevi.servicios.ServicioEstadoCivil"%>
+<%@ page import="org.cfg.uapa.java.sisdevi.entidades.EstadoCivil"%>
+<%@ page import="org.cfg.uapa.java.sisdevi.servicios.ServicioTipodeViolencia"%>
+<%@ page import="org.cfg.uapa.java.sisdevi.entidades.TipodeViolencia"%>
+<%@ page import="org.cfg.uapa.java.sisdevi.servicios.ServicioVinculo"%>
+<%@ page import="org.cfg.uapa.java.sisdevi.entidades.Vinculo"%>
 
 <jsp:include page="header.jsp"/>
 <%
     int id = Integer.parseInt(request.getParameter("id"));
-    DetalleReporte reporte = ServicioDetalleReporte.getInstancia().getDetallePorReporteId(id);
+    List<Genero> genero = ServicioGenero.getInstancia().getListadoGeneros();
+    List<EstadoCivil> estadocivil = ServicioEstadoCivil.getInstancia().getListadoEstadoCivil();
+    List<TipodeViolencia> tipodeviolencia = ServicioTipodeViolencia.getInstancia().getListadoTipodeViolencia();
+    List<Vinculo> vinculo = ServicioVinculo.getInstancia().getListadoVinculos();
 %>
 <form class="form-vertical login-form" action="/sisdevi/DetalleReporteServlet" method="post">
 
@@ -16,15 +25,19 @@
     <div class="form-group">
         <select class="form-control" id="inputGenero" name="inputGenero">
             <option value="1" selected="selected">Seleccione el Genero</option>
-            <option value="1">Mujer</option>
-            <option value="2">Hombre</option>
+            
+            <c:forEach items="<%=genero%>" var="genero">
+                <option value="${genero.getId()}">${genero.getNombre()}</option>
+            </c:forEach>
         </select>
     </div>
     <div class="form-group">
         <select class="form-control" id="inputEstadocivil" name="inputEstadocivil">
             <option value="1" selected="selected">Seleccione el Estado civil</option>
-            <option value="1">Casado</option>
-            <option value="2">Soltero</option>
+            
+            <c:forEach items="<%=estadocivil%>" var="estadocivil">
+                <option value="${estadocivil.getId()}">${estadocivil.getNombre()}</option>
+            </c:forEach>
         </select>
     </div>
 
@@ -48,16 +61,20 @@
     <div class="form-group">
         <select class="form-control" id="inputTipoviolencia" name="inputTipoviolencia">
             <option value="1" selected="selected">Seleccione el Tipo de Violencia</option>
-            <option value="1">Fisica</option>
-            <option value="2">Psicologica</option>
+            
+            <c:forEach items="<%=tipodeviolencia%>" var="tipodeviolencia">
+                <option value="${tipodeviolencia.getId()}">${tipodeviolencia.getNombre()}</option>
+            </c:forEach>
         </select>
     </div>
 
     <div class="form-group">
         <select class="form-control" id="inputVinculo" name="inputVinculo">
             <option value="1" selected="selected">Seleccione el Vinculo con el Agresor</option>
-            <option value="1">Esposo</option>
-            <option value="2">Novio</option>
+            
+            <c:forEach items="<%=vinculo%>" var="vinculo">
+                <option value="${vinculo.getId()}">${vinculo.getNombre()}</option>
+            </c:forEach>
         </select>
     </div>
     <div class="form-group">

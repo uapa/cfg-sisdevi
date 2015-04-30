@@ -80,11 +80,11 @@ public class DetalleReporteServlet extends HttpServlet {
         
         if (isCreado) {
 
-            response.sendRedirect("detallereporte.jsp?id="+Integer.valueOf(inputReporteid));
+            response.sendRedirect("TemplateAdmin/detallereporte.jsp?id="+Integer.valueOf(inputReporteid));
 
         } else {
 
-            response.sendRedirect("agregardetallereporte.jsp?id="+Integer.valueOf(inputReporteid));
+            response.sendRedirect("TemplateAdmin/agregardetallereporte.jsp?id="+Integer.valueOf(inputReporteid));
 
         }
         

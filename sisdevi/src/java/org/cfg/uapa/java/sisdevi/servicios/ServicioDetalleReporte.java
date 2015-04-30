@@ -159,6 +159,42 @@ public class ServicioDetalleReporte {
         return estado;
 
     }
-    
+    public DetalleReporte getDetallePorDetalleId(int id) throws SQLException {
+
+        String sql = "select * from detallesreporte where id=?";
+
+        Connection con = Coneccion.getInstancia().getConeccion();
+
+        DetalleReporte detalle = null;
+
+        try (PreparedStatement stmt = con.prepareStatement(sql)) {
+
+            stmt.setInt(1, id);
+            try (ResultSet rs = stmt.executeQuery()) {
+
+                rs.next();
+                detalle = new DetalleReporte();
+                detalle.setId(rs.getInt("id"));
+                detalle.setGenero(ServicioGenero.getInstancia().getGeneroPorId(rs.getInt("genero_id")));
+                detalle.setEstadocivil(ServicioEstadoCivil.getInstancia().getEstadoCivilPorId(rs.getInt("estadocivil_id")));
+                detalle.setFecha_nacimiento(rs.getString("fecha_nacimiento"));
+                detalle.setCedula(rs.getString("cedula"));
+                detalle.setTipodeviolencia(ServicioTipodeViolencia.getInstancia().getTipodeViolenciaPorId(rs.getInt("tipodeviolencia_id")));
+                detalle.setVinculo(ServicioVinculo.getInstancia().getVinculoPorId(rs.getInt("vinculo_id")));
+                detalle.setNotas(rs.getString("notas"));
+                detalle.setReporte(ServicioReporte.getInstancia().getReportePorId(rs.getInt("reporte_id")));
+                detalle.setGradoacademico(rs.getString("gradoacademico"));
+                detalle.setCantidadhijos(rs.getString("cantidadhijos"));
+                detalle.setOcupacion(rs.getString("ocupacion"));
+                detalle.setIngresos(rs.getString("ingresos"));
+                detalle.setFecha_creacion(rs.getString("fecha_creacion"));
+
+            } catch (SQLException e) {
+                Logger.getLogger(ServicioDetalleReporte.class.getName()).log(Level.SEVERE, null, e);
+            }
+
+            return detalle;
+        }
+    }
 
 }

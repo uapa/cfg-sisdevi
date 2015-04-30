@@ -51,7 +51,7 @@
                             <td><%=reporte.getOcupacion()%></td>
                             <td><%=reporte.getFecha_nacimiento()%></td>
                             <td><%=reporte.getGradoacademico()%></td>
-                            <td><a href="editardetallereporte.jsp?id=<%=id%>"><i class="icon-edit"></i></a></td>
+                            <td><a href="editardetallereporte.jsp?id=<%=reporte.getId()%>"><i class="icon-edit"></i></a></td>
                             
                             
                             
