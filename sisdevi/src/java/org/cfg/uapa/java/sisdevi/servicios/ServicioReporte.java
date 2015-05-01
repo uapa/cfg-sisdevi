@@ -85,6 +85,7 @@ public class ServicioReporte {
                     reporte.setTelefono(rs.getString("telefono"));
                     reporte.setCelular(rs.getString("celular"));
                     reporte.setCorreo(rs.getString("correo"));
+                    //reporte.setEstado(ServicioEstado.getInstancia().getEstadoPorId(rs.getInt("estado_id")));
                     lista.add(reporte);
                 }
 
@@ -119,6 +120,7 @@ public class ServicioReporte {
                 reporte.setTelefono(rs.getString("telefono"));
                 reporte.setCelular(rs.getString("celular"));
                 reporte.setCorreo(rs.getString("correo"));
+                reporte.setEstado(ServicioEstado.getInstancia().getEstadoPorId(rs.getInt("estado_id")));
 
             } catch (SQLException e) {
                 Logger.getLogger(ServicioReporte.class.getName()).log(Level.SEVERE, null, e);
@@ -126,6 +128,38 @@ public class ServicioReporte {
 
             return reporte;
         }
+    }
+
+    public boolean actualizarReporte(Reporte reporte) {
+        boolean estado;
+
+        String sql = "update reporte set nombre=?,apellido=?,direccion=?,provincia_id=?,telefono=?,celular=?,correo=?,estado_id=? where id=?";
+
+        Connection con = Coneccion.getInstancia().getConeccion();
+
+        try (PreparedStatement stmt = con.prepareStatement(sql)) {
+
+            stmt.setString(1, reporte.getNombre());
+            stmt.setString(2, reporte.getApellido());
+            stmt.setString(3, reporte.getDireccion());
+            stmt.setInt(4, reporte.getProvincia().getId());
+            stmt.setString(5, reporte.getTelefono());
+            stmt.setString(6, reporte.getCelular());
+            stmt.setString(7, reporte.getCorreo());
+            stmt.setInt(8, reporte.getEstado().getId());
+            stmt.setInt(9, reporte.getId());
+
+            stmt.executeUpdate();
+
+            estado = true;
+
+        } catch (SQLException e) {
+            estado = false;
+            Logger.getLogger(ServicioReporte.class.getName()).log(Level.SEVERE, null, e);
+        }
+
+        return estado;
+
     }
 
 }

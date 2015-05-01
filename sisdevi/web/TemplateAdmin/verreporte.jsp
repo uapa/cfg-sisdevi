@@ -25,7 +25,7 @@
                             
                             <th data-class="expand">#</th>
                             <th>Nombre</th>
-                            <th>Apellido</th>
+                            
                             <th>Direccion</th>
                             <th>Provincia</th>
                             <th>Telefono</th>
@@ -40,8 +40,8 @@
                         <tr>
                             
                             <td>${reporte.getId()}</td>
-                            <td>${reporte.getNombre()}</td>
-                            <td>${reporte.getApellido()}</td>
+                            <td>${reporte.getNombre()} ${reporte.getApellido()}</td>
+                            
                             <td>${reporte.getDireccion()}</td>
                             <td>${reporte.getProvincia().getNombre()}</td>
                             <td>${reporte.getTelefono()}</td>

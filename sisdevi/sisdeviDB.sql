@@ -10,10 +10,76 @@ Target Server Type    : MYSQL
 Target Server Version : 50532
 File Encoding         : 65001
 
-Date: 2015-04-28 21:15:59
+Date: 2015-05-01 00:29:23
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for `agresor`
+-- ----------------------------
+DROP TABLE IF EXISTS `agresor`;
+CREATE TABLE `agresor` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(77) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `apellido` varchar(77) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `genero_id` int(11) DEFAULT NULL,
+  `direccion` varchar(200) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `provincia_id` int(11) DEFAULT NULL,
+  `telefono` varchar(14) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `celular` varchar(14) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `estadocivil_id` int(11) DEFAULT NULL,
+  `fecha_nacimiento` date DEFAULT NULL,
+  `cedula` varchar(20) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `reporte_id` int(11) DEFAULT NULL,
+  `fecha_creacion` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `agresor_genero_fk` (`genero_id`),
+  KEY `agresor_provincia_fk` (`provincia_id`),
+  KEY `agresor_estadocivil_fk` (`estadocivil_id`),
+  KEY `agresor_reporte_fk` (`reporte_id`),
+  CONSTRAINT `agresor_reporte_fk` FOREIGN KEY (`reporte_id`) REFERENCES `reporte` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `agresor_estadocivil_fk` FOREIGN KEY (`estadocivil_id`) REFERENCES `estadocivil` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `agresor_genero_fk` FOREIGN KEY (`genero_id`) REFERENCES `genero` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `agresor_provincia_fk` FOREIGN KEY (`provincia_id`) REFERENCES `provincias` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+-- ----------------------------
+-- Records of agresor
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `agresortestigo`
+-- ----------------------------
+DROP TABLE IF EXISTS `agresortestigo`;
+CREATE TABLE `agresortestigo` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(77) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `apellido` varchar(77) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `genero_id` int(11) DEFAULT NULL,
+  `direccion` varchar(200) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `provincia_id` int(11) DEFAULT NULL,
+  `telefono` varchar(14) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `celular` varchar(14) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `estadocivil_id` int(11) DEFAULT NULL,
+  `fecha_nacimiento` date DEFAULT NULL,
+  `cedula` varchar(20) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `reporte_id` int(11) DEFAULT NULL,
+  `fecha_creacion` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `agresortestigo_genero_fk` (`genero_id`),
+  KEY `agresortestigo_provincia_fk` (`provincia_id`),
+  KEY `agresortestigo_estadocivil_fk` (`estadocivil_id`),
+  KEY `agresortestigo_reporte_fk` (`reporte_id`),
+  CONSTRAINT `agresortestigo_reporte_fk` FOREIGN KEY (`reporte_id`) REFERENCES `reporte` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `agresortestigo_estadocivil_fk` FOREIGN KEY (`estadocivil_id`) REFERENCES `estadocivil` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `agresortestigo_genero_fk` FOREIGN KEY (`genero_id`) REFERENCES `genero` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `agresortestigo_provincia_fk` FOREIGN KEY (`provincia_id`) REFERENCES `provincias` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+-- ----------------------------
+-- Records of agresortestigo
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for `detallesreporte`
@@ -45,11 +111,15 @@ CREATE TABLE `detallesreporte` (
   CONSTRAINT `detalles_reporte_fk` FOREIGN KEY (`reporte_id`) REFERENCES `reporte` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `detalles_tipodeviolencia_fk` FOREIGN KEY (`tipodeviolencia_id`) REFERENCES `tipodeviolencia` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `detalles_vinculo_fk` FOREIGN KEY (`vinculo_id`) REFERENCES `vinculo` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- ----------------------------
 -- Records of detallesreporte
 -- ----------------------------
+INSERT INTO `detallesreporte` VALUES ('1', '1', '2', '2015-04-29', '03100011', '4', '7', 'okok', '1', 'Educación Superior', '88', 'Ama', 'De 7,000 a 15,000', '2015-04-30 19:09:19');
+INSERT INTO `detallesreporte` VALUES ('2', '1', '2', '2015-04-29', '031455566666', '5', '7', 'Me golpeo', '3', 'Educación Secundaria', '2', 'Estudiante', 'De 3,000 a 7,000', '2015-04-29 20:20:28');
+INSERT INTO `detallesreporte` VALUES ('3', '1', '1', '2015-04-29', '031455566666', '1', '1', 'Todo Bien', '4', 'Educación Superior', '7', 'Estudiante', 'De 15,000 a 25,000', '2015-04-30 23:31:19');
+INSERT INTO `detallesreporte` VALUES ('4', '1', '1', '2015-04-29', '031455566666', '1', '1', 'Todo Bien', '4', 'Educación Superior', '7', 'Estudiante', 'De 15,000 a 25,000', '2015-04-30 23:32:23');
 
 -- ----------------------------
 -- Table structure for `detallesreportetestigo`
@@ -93,7 +163,7 @@ CREATE TABLE `detallesreportetestigo` (
 DROP TABLE IF EXISTS `episodios`;
 CREATE TABLE `episodios` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `fecha_incidencia` date DEFAULT NULL,
+  `fecha_episodio` date DEFAULT NULL,
   `tipodeviolencia_id` int(11) DEFAULT NULL,
   `descripcion` text COLLATE utf8_spanish_ci,
   `reporte_id` int(11) DEFAULT NULL,
@@ -107,6 +177,28 @@ CREATE TABLE `episodios` (
 
 -- ----------------------------
 -- Records of episodios
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `episodiostesdigo`
+-- ----------------------------
+DROP TABLE IF EXISTS `episodiostesdigo`;
+CREATE TABLE `episodiostesdigo` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `fecha_episodio` date DEFAULT NULL,
+  `tipodeviolencia_id` int(11) DEFAULT NULL,
+  `descripcion` text COLLATE utf8_spanish_ci,
+  `reporte_id` int(11) DEFAULT NULL,
+  `fecha_creacion` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `episodiostesdigo_tipodeviolencia_fk` (`tipodeviolencia_id`),
+  KEY `episodiostesdigo_reporte_fk` (`reporte_id`),
+  CONSTRAINT `episodiostesdigo_reporte_fk` FOREIGN KEY (`reporte_id`) REFERENCES `reporte` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `episodiostesdigo_tipodeviolencia_fk` FOREIGN KEY (`tipodeviolencia_id`) REFERENCES `tipodeviolencia` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+-- ----------------------------
+-- Records of episodiostesdigo
 -- ----------------------------
 
 -- ----------------------------
@@ -135,11 +227,13 @@ CREATE TABLE `estadocivil` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(77) COLLATE utf8_spanish_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- ----------------------------
 -- Records of estadocivil
 -- ----------------------------
+INSERT INTO `estadocivil` VALUES ('1', 'Soltera');
+INSERT INTO `estadocivil` VALUES ('2', 'Casada');
 
 -- ----------------------------
 -- Table structure for `genero`
@@ -224,13 +318,15 @@ CREATE TABLE `reporte` (
   KEY `reporte_estado_fk` (`estado_id`),
   CONSTRAINT `reporte_estado_fk` FOREIGN KEY (`estado_id`) REFERENCES `estado` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `reporte_provincia_fk` FOREIGN KEY (`provincia_id`) REFERENCES `provincias` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- ----------------------------
 -- Records of reporte
 -- ----------------------------
-INSERT INTO `reporte` VALUES ('1', 'Jean', 'Perez', 'Urb Los Prados c/14 #9', '8093178156', '809999999', '13', 'juan@gmail.com', '2015-04-28 20:43:45', '1');
+INSERT INTO `reporte` VALUES ('1', 'Josefina', 'Perez', 'Urb Los Prados c/14 #9', '8093178156', '809999999', '13', 'juan@gmail.com', '2015-04-30 21:59:40', '2');
 INSERT INTO `reporte` VALUES ('2', 'Persa', 'Almonte', 'Urb Los Prados c/14 #9', '8093178156', '809999999', '3', 'juan@gmail.com', '2015-04-28 20:43:58', '1');
+INSERT INTO `reporte` VALUES ('3', 'prueba2', 'prueba2', 'Urb Los Prados c/14 #9', '8093178156', '809999999', '9', 'juan@gmail.com', '2015-04-29 12:38:08', '1');
+INSERT INTO `reporte` VALUES ('4', 'Gris', 'Mercado', 'La Zursa', '809999999', '8099999999', '14', 'gris@hotmail.com', '2015-04-30 23:29:02', '2');
 
 -- ----------------------------
 -- Table structure for `reportetestigo`

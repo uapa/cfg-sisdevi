@@ -18,6 +18,8 @@ import org.cfg.uapa.java.sisdevi.servicios.ServicioProvincia;
 import org.cfg.uapa.java.sisdevi.entidades.Provincia;
 import org.cfg.uapa.java.sisdevi.servicios.ServicioReporte;
 import org.cfg.uapa.java.sisdevi.entidades.Reporte;
+import org.cfg.uapa.java.sisdevi.servicios.ServicioEstado;
+import org.cfg.uapa.java.sisdevi.entidades.Estado;
 
 /**
  *
@@ -43,9 +45,40 @@ public class ReporteVictimaServlet extends HttpServlet {
         String telefono = request.getParameter("telefono");
         String celular = request.getParameter("celular");
         String correo = request.getParameter("correo");
-        
+        String idReporte = request.getParameter("idReporte");
+        String inputEstado = request.getParameter("inputEstado");
+
         Provincia provincia = ServicioProvincia.getInstancia().getProvinciaPorId(Integer.valueOf(inputProvincia));
+        Estado estado = ServicioEstado.getInstancia().getEstadoPorId(Integer.valueOf(inputEstado));
         
+        if (null != idReporte) {
+            Reporte reporte = new Reporte();
+            reporte.setNombre(nombre);
+            reporte.setApellido(apellido);
+            reporte.setDireccion(direccion);
+            reporte.setProvincia(provincia);
+            reporte.setTelefono(telefono);
+            reporte.setCelular(celular);
+            reporte.setCorreo(correo);
+            reporte.setEstado(estado);
+            reporte.setId(Integer.parseInt(idReporte));
+            
+            
+            boolean isActualizado = ServicioReporte.getInstancia().actualizarReporte(reporte);
+
+        if (isActualizado) {
+
+            response.sendRedirect("TemplateAdmin/verreporte.jsp");
+
+        } else {
+
+            response.sendRedirect("TemplateAdmin/editarreportes.jsp?id="+ Integer.valueOf(idReporte));
+
+        }
+            
+
+        }else {
+
         Reporte reporte = new Reporte();
         reporte.setNombre(nombre);
         reporte.setApellido(apellido);
@@ -54,9 +87,9 @@ public class ReporteVictimaServlet extends HttpServlet {
         reporte.setTelefono(telefono);
         reporte.setCelular(celular);
         reporte.setCorreo(correo);
-        
+
         boolean isCreado = ServicioReporte.getInstancia().crearReporte(reporte);
-        
+
         if (isCreado) {
 
             response.sendRedirect("TemplateAdmin/verreporte.jsp");
@@ -66,8 +99,10 @@ public class ReporteVictimaServlet extends HttpServlet {
             response.sendRedirect("TemplateWeb/reportes.jsp#victima");
 
         }
-        
+
     }
+    }
+    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
