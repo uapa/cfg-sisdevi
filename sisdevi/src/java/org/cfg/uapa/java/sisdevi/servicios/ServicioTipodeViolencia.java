@@ -52,6 +52,9 @@ public class ServicioTipodeViolencia {
 
                     lista.add(tipodeviolencia);
                 }
+                rs.close();
+                stmt.close();
+                con.close();
 
             } catch (SQLException e) {
                 Logger.getLogger(ServicioTipodeViolencia.class.getName()).log(Level.SEVERE, null, e);
@@ -78,6 +81,9 @@ public class ServicioTipodeViolencia {
                 tipodeviolencia = new TipodeViolencia();
                 tipodeviolencia.setId(rs.getInt("id"));
                 tipodeviolencia.setNombre(rs.getString("nombre"));
+                rs.close();
+                stmt.close();
+                con.close();
 
             } catch (SQLException e) {
                 Logger.getLogger(ServicioTipodeViolencia.class.getName()).log(Level.SEVERE, null, e);

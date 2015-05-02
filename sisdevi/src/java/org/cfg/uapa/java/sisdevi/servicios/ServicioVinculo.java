@@ -49,6 +49,9 @@ public class ServicioVinculo {
 
                     lista.add(vinculo);
                 }
+                rs.close();
+                stmt.close();
+                con.close();
 
             } catch (SQLException e) {
                 Logger.getLogger(ServicioVinculo.class.getName()).log(Level.SEVERE, null, e);
@@ -75,6 +78,10 @@ public class ServicioVinculo {
                 vinculo = new Vinculo();
                 vinculo.setId(rs.getInt("id"));
                 vinculo.setNombre(rs.getString("nombre"));
+                
+                rs.close();
+                stmt.close();
+                con.close();
 
             } catch (SQLException e) {
                 Logger.getLogger(ServicioVinculo.class.getName()).log(Level.SEVERE, null, e);

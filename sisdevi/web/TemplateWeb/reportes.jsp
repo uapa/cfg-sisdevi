@@ -87,7 +87,7 @@
             <div class="container">
 
                 <form class="form-vertical login-form" action="/sisdevi/ReporteVictimaServlet" method="post">
-
+                    <input name="inputEstado" type="hidden" value="1">
                     <h3 class="form-title">Crear Reporte</h3>
                     <div class="form-group">
                         <!--<label for="username">Username:</label>-->

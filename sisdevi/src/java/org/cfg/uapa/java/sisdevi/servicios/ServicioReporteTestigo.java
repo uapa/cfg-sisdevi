@@ -60,6 +60,9 @@ public class ServicioReporteTestigo {
             stmt.executeUpdate();
 
             estado = true;
+            //rs.close();
+                stmt.close();
+                con.close();
 
         } catch (SQLException e) {
             estado = false;
@@ -101,6 +104,9 @@ public class ServicioReporteTestigo {
                     reporte.setNotas(rs.getString("notas"));
                     lista.add(reporte);
                 }
+                rs.close();
+                stmt.close();
+                con.close();
 
             } catch (SQLException e) {
                 Logger.getLogger(ServicioReporteTestigo.class.getName()).log(Level.SEVERE, null, e);
@@ -140,6 +146,10 @@ public class ServicioReporteTestigo {
                 reporte.setTelefono_victima(rs.getString("telefono_victima"));
                 reporte.setCelular_victima(rs.getString("celular_victima"));
                 reporte.setNotas(rs.getString("notas"));
+                
+                rs.close();
+                stmt.close();
+                con.close();
 
             } catch (SQLException e) {
                 Logger.getLogger(ServicioReporteTestigo.class.getName()).log(Level.SEVERE, null, e);

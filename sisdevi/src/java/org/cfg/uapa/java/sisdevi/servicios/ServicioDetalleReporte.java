@@ -61,6 +61,10 @@ public class ServicioDetalleReporte {
                 detalle.setIngresos(rs.getString("ingresos"));
                 detalle.setFecha_creacion(rs.getString("fecha_creacion"));
 
+                rs.close();
+                stmt.close();
+                con.close();
+
             } catch (SQLException e) {
                 Logger.getLogger(ServicioDetalleReporte.class.getName()).log(Level.SEVERE, null, e);
             }
@@ -150,6 +154,9 @@ public class ServicioDetalleReporte {
             stmt.executeUpdate();
 
             estado = true;
+            //rs.close();
+            stmt.close();
+            con.close();
 
         } catch (SQLException e) {
             estado = false;
@@ -176,11 +183,11 @@ public class ServicioDetalleReporte {
                 rs.next();
                 detallereporte1 = new DetalleReporte();
                 detallereporte1.setId(rs.getInt("id"));
-                //detallereporte1.setGenero(ServicioGenero.getInstancia().getGeneroPorId(rs.getInt("genero_id")));
-                //detallereporte1.setEstadocivil(ServicioEstadoCivil.getInstancia().getEstadoCivilPorId(rs.getInt("estadocivil_id")));
+                detallereporte1.setGenero(ServicioGenero.getInstancia().getGeneroPorId(rs.getInt("genero_id")));
+                detallereporte1.setEstadocivil(ServicioEstadoCivil.getInstancia().getEstadoCivilPorId(rs.getInt("estadocivil_id")));
                 detallereporte1.setFecha_nacimiento(rs.getString("fecha_nacimiento"));
                 detallereporte1.setCedula(rs.getString("cedula"));
-                //detallereporte1.setTipodeviolencia(ServicioTipodeViolencia.getInstancia().getTipodeViolenciaPorId(rs.getInt("tipodeviolencia_id")));
+                detallereporte1.setTipodeviolencia(ServicioTipodeViolencia.getInstancia().getTipodeViolenciaPorId(rs.getInt("tipodeviolencia_id")));
                 detallereporte1.setVinculo(ServicioVinculo.getInstancia().getVinculoPorId(rs.getInt("vinculo_id")));
                 detallereporte1.setNotas(rs.getString("notas"));
                 detallereporte1.setReporte(ServicioReporte.getInstancia().getReportePorId(rs.getInt("reporte_id")));
@@ -188,7 +195,10 @@ public class ServicioDetalleReporte {
                 detallereporte1.setCantidadhijos(rs.getString("cantidadhijos"));
                 detallereporte1.setOcupacion(rs.getString("ocupacion"));
                 detallereporte1.setIngresos(rs.getString("ingresos"));
-                
+                rs.close();
+                stmt.close();
+                con.close();
+
             } catch (SQLException e) {
                 Logger.getLogger(ServicioDetalleReporte.class.getName()).log(Level.SEVERE, null, e);
             }
@@ -222,6 +232,9 @@ public class ServicioDetalleReporte {
             stmt.executeUpdate();
 
             estado = true;
+            //rs.close();
+            stmt.close();
+            con.close();
 
         } catch (SQLException e) {
             estado = false;

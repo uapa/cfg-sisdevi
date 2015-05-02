@@ -52,6 +52,9 @@ public class ServicioEstado {
 
                     lista.add(estado);
                 }
+                rs.close();
+                stmt.close();
+                con.close();
 
             } catch (SQLException e) {
                 Logger.getLogger(ServicioEstado.class.getName()).log(Level.SEVERE, null, e);
@@ -78,6 +81,9 @@ public class ServicioEstado {
                 estado = new Estado();
                 estado.setId(rs.getInt("id"));
                 estado.setNombre(rs.getString("nombre"));
+                rs.close();
+                stmt.close();
+                con.close();
 
             } catch (SQLException e) {
                 Logger.getLogger(ServicioEstado.class.getName()).log(Level.SEVERE, null, e);

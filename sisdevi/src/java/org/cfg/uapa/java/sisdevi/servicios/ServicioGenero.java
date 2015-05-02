@@ -52,6 +52,9 @@ public class ServicioGenero {
 
                     lista.add(genero);
                 }
+                rs.close();
+                stmt.close();
+                con.close();
 
             } catch (SQLException e) {
                 Logger.getLogger(ServicioGenero.class.getName()).log(Level.SEVERE, null, e);
@@ -78,6 +81,9 @@ public class ServicioGenero {
                 genero = new Genero();
                 genero.setId(rs.getInt("id"));
                 genero.setNombre(rs.getString("nombre"));
+                rs.close();
+                stmt.close();
+                con.close();
 
             } catch (SQLException e) {
                 Logger.getLogger(ServicioGenero.class.getName()).log(Level.SEVERE, null, e);

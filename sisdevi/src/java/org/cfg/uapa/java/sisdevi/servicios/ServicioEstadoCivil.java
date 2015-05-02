@@ -52,6 +52,9 @@ public class ServicioEstadoCivil {
 
                     lista.add(estadocivil);
                 }
+                rs.close();
+                stmt.close();
+                con.close();
 
             } catch (SQLException e) {
                 Logger.getLogger(ServicioEstadoCivil.class.getName()).log(Level.SEVERE, null, e);
@@ -78,6 +81,9 @@ public class ServicioEstadoCivil {
                 estadocivil = new EstadoCivil();
                 estadocivil.setId(rs.getInt("id"));
                 estadocivil.setNombre(rs.getString("nombre"));
+                rs.close();
+                stmt.close();
+                con.close();
 
             } catch (SQLException e) {
                 Logger.getLogger(ServicioEstadoCivil.class.getName()).log(Level.SEVERE, null, e);

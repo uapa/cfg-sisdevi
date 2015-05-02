@@ -49,6 +49,9 @@ public class ServicioUsuario {
                 usuario.setClave(rs.getString("clave"));
                 usuarios.add(usuario);
             }
+            rs.close();
+                stmt.close();
+                //con.close();
 
         } catch (SQLException e) {
             System.out.println("Error en el SQl");
@@ -81,6 +84,9 @@ public class ServicioUsuario {
                     usuario1.setClave(rs.getString("clave"));
 
                 }
+                rs.close();
+                pstmt.close();
+                con.close();
             }
 
         } catch (SQLException e) {
@@ -109,6 +115,10 @@ public class ServicioUsuario {
                 usuario = new Usuario();
                 usuario.setId(rs.getInt("id"));
                 usuario.setNombre(rs.getString("nombre"));
+                
+                rs.close();
+                stmt.close();
+                con.close();
 
             } catch (SQLException e) {
                 Logger.getLogger(ServicioUsuario.class.getName()).log(Level.SEVERE, null, e);

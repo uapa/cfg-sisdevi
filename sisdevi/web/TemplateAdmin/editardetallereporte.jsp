@@ -27,7 +27,7 @@
 
     <div class="form-group">
         <select class="form-control" id="inputGenero" name="inputGenero">
-            <option value="<%//=detalle.getGenero().getId()%>"><%//=detalle.getGenero().getNombre()%></option>
+            <option value="<%=detalle.getGenero().getId()%>"><%=detalle.getGenero().getNombre()%></option>
             
             <c:forEach items="<%=genero%>" var="genero">
                 <option value="${genero.getId()}">${genero.getNombre()}</option>
@@ -36,7 +36,7 @@
     </div>
     <div class="form-group">
         <select class="form-control" id="inputEstadocivil" name="inputEstadocivil">
-            <option value="<%//=detalle.getEstadocivil().getId()%>"><%//=detalle.getEstadocivil().getNombre()%></option>
+            <option value="<%=detalle.getEstadocivil().getId()%>"><%=detalle.getEstadocivil().getNombre()%></option>
             
             <c:forEach items="<%=estadocivil%>" var="estadocivil">
                 <option value="${estadocivil.getId()}">${estadocivil.getNombre()}</option>
@@ -63,7 +63,7 @@
 
     <div class="form-group">
         <select class="form-control" id="inputTipoviolencia" name="inputTipoviolencia">
-            <option value="<%//=detalle.getTipodeviolencia().getId()%>"><%//=detalle.getTipodeviolencia().getNombre()%></option>
+            <option value="<%=detalle.getTipodeviolencia().getId()%>"><%=detalle.getTipodeviolencia().getNombre()%></option>
             
             <c:forEach items="<%=tipodeviolencia%>" var="tipodeviolencia">
                 <option value="${tipodeviolencia.getId()}">${tipodeviolencia.getNombre()}</option>

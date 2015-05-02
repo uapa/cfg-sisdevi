@@ -53,6 +53,9 @@ public class ServicioReporte {
             stmt.executeUpdate();
 
             estado = true;
+            //rs.close();
+            stmt.close();
+            con.close();
 
         } catch (SQLException e) {
             estado = false;
@@ -88,6 +91,9 @@ public class ServicioReporte {
                     //reporte.setEstado(ServicioEstado.getInstancia().getEstadoPorId(rs.getInt("estado_id")));
                     lista.add(reporte);
                 }
+                rs.close();
+                stmt.close();
+                con.close();
 
             } catch (SQLException e) {
                 Logger.getLogger(ServicioReporte.class.getName()).log(Level.SEVERE, null, e);
@@ -122,6 +128,9 @@ public class ServicioReporte {
                 reporte.setCorreo(rs.getString("correo"));
                 reporte.setEstado(ServicioEstado.getInstancia().getEstadoPorId(rs.getInt("estado_id")));
 
+                rs.close();
+                stmt.close();
+                con.close();
             } catch (SQLException e) {
                 Logger.getLogger(ServicioReporte.class.getName()).log(Level.SEVERE, null, e);
             }
@@ -152,6 +161,9 @@ public class ServicioReporte {
             stmt.executeUpdate();
 
             estado = true;
+            //rs.close();
+            stmt.close();
+            con.close();
 
         } catch (SQLException e) {
             estado = false;
