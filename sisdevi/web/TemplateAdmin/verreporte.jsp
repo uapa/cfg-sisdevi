@@ -33,6 +33,8 @@
                             <th>Correo</th>
                             <th>Editar</th>
                             <th>Detalles</th>
+                            <th>Agresor</th>
+                            <th>Episodios</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -49,6 +51,8 @@
                             <td>${reporte.getCorreo()}</td>
                             <td><a href="editarreporte.jsp?id=${reporte.getId()}"><i class="icon-edit"></i></a></td>
                             <td><a href="detallereporte.jsp?id=${reporte.getId()}"><i class="icon-edit"></i></a></td>
+                            <td><a href="agresor.jsp?id=${reporte.getId()}"><i class="icon-edit"></i></a></td>
+                            <td><a href="episodios.jsp?id=${reporte.getId()}"><i class="icon-edit"></i></a></td>
                             
                             
                             
