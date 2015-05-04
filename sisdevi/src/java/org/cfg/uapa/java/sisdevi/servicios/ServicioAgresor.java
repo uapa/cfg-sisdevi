@@ -136,5 +136,41 @@ public class ServicioAgresor {
         return estado;
 
     }
+    public Agresor getAgresorPorId(int id) throws SQLException {
+
+        String sql = "select * from agresor where id=?";
+
+        Agresor agresor = null;
+
+        try (Connection con = Coneccion.getInstancia().getConeccion()) {
+
+            try (PreparedStatement stmt = con.prepareStatement(sql)) {
+
+                stmt.setInt(1, id);
+                try (ResultSet rs = stmt.executeQuery()) {
+
+                    rs.next();
+                    agresor = new Agresor();
+                    agresor.setId(rs.getInt("id"));
+                    agresor.setNombre(rs.getString("nombre"));
+                    agresor.setApellido(rs.getString("apellido"));
+                    agresor.setGenero(ServicioGenero.getInstancia().getGeneroPorId(rs.getInt("genero_id")));
+                    agresor.setDireccion(rs.getString("direccion"));
+                    agresor.setProvincia(ServicioProvincia.getInstancia().getProvinciaPorId(rs.getInt("provincia_id")));
+                    agresor.setTelefono(rs.getString("telefono"));
+                    agresor.setCelular(rs.getString("celular"));
+                    agresor.setEstadocivil(ServicioEstadoCivil.getInstancia().getEstadoCivilPorId(rs.getInt("estadocivil_id")));
+                    agresor.setFecha_nacimiento(rs.getString("fecha_nacimiento"));
+                    agresor.setCedula(rs.getString("cedula"));
+                    agresor.setReporte(ServicioReporte.getInstancia().getReportePorId(rs.getInt("reporte_id")));
+
+                }
+            } catch (SQLException e) {
+                Logger.getLogger(ServicioAgresor.class.getName()).log(Level.SEVERE, null, e);
+            }
+
+            return agresor;
+        }
+    }
 
 }

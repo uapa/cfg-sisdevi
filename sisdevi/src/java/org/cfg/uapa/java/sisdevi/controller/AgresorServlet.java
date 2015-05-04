@@ -54,36 +54,62 @@ public class AgresorServlet extends HttpServlet {
         String inputFecha = request.getParameter("inputFecha");
         String cedula = request.getParameter("cedula");
         String idReporte = request.getParameter("idReporte");
+        String idAgresor = request.getParameter("idAgresor");
 
         Genero genero = ServicioGenero.getInstancia().getGeneroPorId(Integer.valueOf(inputGenero));
         EstadoCivil estadocivil = ServicioEstadoCivil.getInstancia().getEstadoCivilPorId(Integer.valueOf(inputEstadocivil));
         Provincia provincia = ServicioProvincia.getInstancia().getProvinciaPorId(Integer.valueOf(inputProvincia));
         Reporte reporte = ServicioReporte.getInstancia().getReportePorId(Integer.valueOf(idReporte));
 
-        Agresor agresor = new Agresor();
-        agresor.setNombre(nombre);
-        agresor.setApellido(apellido);
-        agresor.setGenero(genero);
-        agresor.setDireccion(direccion);
-        agresor.setProvincia(provincia);
-        agresor.setTelefono(telefono);
-        agresor.setCelular(celular);
-        agresor.setEstadocivil(estadocivil);
-        agresor.setFecha_nacimiento(inputFecha);
-        agresor.setCedula(cedula);
-        agresor.setReporte(reporte);
-        boolean isCreado = ServicioAgresor.getInstancia().crearAgresor(agresor);
+        if (null != idAgresor) {
+            Agresor agresor = new Agresor();
+            agresor.setNombre(nombre);
+            agresor.setApellido(apellido);
+            agresor.setGenero(genero);
+            agresor.setDireccion(direccion);
+            agresor.setProvincia(provincia);
+            agresor.setTelefono(telefono);
+            agresor.setCelular(celular);
+            agresor.setEstadocivil(estadocivil);
+            agresor.setFecha_nacimiento(inputFecha);
+            agresor.setCedula(cedula);
+            agresor.setReporte(reporte);
+            agresor.setId(Integer.parseInt(idAgresor));
+            boolean isActualizado = ServicioAgresor.getInstancia().actualizarAgresor(agresor);
+            if (isActualizado) {
+                response.sendRedirect("TemplateAdmin/agresor.jsp?id=" + Integer.valueOf(idReporte));
 
-        if (isCreado) {
+            } else {
+                response.sendRedirect("TemplateAdmin/editaragresor.jsp?id=" + Integer.valueOf(idAgresor));
 
-            response.sendRedirect("TemplateAdmin/agresor.jsp?id=" + Integer.valueOf(idReporte));
+            }
 
         } else {
 
-            response.sendRedirect("TemplateAdmin/agregaragresor.jsp?id=" + Integer.valueOf(idReporte));
+            Agresor agresor = new Agresor();
+            agresor.setNombre(nombre);
+            agresor.setApellido(apellido);
+            agresor.setGenero(genero);
+            agresor.setDireccion(direccion);
+            agresor.setProvincia(provincia);
+            agresor.setTelefono(telefono);
+            agresor.setCelular(celular);
+            agresor.setEstadocivil(estadocivil);
+            agresor.setFecha_nacimiento(inputFecha);
+            agresor.setCedula(cedula);
+            agresor.setReporte(reporte);
+            boolean isCreado = ServicioAgresor.getInstancia().crearAgresor(agresor);
 
+            if (isCreado) {
+
+                response.sendRedirect("TemplateAdmin/agresor.jsp?id=" + Integer.valueOf(idReporte));
+
+            } else {
+
+                response.sendRedirect("TemplateAdmin/agregaragresor.jsp?id=" + Integer.valueOf(idReporte));
+
+            }
         }
-
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

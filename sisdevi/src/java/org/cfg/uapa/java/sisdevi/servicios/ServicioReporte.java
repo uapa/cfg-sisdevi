@@ -88,7 +88,7 @@ public class ServicioReporte {
                     reporte.setTelefono(rs.getString("telefono"));
                     reporte.setCelular(rs.getString("celular"));
                     reporte.setCorreo(rs.getString("correo"));
-                    //reporte.setEstado(ServicioEstado.getInstancia().getEstadoPorId(rs.getInt("estado_id")));
+                    reporte.setEstado(ServicioEstado.getInstancia().getEstadoPorId(rs.getInt("estado_id")));
                     lista.add(reporte);
                 }
                 rs.close();

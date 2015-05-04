@@ -31,6 +31,7 @@
                             <th>Telefono</th>
                             <th>Celular</th>
                             <th>Correo</th>
+                            <th>Estado</th>
                             <th>Editar</th>
                             <th>Detalles</th>
                             <th>Agresor</th>
@@ -49,6 +50,7 @@
                             <td>${reporte.getTelefono()}</td>
                             <td>${reporte.getCelular()}</td>
                             <td>${reporte.getCorreo()}</td>
+                            <td>${reporte.getEstado().getNombre()}</td>
                             <td><a href="editarreporte.jsp?id=${reporte.getId()}"><i class="icon-edit"></i></a></td>
                             <td><a href="detallereporte.jsp?id=${reporte.getId()}"><i class="icon-edit"></i></a></td>
                             <td><a href="agresor.jsp?id=${reporte.getId()}"><i class="icon-edit"></i></a></td>
