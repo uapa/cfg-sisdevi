@@ -34,7 +34,7 @@
                     </div>
                     <div class="form-group">
                         <div class="input-icon">
-                            <i class="icon-user"></i>
+                            <i class="icon-home"></i>
                             <input type="text" name="direccion" class="form-control" placeholder="Dirección"  data-rule-required="true" value="<%=reporte.getDireccion()%>" />
                         </div>
                     </div>
@@ -49,14 +49,14 @@
                     </div>
                     <div class="form-group">
                         <div class="input-icon">
-                            <i class="icon-user"></i>
-                            <input type="text" name="telefono" class="form-control" placeholder="Telefono"  data-rule-required="true"  value="<%=reporte.getTelefono()%>" />
+                            <i class="icon-phone"></i>
+                            <input type="text" name="telefono" class="form-control" placeholder="Telefono"  data-rule-required="true"  value="<%=reporte.getTelefono()%>" data-mask="(999)-999-9999" />
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="input-icon">
-                            <i class="icon-user"></i>
-                            <input type="text" name="celular" class="form-control" placeholder="Celular"  data-rule-required="true" value="<%=reporte.getCelular()%>" />
+                            <i class="icon-phone-sign"></i>
+                            <input type="text" name="celular" class="form-control" placeholder="Celular"  data-rule-required="true" value="<%=reporte.getCelular()%>" data-mask="(999)-999-9999" />
                         </div>
                     </div>
                     <div class="form-group">

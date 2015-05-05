@@ -47,8 +47,8 @@
     <!-- Fecha de Nacimiento -->   
     <div class="form-group">
         <div class="input-icon">
-            <i class="icon-user"></i>
-            <input type="text" name="inputFecha" class="form-control" value="<%=detalle.getFecha_nacimiento()%>"  />
+            <i class="icon-calendar"></i>
+            <input type="text" name="inputFecha" class="form-control" value="<%=detalle.getFecha_nacimiento()%>" data-mask="9999-99-99" />
         </div>
     </div>
 
@@ -56,8 +56,8 @@
     <div class="form-group">
 
         <div class="input-icon">
-            <i class="icon-user"></i>
-            <input type="text" name="cedula" class="form-control" placeholder="Cedula"  data-rule-required="true" value="<%=detalle.getCedula()%>"  />
+            <i class="icon-credit-card"></i>
+            <input type="text" name="cedula" class="form-control" placeholder="Cedula"  data-rule-required="true" value="<%=detalle.getCedula()%>" data-mask="999-9999999-9" />
         </div>
     </div>
 
@@ -93,13 +93,13 @@
 
     <div class="form-group">
         <div class="input-icon">
-            <i class="icon-user"></i>
+            <i class="icon-group"></i>
             <input type="text" name="hijos" class="form-control" placeholder="Cantidad de Hijos"  value="<%=detalle.getCantidadhijos()%>"/>
         </div>
     </div>
     <div class="form-group">
         <div class="input-icon">
-            <i class="icon-user"></i>
+            <i class="icon-suitcase"></i>
             <input type="text" name="ocupacion" class="form-control" placeholder="Ocupacion"  value="<%=detalle.getOcupacion()%>"/>
         </div>
     </div>

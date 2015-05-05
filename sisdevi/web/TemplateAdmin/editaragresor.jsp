@@ -47,7 +47,7 @@
     </div>
     <div class="form-group">
         <div class="input-icon">
-            <i class="icon-user"></i>
+            <i class="icon-home"></i>
             <input type="text" name="direccion" class="form-control" placeholder="Dirección"  data-rule-required="true" value="<%=agresor.getDireccion()%>" />
         </div>
     </div>
@@ -61,14 +61,14 @@
     </div>
     <div class="form-group">
         <div class="input-icon">
-            <i class="icon-user"></i>
-            <input type="text" name="telefono" class="form-control" placeholder="Telefono"  data-rule-required="true" value="<%=agresor.getTelefono()%>" />
+            <i class="icon-phone"></i>
+            <input type="text" name="telefono" class="form-control" placeholder="Telefono"  data-rule-required="true" value="<%=agresor.getTelefono()%>" data-mask="(999)-999-9999" />
         </div>
     </div>
     <div class="form-group">
         <div class="input-icon">
-            <i class="icon-user"></i>
-            <input type="text" name="celular" class="form-control" placeholder="Celular"  data-rule-required="true"  value="<%=agresor.getCelular()%>"/>
+            <i class="icon-phone"></i>
+            <input type="text" name="celular" class="form-control" placeholder="Celular"  data-rule-required="true"  value="<%=agresor.getCelular()%>" data-mask="(999)-999-9999"/>
         </div>
     </div>
 
@@ -85,8 +85,8 @@
     <!-- Fecha de Nacimiento -->   
     <div class="form-group">
         <div class="input-icon">
-            <i class="icon-user"></i>
-            <input type="text" name="inputFecha" class="form-control" placeholder="Fecha" value="<%=agresor.getFecha_nacimiento()%>"/>
+            <i class="icon-calendar"></i>
+            <input type="text" name="inputFecha" class="form-control" placeholder="Fecha" value="<%=agresor.getFecha_nacimiento()%>" data-mask="9999-99-99"/>
         </div>
     </div>
 
@@ -94,8 +94,8 @@
     <div class="form-group">
 
         <div class="input-icon">
-            <i class="icon-user"></i>
-            <input type="text" name="cedula" class="form-control" placeholder="Cedula"  data-rule-required="true"  value="<%=agresor.getCedula()%>"/>
+            <i class="icon-credit-card"></i>
+            <input type="text" name="cedula" class="form-control" placeholder="Cedula"  data-rule-required="true"  value="<%=agresor.getCedula()%>" data-mask="999-9999999-9"/>
         </div>
     </div>
 
