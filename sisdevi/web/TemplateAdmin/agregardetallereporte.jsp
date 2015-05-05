@@ -44,8 +44,8 @@
     <!-- Fecha de Nacimiento -->   
     <div class="form-group">
         <div class="input-icon">
-            <i class="icon-user"></i>
-            <input type="text" name="inputFecha" class="form-control"  />
+            <i class="icon-calendar"></i>
+            <input type="text" name="inputFecha" class="form-control" data-mask="9999-99-99" placeholder="Fecha de Nacimiento" />
         </div>
     </div>
 
@@ -53,8 +53,8 @@
     <div class="form-group">
 
         <div class="input-icon">
-            <i class="icon-user"></i>
-            <input type="text" name="cedula" class="form-control" placeholder="Cedula"  data-rule-required="true"  />
+            <i class="icon-credit-card"></i>
+            <input type="text" name="cedula" class="form-control" placeholder="Cedula"  data-rule-required="true" data-mask="999-9999999-9" />
         </div>
     </div>
 
@@ -89,13 +89,13 @@
 
     <div class="form-group">
         <div class="input-icon">
-            <i class="icon-user"></i>
+            <i class="icon-group"></i>
             <input type="text" name="hijos" class="form-control" placeholder="Cantidad de Hijos"  />
         </div>
     </div>
     <div class="form-group">
         <div class="input-icon">
-            <i class="icon-user"></i>
+            <i class="icon-suitcase"></i>
             <input type="text" name="ocupacion" class="form-control" placeholder="Ocupacion"  />
         </div>
     </div>
