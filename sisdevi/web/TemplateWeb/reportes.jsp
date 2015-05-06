@@ -23,6 +23,7 @@
         <link href="assets/js/source/jquery.fancybox.css" rel="stylesheet" />
         <!-- CUSTOM CSS -->
         <link href="assets/css/style.css" rel="stylesheet" />
+        <link href="assets/css/jasny-bootstrap.css" rel="stylesheet" />
         <!-- HTML5 Shiv and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -120,13 +121,13 @@
                     <div class="form-group">
                         <div class="input-icon">
                             <i class="icon-user"></i>
-                            <input type="text" name="telefono" class="form-control" placeholder="Telefono"  data-rule-required="true"  />
+                            <input type="text" name="telefono" class="form-control" placeholder="Telefono"  data-rule-required="true" data-mask="(999)-999-9999"/>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="input-icon">
                             <i class="icon-user"></i>
-                            <input type="text" name="celular" class="form-control" placeholder="Celular"  data-rule-required="true"  />
+                            <input type="text" name="celular" class="form-control" placeholder="Celular"  data-rule-required="true" data-mask="(999)-999-9999"/>
                         </div>
                     </div>
                     <div class="form-group">
@@ -175,13 +176,13 @@
                     <div class="form-group">
                         <div class="input-icon">
                             <i class="icon-user"></i>
-                            <input type="text" name="telefono" class="form-control" placeholder="Telefono"  data-rule-required="true"  />
+                            <input type="text" name="telefono" class="form-control" placeholder="Telefono"  data-rule-required="true" data-mask="(999)-999-9999"/>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="input-icon">
                             <i class="icon-user"></i>
-                            <input type="text" name="celular" class="form-control" placeholder="Celular"  data-rule-required="true"  />
+                            <input type="text" name="celular" class="form-control" placeholder="Celular"  data-rule-required="true" data-mask="(999)-999-9999"/>
                         </div>
                     </div>
                     <div class="form-group">
@@ -232,13 +233,13 @@
                     <div class="form-group">
                         <div class="input-icon">
                             <i class="icon-user"></i>
-                            <input type="text" name="telefonov" class="form-control" placeholder="Telefono"  data-rule-required="true"  />
+                            <input type="text" name="telefonov" class="form-control" placeholder="Telefono"  data-rule-required="true" data-mask="(999)-999-9999" />
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="input-icon">
                             <i class="icon-user"></i>
-                            <input type="text" name="celularv" class="form-control" placeholder="Celular"  data-rule-required="true"  />
+                            <input type="text" name="celularv" class="form-control" placeholder="Celular"  data-rule-required="true" data-mask="(999)-999-9999"/>
                         </div>
                     </div>
                     <label for="notas">Notas:</label>
@@ -276,6 +277,6 @@
         <script src="assets/js/scrollReveal.js"></script>
         <!-- CUSTOM SCRIPTS   -->
         <script src="assets/js/custom.js"></script>
-
+        <script src="assets/js/jasny-bootstrap.js"></script>
     </body>
 </html>
