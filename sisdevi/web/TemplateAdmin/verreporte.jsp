@@ -36,6 +36,7 @@
                             <th>Detalles</th>
                             <th>Agresor</th>
                             <th>Episodios</th>
+                            <th>Imprimir</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -55,7 +56,7 @@
                             <td><a href="detallereporte.jsp?id=${reporte.getId()}"><i class="icon-edit"></i></a></td>
                             <td><a href="agresor.jsp?id=${reporte.getId()}"><i class="icon-edit"></i></a></td>
                             <td><a href="episodios.jsp?id=${reporte.getId()}"><i class="icon-edit"></i></a></td>
-                            
+                            <td><a href="vertodo.jsp?id=${reporte.getId()}"><i class="icon-print"></i></a></td>
                             
                             
                         </tr>

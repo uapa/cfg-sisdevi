@@ -23,6 +23,7 @@ public class Agresor {
     private Provincia provincia;
     private String notas;
     private Reporte reporte;
+    private String fecha_creacion;
 
     public Integer getId() {
         return id;
@@ -126,6 +127,20 @@ public class Agresor {
 
     public void setReporte(Reporte reporte) {
         this.reporte = reporte;
+    }
+
+    /**
+     * @return the fecha_creacion
+     */
+    public String getFecha_creacion() {
+        return fecha_creacion;
+    }
+
+    /**
+     * @param fecha_creacion the fecha_creacion to set
+     */
+    public void setFecha_creacion(String fecha_creacion) {
+        this.fecha_creacion = fecha_creacion;
     }
     
     

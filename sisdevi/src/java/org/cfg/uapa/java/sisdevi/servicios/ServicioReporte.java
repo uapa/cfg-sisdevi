@@ -127,6 +127,7 @@ public class ServicioReporte {
                 reporte.setCelular(rs.getString("celular"));
                 reporte.setCorreo(rs.getString("correo"));
                 reporte.setEstado(ServicioEstado.getInstancia().getEstadoPorId(rs.getInt("estado_id")));
+                reporte.setFecha_reporte(rs.getString("fecha_reporte"));
 
                 rs.close();
                 stmt.close();

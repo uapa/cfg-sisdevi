@@ -56,6 +56,7 @@ public class ServicioAgresor {
                     agresor.setFecha_nacimiento(rs.getString("fecha_nacimiento"));
                     agresor.setCedula(rs.getString("cedula"));
                     agresor.setReporte(ServicioReporte.getInstancia().getReportePorId(rs.getInt("reporte_id")));
+                    agresor.setFecha_creacion(rs.getString("fecha_creacion"));
 
                 }
             } catch (SQLException e) {

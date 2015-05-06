@@ -35,7 +35,7 @@ public class ServicioDetalleReporte {
 
         String sql = "select * from detallesreporte where reporte_id=?";
 
-        Connection con = Coneccion.getInstancia().getConeccion();
+        try (Connection con = Coneccion.getInstancia().getConeccion()){
 
         DetalleReporte detalle = null;
 
@@ -61,10 +61,8 @@ public class ServicioDetalleReporte {
                 detalle.setIngresos(rs.getString("ingresos"));
                 detalle.setFecha_creacion(rs.getString("fecha_creacion"));
 
-                rs.close();
-                stmt.close();
-                con.close();
-
+                
+            }
             } catch (SQLException e) {
                 Logger.getLogger(ServicioDetalleReporte.class.getName()).log(Level.SEVERE, null, e);
             }
