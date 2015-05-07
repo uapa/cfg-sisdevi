@@ -16,7 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.cfg.uapa.java.sisdevi.entidades.Episodio;
-import org.cfg.uapa.java.sisdevi.entidades.Reporte;
+
 
 public class ServicioEpisodio {
 
