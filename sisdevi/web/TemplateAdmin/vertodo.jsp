@@ -15,6 +15,7 @@
     DetalleReporte detallereporte = ServicioDetalleReporte.getInstancia().getDetallePorReporteId(id);
     Agresor agresor = ServicioAgresor.getInstancia().getAgresorPorReporteId(id);
     List<Episodio> episodio = ServicioEpisodio.getInstancia().getListadoEpisodio(id);
+    Episodio episodios = ServicioEpisodio.getInstancia().getEpisodioPorReporteId(id);
 %>
 <h1>Expediente de caso de violencia </h1>
 <div class="buttons">
@@ -63,7 +64,14 @@
     </tr>
 </table>
 
-<h1>Detalles del reporte</h1>
+<h1>Detalles del reporte:</h1>
+<%
+    if (detallereporte.getId() == null) {
+        out.println("Este reporte no tiene detalles");
+        out.println(" <div class='buttons'><a class='btn btn-default btn-lg' href='agregardetallereporte.jsp?id=" + id + "' ><i class='icon-edit'></i> Agregar detalles</a></div> ");
+
+    } else {
+%>
 <table border="1" class="table table-striped table-bordered table-hover table-checkable table-responsive datatable">
     <tr>
         <td>Genero:</td>
@@ -114,8 +122,17 @@
         <td><%=detallereporte.getNotas()%></td>
     </tr>
 </table>
-
+<%
+    }
+%>
 <h1>Datos del Agresor:</h1>
+<%
+    if (agresor.getId() == null) {
+        out.println("Este reporte no tiene datos del agresor");
+        out.println(" <div class='buttons'><a class='btn btn-default btn-lg' href='agregaragresor.jsp?id=" + id + "' ><i class='icon-edit'></i> Agregar agresor</a></div> ");
+
+    } else {
+%>
 <table  border="1" class="table table-striped table-bordered table-hover table-checkable table-responsive datatable">
 
     <tr>
@@ -163,7 +180,17 @@
         <td><%=agresor.getFecha_creacion()%></td>
     </tr>
 </table>
+<%
+    }
+%>
 <h1>Episodios de violencia:</h1>
+<%
+    if (episodios.getId() == null) {
+        out.println("Este reporte no tiene episodios de violencia");
+        out.println(" <div class='buttons'><a class='btn btn-default btn-lg' href='agregarepisodio.jsp?id=" + id + "' ><i class='icon-edit'></i> Agregar episodio</a></div> ");
+
+    } else {
+%>
 <table border="1" class="table table-striped table-bordered table-hover table-checkable table-responsive datatable">
     <tr>
         <td>Fecha de episodio:</td>
@@ -175,11 +202,13 @@
             <td>${episodio.getFecha_episodio()}</td>
             <td>${episodio.getTipodeviolencia().getNombre()}</td>
             <td>${episodio.getDescripcion()}</td>
-            
+
 
         </tr>
     </c:forEach>
 </table>
-
+<%
+    }
+%>
 
 <jsp:include page="footer.jsp"/>
