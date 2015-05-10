@@ -36,7 +36,7 @@ public class ServicioEstado {
 
         String sql = "select * from estado";
 
-        Connection con = Coneccion.getInstancia().getConeccion();
+        try (Connection con = Coneccion.getInstancia().getConeccion()){
         
 
         try (Statement stmt = con.createStatement()) {
@@ -52,10 +52,8 @@ public class ServicioEstado {
 
                     lista.add(estado);
                 }
-                rs.close();
-                stmt.close();
-                con.close();
-
+                
+            }
             } catch (SQLException e) {
                 Logger.getLogger(ServicioEstado.class.getName()).log(Level.SEVERE, null, e);
             } 
@@ -67,7 +65,7 @@ public class ServicioEstado {
 
         String sql = "select * from estado where id=?";
 
-        Connection con = Coneccion.getInstancia().getConeccion();
+        try (Connection con = Coneccion.getInstancia().getConeccion()){
         
         Estado estado = null;
 
@@ -81,10 +79,8 @@ public class ServicioEstado {
                 estado = new Estado();
                 estado.setId(rs.getInt("id"));
                 estado.setNombre(rs.getString("nombre"));
-                rs.close();
-                stmt.close();
-                con.close();
-
+                
+            }
             } catch (SQLException e) {
                 Logger.getLogger(ServicioEstado.class.getName()).log(Level.SEVERE, null, e);
             } 

@@ -72,7 +72,7 @@ public class ServicioReporte {
 
         String sql = "select * from reporte";
 
-        Connection con = Coneccion.getInstancia().getConeccion();
+        try (Connection con = Coneccion.getInstancia().getConeccion()){
 
         try (Statement stmt = con.createStatement()) {
 
@@ -91,10 +91,8 @@ public class ServicioReporte {
                     reporte.setEstado(ServicioEstado.getInstancia().getEstadoPorId(rs.getInt("estado_id")));
                     lista.add(reporte);
                 }
-                rs.close();
-                stmt.close();
-                con.close();
-
+                
+            }
             } catch (SQLException e) {
                 Logger.getLogger(ServicioReporte.class.getName()).log(Level.SEVERE, null, e);
             }

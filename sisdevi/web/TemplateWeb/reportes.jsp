@@ -258,6 +258,27 @@
             </div>
 
         </section>
+         <section id="enviado" data-scroll-reveal="enter from the bottom after 0.2s">
+            <div class="overlay">
+            <div class="container">
+            <br>
+                <br>
+                    <br>
+                        <br>
+                            <br>
+                <h2>Su reporte fue enviado</h2>
+                <p>Su reporte ha sido enviado correctamente. Gracias por ponerse en contacto con nosotros.
+                    
+                    En breve, su reporte será atendido.
+                </p>
+                     <br>
+                <br>
+                    <br>
+                        <br>
+                            <br>
+            </div>
+                </div>
+        </section>
         <footer>
             &copy 2015 sisdevi.com  | <a href="http://www.designbootstrap.com/" target="_blank">by Curso Final de Grado</a>
         </footer>

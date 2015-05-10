@@ -92,7 +92,7 @@ public class ReporteVictimaServlet extends HttpServlet {
 
         if (isCreado) {
 
-            response.sendRedirect("TemplateAdmin/verreporte.jsp");
+            response.sendRedirect("TemplateWeb/reportes.jsp#enviado");
 
         } else {
 
