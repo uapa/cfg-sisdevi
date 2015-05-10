@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Context antiJARLocking="true" path="/sisdevi">
-  <Resource auth="Container" driverClassName="com.mysql.jdbc.Driver" global="jdbc/sisdevi" maxActive="100" maxIdle="20" maxWait="10000" minIdle="5" name="jdbc/sisdevi" password="" type="javax.sql.DataSource" url="jdbc:mysql://localhost:3306/sisdevi" username="root"/>
+  <Resource auth="Container" driverClassName="com.mysql.jdbc.Driver" global="jdbc/sisdevidb" maxActive="100" maxIdle="20" maxWait="10000" minIdle="5" name="jdbc/sisdevidb" password="" type="javax.sql.DataSource" url="jdbc:mysql://localhost:3306/sisdevidb" username="root"/>
 </Context>
