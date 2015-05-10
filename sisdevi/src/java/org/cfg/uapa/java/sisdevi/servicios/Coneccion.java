@@ -36,7 +36,7 @@ public class Coneccion {
         try {
            
             ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup("java:/comp/env/jdbc/sisdevidb");
+            DataSource ds = (DataSource) ctx.lookup("java:/comp/env/jdbc/sisdevi");
             
             con = ds.getConnection();
             Logger.getLogger(getClass().getName()).info(String.format("Connection established !!!"));
