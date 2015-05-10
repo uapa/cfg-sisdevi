@@ -23,6 +23,10 @@
         <servlet-name>EpisodioServlet</servlet-name>
         <servlet-class>org.cfg.uapa.java.sisdevi.controller.EpisodioServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ContactoServlet</servlet-name>
+        <servlet-class>org.cfg.uapa.java.sisdevi.controller.ContactoServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ReporteVictimaServlet</servlet-name>
         <url-pattern>/ReporteVictimaServlet</url-pattern>
@@ -42,6 +46,10 @@
     <servlet-mapping>
         <servlet-name>EpisodioServlet</servlet-name>
         <url-pattern>/EpisodioServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ContactoServlet</servlet-name>
+        <url-pattern>/ContactoServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
