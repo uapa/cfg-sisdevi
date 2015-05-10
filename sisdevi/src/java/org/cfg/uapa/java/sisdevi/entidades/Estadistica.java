@@ -13,6 +13,7 @@ public class Estadistica {
     private Integer id;
     private Integer total;
     private String nombre;
+    private Provincia provincia;
 
     /**
      * @return the id
@@ -54,6 +55,20 @@ public class Estadistica {
      */
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    /**
+     * @return the provincia
+     */
+    public Provincia getProvincia() {
+        return provincia;
+    }
+
+    /**
+     * @param provincia the provincia to set
+     */
+    public void setProvincia(Provincia provincia) {
+        this.provincia = provincia;
     }
     
 }

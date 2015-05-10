@@ -32,6 +32,16 @@
     Estadistica activo = ServicioEstadistica.getInstancia().getTotalReportesPorEstado(2);
     Estadistica inactivo = ServicioEstadistica.getInstancia().getTotalReportesPorEstado(3);
     Estadistica descartado = ServicioEstadistica.getInstancia().getTotalReportesPorEstado(4);
+    List<Estadistica> provincia = ServicioEstadistica.getInstancia().getListadoProvincias();
+    Estadistica preescolar = ServicioEstadistica.getInstancia().getTotalReportesPorGrado("Pre Escolar");
+    Estadistica primaria = ServicioEstadistica.getInstancia().getTotalReportesPorGrado("Educación Primaria");
+    Estadistica secundaria = ServicioEstadistica.getInstancia().getTotalReportesPorGrado("Educación Secundaria");
+    Estadistica superior = ServicioEstadistica.getInstancia().getTotalReportesPorGrado("Educación Superior");
+    Estadistica esposo = ServicioEstadistica.getInstancia().getTotalReportesVinculo(1);
+    Estadistica novio = ServicioEstadistica.getInstancia().getTotalReportesVinculo(2);
+    Estadistica amante = ServicioEstadistica.getInstancia().getTotalReportesVinculo(6);
+    Estadistica familia = ServicioEstadistica.getInstancia().getTotalReportesVinculo(4);
+    Estadistica amigo = ServicioEstadistica.getInstancia().getTotalReportesVinculo(5);
 
 %>
 <script type="text/javascript">
@@ -177,10 +187,108 @@
 
     });
 </script>
+<script type="text/javascript">
+    "use strict";
+
+    $(document).ready(function () {
+
+        var tipos = [];
+        tipos[0] = "Pre Escolar";
+        tipos[1] = "Educación Primaria";
+        tipos[2] = "Educación Secundaria";
+        tipos[3] = "Educación Superior";
+        
+        var total = [];
+        total[0] =<%=preescolar.getTotal()%>;
+        total[1] =<%=primaria.getTotal()%>;
+        total[2] =<%=secundaria.getTotal()%>;
+        total[3] =<%=superior.getTotal()%>;
+        
+        var d_pie = [];
+        var series = 4;
+        for (var i = 0; i < series; i++) {
+            d_pie[i] = {label: tipos[i], data: Math.floor(total[i] * 100) + 1};
+
+        }
+
+        $.plot("#gradoa", d_pie, $.extend(true, {}, Plugins.getFlotDefaults(), {
+            series: {
+                pie: {
+                    show: true,
+                    radius: 1,
+                    label: {
+                        show: true
+                    }
+                }
+            },
+            grid: {
+                hoverable: true
+            },
+            tooltip: true,
+            tooltipOpts: {
+                content: '%p.0%, %s', // show percentages, rounding to 2 decimal places
+                shifts: {
+                    x: 20,
+                    y: 0
+                }
+            }
+        }));
+
+    });
+</script>
+<script type="text/javascript">
+    "use strict";
+
+    $(document).ready(function () {
+
+        var tipos = [];
+        tipos[0] = "Esposo";
+        tipos[1] = "Novio";
+        tipos[2] = "Amante";
+        tipos[3] = "Familia";
+        tipos[4] = "Amigo";
+        var total = [];
+        total[0] =<%=esposo.getTotal()%>;
+        total[1] =<%=novio.getTotal()%>;
+        total[2] =<%=amante.getTotal()%>;
+        total[3] =<%=familia.getTotal()%>;
+        total[4] =<%=amigo.getTotal()%>;
+        var d_pie = [];
+        var series = 5;
+        for (var i = 0; i < series; i++) {
+            d_pie[i] = {label: tipos[i], data: Math.floor(total[i] * 100) + 1};
+
+        }
+
+        $.plot("#vinculoa", d_pie, $.extend(true, {}, Plugins.getFlotDefaults(), {
+            series: {
+                pie: {
+                    show: true,
+                    radius: 1,
+                    label: {
+                        show: true
+                    }
+                }
+            },
+            grid: {
+                hoverable: true
+            },
+            tooltip: true,
+            tooltipOpts: {
+                content: '%p.0%, %s', // show percentages, rounding to 2 decimal places
+                shifts: {
+                    x: 20,
+                    y: 0
+                }
+            }
+        }));
+
+    });
+</script>
 <div class="page-header">
     <div class="page-title">
         <h3>Estadisticas</h3>
-        
+
     </div>
 </div>
 <h2>Total de reportes por mes</h2>
@@ -248,8 +356,50 @@
         </div>
     </div>
 </div>
-
-
-
+<div class="row">
+    <div class="col-md-6">
+        <div class="widget box">
+            <div class="widget-header">
+                <h4><i class="icon-reorder"></i> Reportes por vinculo con el agresor</h4>
+                <div class="toolbar no-padding">
+                    <div class="btn-group">
+                        <span class="btn btn-xs widget-collapse"><i class="icon-angle-down"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="widget-content">
+                <div id="vinculoa" class="chart"></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="widget box">
+            <div class="widget-header">
+                <h4><i class="icon-reorder"></i> Reportes por grado academico</h4>
+                <div class="toolbar no-padding">
+                    <div class="btn-group">
+                        <span class="btn btn-xs widget-collapse"><i class="icon-angle-down"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="widget-content">
+                <div id="gradoa" class="chart"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<h2>Total de reportes por provincias</h2>
+<table border="1" class="table table-striped table-bordered table-hover table-checkable table-responsive ">
+    <tr>
+        <td> Provincias </td>
+        <td>Total de reportes</td>
+    </tr>
+    <c:forEach items="<%=provincia%>" var="provincia">
+        <tr>
+            <td>${provincia.getProvincia().getNombre()}</td>
+            <td>${provincia.getTotal()}</td>
+        </tr>
+    </c:forEach>
+</table>
 
 <jsp:include page="footer.jsp"/>

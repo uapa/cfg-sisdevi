@@ -160,4 +160,83 @@ public class ServicioEstadistica {
             return estadistica;
         }
     }
+     public List<Estadistica> getListadoProvincias() throws SQLException {
+
+        List<Estadistica> lista = new ArrayList<>();
+
+        String sql = "SELECT provincia_id,COUNT(id) contador FROM reporte WHERE provincia_id IN (SELECT id FROM provincias)GROUP BY provincia_id";
+
+        try (Connection con = Coneccion.getInstancia().getConeccion()){
+
+        try (Statement stmt = con.createStatement()) {
+
+            try (ResultSet rs = stmt.executeQuery(sql)) {
+
+                while (rs.next()) {
+                    Estadistica reporte = new Estadistica();
+                    reporte.setTotal(rs.getInt("contador"));
+                    reporte.setProvincia(ServicioProvincia.getInstancia().getProvinciaPorId(rs.getInt("provincia_id")));
+                    lista.add(reporte);
+                }
+            }
+
+            } catch (SQLException e) {
+                Logger.getLogger(ServicioEstadistica.class.getName()).log(Level.SEVERE, null, e);
+            }
+
+            return lista;
+        }
+    }
+     public Estadistica getTotalReportesVinculo(int id) throws SQLException {
+
+        String sql = "SELECT COUNT(id) contador FROM detallesreporte WHERE vinculo_id = ?";
+
+        Estadistica estadistica = null;
+
+        try (Connection con = Coneccion.getInstancia().getConeccion()) {
+
+            try (PreparedStatement stmt = con.prepareStatement(sql)) {
+
+                stmt.setInt(1, id);
+                try (ResultSet rs = stmt.executeQuery()) {
+
+                    rs.next();
+                    estadistica = new Estadistica();
+                    estadistica.setTotal(rs.getInt("contador"));
+                    
+
+                }
+            } catch (SQLException e) {
+                Logger.getLogger(ServicioEstadistica.class.getName()).log(Level.SEVERE, null, e);
+            }
+
+            return estadistica;
+        }
+    }
+     public Estadistica getTotalReportesPorGrado(String ingresos) throws SQLException {
+
+        String sql = "SELECT COUNT(id) contador FROM detallesreporte WHERE gradoacademico= ?";
+
+        Estadistica estadistica = null;
+
+        try (Connection con = Coneccion.getInstancia().getConeccion()) {
+
+            try (PreparedStatement stmt = con.prepareStatement(sql)) {
+
+                stmt.setString(1, ingresos);
+                try (ResultSet rs = stmt.executeQuery()) {
+
+                    rs.next();
+                    estadistica = new Estadistica();
+                    estadistica.setTotal(rs.getInt("contador"));
+                    
+
+                }
+            } catch (SQLException e) {
+                Logger.getLogger(ServicioEstadistica.class.getName()).log(Level.SEVERE, null, e);
+            }
+
+            return estadistica;
+        }
+    }
 }
