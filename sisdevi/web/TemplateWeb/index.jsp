@@ -36,7 +36,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">
+                    <a class="navbar-brand" href="index.jsp">
                         <img src="assets/img/logo.png"  alt=""/>
                     </a>
                 </div>
@@ -117,40 +117,41 @@
             <div class="overlay">
                 <div class="container">
                     <form class="form-vertical login-form" action="/sisdevi/ContactoServlet" method="post">
-                        <h3 class="form-title">Formulario de Contacto</h3>
-                         <div class="form-group">
-                        <!--<label for="username">Username:</label>-->
-                        <div class="input-icon">
-                            <i class="icon-user"></i>
-                            <input type="text" name="name" class="form-control" placeholder="Nombres" autofocus="autofocus" data-rule-required="true"  />
-                        </div>
-                    </div>
-                        <div class="form-group">
-                        <div class="input-icon">
-                            <i class="icon-user"></i>
-                            <input type="text" name="telefono" class="form-control" placeholder="Telefono"  data-rule-required="true" data-mask="(999)-999-9999"/>
-                        </div>
-                    </div>
-                       <div class="form-group">
-                        <div class="input-icon">
-                            <i class="icon-envelope"></i>
-                            <input type="text" name="correo" class="form-control" placeholder="Correo electrónico" data-rule-email="true" />
-                        </div>
-                    </div>
-                         <label for="notas">Mensaje:</label>
-    <div class="form-group">
-        <textarea rows="3" cols="5" name="mensaje" class="form-control"></textarea>
-    </div>
+                        <input name="idEstado" type="hidden" value="1">
+                            <h3 class="form-title">Formulario de Contacto</h3>
+                            <div class="form-group">
+                                <!--<label for="username">Username:</label>-->
+                                <div class="input-icon">
+                                    <i class="icon-user"></i>
+                                    <input type="text" name="name" class="form-control" placeholder="Nombres" autofocus="autofocus" data-rule-required="true"  />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-icon">
+                                    <i class="icon-user"></i>
+                                    <input type="text" name="telefono" class="form-control" placeholder="Telefono"  data-rule-required="true" data-mask="(999)-999-9999"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-icon">
+                                    <i class="icon-envelope"></i>
+                                    <input type="text" name="correo" class="form-control" placeholder="Correo electrónico" data-rule-email="true" />
+                                </div>
+                            </div>
+                            <label for="notas">Mensaje:</label>
+                            <div class="form-group">
+                                <textarea rows="3" cols="5" name="mensaje" class="form-control"></textarea>
+                            </div>
 
-    <div class="form-actions">
-        <button type="submit" class="submit btn btn-primary pull-right">
-            Enviar <i class="icon-angle-right"></i>
-        </button>
-    </div>
-                        
-                        
-                        
-                        
+                            <div class="form-actions">
+                                <button type="submit" class="submit btn btn-primary pull-right">
+                                    Enviar <i class="icon-angle-right"></i>
+                                </button>
+                            </div>
+
+
+
+
                     </form>
 
 
@@ -160,6 +161,46 @@
             </div>
         </section>
         <!-- CONTACT SECTION END -->
+        <section id="enviado" data-scroll-reveal="enter from the bottom after 0.2s">
+            <div class="overlay">
+            <div class="container">
+            <br>
+                <br>
+                    <br>
+                        <br>
+                            <br>
+                <h2>Su mensaje fue enviado</h2>
+                <p>Su mensaje ha sido enviado correctamente. Gracias por ponerse en contacto con nosotros.
+                    
+                    En breve, le contestaremos.
+                </p>
+                     <br>
+                <br>
+                    <br>
+                        <br>
+                            <br>
+            </div>
+                </div>
+        </section>
+        <section id="error" data-scroll-reveal="enter from the bottom after 0.2s">
+            <div class="overlay">
+            <div class="container">
+            <br>
+                <br>
+                    <br>
+                        <br>
+                            <br>
+                <h2>Su mensaje no se envió</h2>
+                <p>Ha ocurrido un error, por favor intente de nuevo
+                </p>
+                     <br>
+                <br>
+                    <br>
+                        <br>
+                            <br>
+            </div>
+                </div>
+        </section>
         <footer>
             &copy 2015 sisdevi.com  | <a href="http://www.designbootstrap.com/" target="_blank">by DesignBootstrap</a>
         </footer>

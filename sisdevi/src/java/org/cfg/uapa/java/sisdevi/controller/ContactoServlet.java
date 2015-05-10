@@ -68,10 +68,10 @@ public class ContactoServlet extends HttpServlet {
              contacto.setEstado(estado);
              boolean isCreado = ServicioContacto.getInstancia().crearContacto(contacto);
             if (isCreado) {
-                response.sendRedirect("TemplateWeb/index.jsp#enviado?id=" + Integer.valueOf(idContacto));
+                response.sendRedirect("TemplateWeb/index.jsp#enviado");
 
             } else {
-                response.sendRedirect("TemplateWeb/index.jsp#contact");
+                response.sendRedirect("TemplateWeb/index.jsp#error");
 
             }
              
