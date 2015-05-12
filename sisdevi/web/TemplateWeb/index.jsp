@@ -45,8 +45,8 @@
                         <li><a href="reportes.jsp#header">TU REPORTE</a></li>
                         <li><a href="#services">Como Usar SISDEVI</a></li>
                         <li><a href="#clients">Que es SISDEVI</a></li>
-                        <li><a href="#works">Noticias</a></li>
-                        <li><a href="#team">Administrador</a></li>
+                        
+                        <li><a href="/sisdevi/TemplateAdmin/login.jsp">Administrador</a></li>
                         <li><a href="#contact">Contacto</a></li>
                     </ul>
                 </div>
@@ -76,151 +76,180 @@
         <!--HEADER SECTION END  -->
         <section id="services">
             <div class="container">
-
-
-            </div>
-
-
-        </section>
-        <!-- SERVICES SECTION END  -->
-        <div id="clients">
-            <div class="overlay">
-                <div class="container">
-
-                </div>
-            </div>
-        </div>
-        <!-- CLIENTS SECTION END  -->
-        <section id="works">
-            <div class="container">
-
-            </div>
-        </section>
-        <!-- WORK SECTION END  -->
-        <div id="testimonial" data-scroll-reveal="enter from the bottom after 0.2s">
-            <div class="overlay">
-                <div class="container">
-
-                </div>
-            </div>
-        </div>
-        <!-- TESTIMONIAL SECTION END  -->
-        <section id="team">
-            <div class="container">
-
-
-
-            </div>
-        </section>
-        <!-- TEAM SECTION END -->
-        <section id="contact">
-            <div class="overlay">
-                <div class="container">
-                    <form class="form-vertical login-form" action="/sisdevi/ContactoServlet" method="post">
-                        <input name="idEstado" type="hidden" value="1">
-                            <h3 class="form-title">Formulario de Contacto</h3>
-                            <div class="form-group">
-                                <!--<label for="username">Username:</label>-->
-                                <div class="input-icon">
-                                    <i class="icon-user"></i>
-                                    <input type="text" name="name" class="form-control" placeholder="Nombres" data-rule-required="true"  />
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="input-icon">
-                                    <i class="icon-user"></i>
-                                    <input type="text" name="telefono" class="form-control" placeholder="Telefono"  data-rule-required="true" data-mask="(999)-999-9999"/>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="input-icon">
-                                    <i class="icon-envelope"></i>
-                                    <input type="text" name="correo" class="form-control" placeholder="Correo electrónico" data-rule-email="true" />
-                                </div>
-                            </div>
-                            <label for="notas">Mensaje:</label>
-                            <div class="form-group">
-                                <textarea rows="3" cols="5" name="mensaje" class="form-control"></textarea>
-                            </div>
-
-                            <div class="form-actions">
-                                <button type="submit" class="submit btn btn-primary pull-right">
-                                    Enviar <i class="icon-angle-right"></i>
-                                </button>
-                            </div>
-
-
-
-
-                    </form>
-
-
-
-
-                </div>
-            </div>
-        </section>
-        <!-- CONTACT SECTION END -->
-        <section id="enviado" data-scroll-reveal="enter from the bottom after 0.2s">
-            <div class="overlay">
-            <div class="container">
-            <br>
                 <br>
                     <br>
                         <br>
                             <br>
-                <h2>Su mensaje fue enviado</h2>
-                <p>Su mensaje ha sido enviado correctamente. Gracias por ponerse en contacto con nosotros.
-                    
-                    En breve, le contestaremos.
-                </p>
-                     <br>
-                <br>
-                    <br>
-                        <br>
-                            <br>
-            </div>
-                </div>
-        </section>
-        <section id="error" data-scroll-reveal="enter from the bottom after 0.2s">
-            <div class="overlay">
-            <div class="container">
-            <br>
-                <br>
-                    <br>
-                        <br>
-                            <br>
-                <h2>Su mensaje no se envió</h2>
-                <p>Ha ocurrido un error, por favor intente de nuevo
-                </p>
-                     <br>
-                <br>
-                    <br>
-                        <br>
-                            <br>
-            </div>
-                </div>
-        </section>
-        <footer>
-            &copy 2015 sisdevi.com  | <a href="http://www.designbootstrap.com/" target="_blank">by DesignBootstrap</a>
-        </footer>
-        <!--FOOTER SECTION END  -->
-        <!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
-        <!-- CORE JQUERY  SCRIPTS -->
-        <script src="assets/js/jquery-1.11.1.js"></script>
-        <!-- BOOTSTRAP SCRIPTS  -->
-        <script src="assets/js/bootstrap.js"></script>
-        <!-- SCROLLING SCRIPTS PLUGIN  -->
-        <script src="assets/js/jquery.easing.min.js"></script>
-        <!--  FANCYBOX PLUGIN -->
-        <script src="assets/js/source/jquery.fancybox.js"></script>
-        <!-- ISOTOPE SCRIPTS -->
-        <script src="assets/js/jquery.isotope.js"></script>
-        <!-- SCROLL ANIMATIONS  -->
-        <script src="assets/js/scrollReveal.js"></script>
-        <!-- CUSTOM SCRIPTS   -->
-        <script src="assets/js/custom.js"></script>
-        <script src="assets/js/jasny-bootstrap.js"></script>
+                                <br>
+                                    <h3>
+                                        Entras al sitio web de SISDEVI das clic en la opción crear reportes eliges si eres una victima o un testigo e introduces tus datos de contacto.
+                                        Los responsables de SISDEVI serán las personas encargadas de comprobar la veracidad del reporte, y de acuerdo al hecho, formalizarla o derivarla a la instancia correspondiente.
+                                    </h3>
+                                    <br>
+                                        <br>
+                                            <br>
+                                                <br>
+                                                    <br>
 
-    </body>
-</html>
+
+
+
+
+                                                        </div>
+
+
+                                                        </section>
+                                                        <!-- SERVICES SECTION END  -->
+                                                        <div id="clients">
+                                                            <div class="overlay">
+                                                                <div class="container">
+                                                                    <br>
+                                                                        <br>
+                                                                            <br>
+                                                                                <br>
+                                                                                    <br>
+                                                                                        <h3>
+                                                                                            SISDEVI es un sistema que permite que cualquier supuesta víctima o testigo reportar incidentes de violencia de género. Para ello, bastará con que complete un formulario virtual, nadie tendrá acceso a los datos de la persona que reporte el incidente ya que quedarán restringidos para quienes manejen el sistema a nivel nacional.
+                                                                                        </h3>
+                                                                                        <br>
+                                                                                            <br>
+                                                                                                <br>
+                                                                                                    <br>
+                                                                                                        <br>
+                                                                                                            </div>
+                                                                                                            </div>
+                                                                                                            </div>
+                                                                                                            <!-- CLIENTS SECTION END  -->
+                                                                                                            <section id="works">
+                                                                                                                <div class="container">
+
+                                                                                                                </div>
+                                                                                                            </section>
+                                                                                                            <!-- WORK SECTION END  -->
+                                                                                                            <div id="testimonial" data-scroll-reveal="enter from the bottom after 0.2s">
+                                                                                                                <div class="overlay">
+                                                                                                                    <div class="container">
+
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                            <!-- TESTIMONIAL SECTION END  -->
+                                                                                                            <section id="team">
+                                                                                                                <div class="container">
+
+
+
+                                                                                                                </div>
+                                                                                                            </section>
+                                                                                                            <!-- TEAM SECTION END -->
+                                                                                                            <section id="contact">
+                                                                                                                <div class="overlay">
+                                                                                                                    <div class="container">
+                                                                                                                        <form class="form-vertical login-form" action="/sisdevi/ContactoServlet" method="post">
+                                                                                                                            <input name="idEstado" type="hidden" value="1">
+                                                                                                                                <h3 class="form-title">Formulario de Contacto</h3>
+                                                                                                                                <div class="form-group">
+                                                                                                                                    <!--<label for="username">Username:</label>-->
+                                                                                                                                    <div class="input-icon">
+                                                                                                                                        <i class="icon-user"></i>
+                                                                                                                                        <input type="text" name="name" class="form-control" placeholder="Nombres" data-rule-required="true"  />
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                                <div class="form-group">
+                                                                                                                                    <div class="input-icon">
+                                                                                                                                        <i class="icon-user"></i>
+                                                                                                                                        <input type="text" name="telefono" class="form-control" placeholder="Telefono"  data-rule-required="true" data-mask="(999)-999-9999"/>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                                <div class="form-group">
+                                                                                                                                    <div class="input-icon">
+                                                                                                                                        <i class="icon-envelope"></i>
+                                                                                                                                        <input type="text" name="correo" class="form-control" placeholder="Correo electrónico" data-rule-email="true" />
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                                <label for="notas">Mensaje:</label>
+                                                                                                                                <div class="form-group">
+                                                                                                                                    <textarea rows="3" cols="5" name="mensaje" class="form-control"></textarea>
+                                                                                                                                </div>
+
+                                                                                                                                <div class="form-actions">
+                                                                                                                                    <button type="submit" class="submit btn btn-primary pull-right">
+                                                                                                                                        Enviar <i class="icon-angle-right"></i>
+                                                                                                                                    </button>
+                                                                                                                                </div>
+
+
+
+
+                                                                                                                        </form>
+
+
+
+
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                            </section>
+                                                                                                            <!-- CONTACT SECTION END -->
+                                                                                                            <section id="enviado" data-scroll-reveal="enter from the bottom after 0.2s">
+                                                                                                                <div class="overlay">
+                                                                                                                    <div class="container">
+                                                                                                                        <br>
+                                                                                                                            <br>
+                                                                                                                                <br>
+                                                                                                                                    <br>
+                                                                                                                                        <br>
+                                                                                                                                            <h2>Su mensaje fue enviado</h2>
+                                                                                                                                            <p>Su mensaje ha sido enviado correctamente. Gracias por ponerse en contacto con nosotros.
+
+                                                                                                                                                En breve, le contestaremos.
+                                                                                                                                            </p>
+                                                                                                                                            <br>
+                                                                                                                                                <br>
+                                                                                                                                                    <br>
+                                                                                                                                                        <br>
+                                                                                                                                                            <br>
+                                                                                                                                                                </div>
+                                                                                                                                                                </div>
+                                                                                                                                                                </section>
+                                                                                                                                                                <section id="error" data-scroll-reveal="enter from the bottom after 0.2s">
+                                                                                                                                                                    <div class="overlay">
+                                                                                                                                                                        <div class="container">
+                                                                                                                                                                            <br>
+                                                                                                                                                                                <br>
+                                                                                                                                                                                    <br>
+                                                                                                                                                                                        <br>
+                                                                                                                                                                                            <br>
+                                                                                                                                                                                                <h2>Su mensaje no se envió</h2>
+                                                                                                                                                                                                <p>Ha ocurrido un error, por favor intente de nuevo
+                                                                                                                                                                                                </p>
+                                                                                                                                                                                                <br>
+                                                                                                                                                                                                    <br>
+                                                                                                                                                                                                        <br>
+                                                                                                                                                                                                        <br>
+                                                                                                                                                                                                        <br>
+                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                        </section>
+                                                                                                                                                                                                        <footer>
+                                                                                                                                                                                                        &copy 2015 sisdevi.com  | <a href="http://www.designbootstrap.com/" target="_blank">by DesignBootstrap</a>
+                                                                                                                                                                                                        </footer>
+                                                                                                                                                                                                        <!--FOOTER SECTION END  -->
+                                                                                                                                                                                                        <!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
+                                                                                                                                                                                                        <!-- CORE JQUERY  SCRIPTS -->
+                                                                                                                                                                                                        <script src="assets/js/jquery-1.11.1.js"></script>
+                                                                                                                                                                                                        <!-- BOOTSTRAP SCRIPTS  -->
+                                                                                                                                                                                                        <script src="assets/js/bootstrap.js"></script>
+                                                                                                                                                                                                        <!-- SCROLLING SCRIPTS PLUGIN  -->
+                                                                                                                                                                                                        <script src="assets/js/jquery.easing.min.js"></script>
+                                                                                                                                                                                                        <!--  FANCYBOX PLUGIN -->
+                                                                                                                                                                                                        <script src="assets/js/source/jquery.fancybox.js"></script>
+                                                                                                                                                                                                        <!-- ISOTOPE SCRIPTS -->
+                                                                                                                                                                                                        <script src="assets/js/jquery.isotope.js"></script>
+                                                                                                                                                                                                        <!-- SCROLL ANIMATIONS  -->
+                                                                                                                                                                                                        <script src="assets/js/scrollReveal.js"></script>
+                                                                                                                                                                                                        <!-- CUSTOM SCRIPTS   -->
+                                                                                                                                                                                                        <script src="assets/js/custom.js"></script>
+                                                                                                                                                                                                        <script src="assets/js/jasny-bootstrap.js"></script>
+
+                                                                                                                                                                                                        </body>
+                                                                                                                                                                                                        </html>

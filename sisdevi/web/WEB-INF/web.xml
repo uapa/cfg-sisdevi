@@ -31,6 +31,10 @@
         <servlet-name>LoginServlet</servlet-name>
         <servlet-class>org.cfg.uapa.java.sisdevi.controller.LoginServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UsuarioServlet</servlet-name>
+        <servlet-class>org.cfg.uapa.java.sisdevi.controller.UsuarioServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ReporteVictimaServlet</servlet-name>
         <url-pattern>/ReporteVictimaServlet</url-pattern>
@@ -58,6 +62,10 @@
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UsuarioServlet</servlet-name>
+        <url-pattern>/UsuarioServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -103,7 +103,7 @@ public class ServicioUsuario {
 
         String sql = "select * from usuarios where id=?";
 
-        Connection con = Coneccion.getInstancia().getConeccion();
+        try (Connection con = Coneccion.getInstancia().getConeccion()){
         Usuario usuario = null;
 
         try (PreparedStatement stmt = con.prepareStatement(sql)) {
@@ -123,10 +123,8 @@ public class ServicioUsuario {
                 usuario.setClave(rs.getString("clave"));
                 usuario.setEstado(ServicioEstado.getInstancia().getEstadoPorId(rs.getInt("estado_id")));
                 
-                rs.close();
-                stmt.close();
-                con.close();
-
+                
+            }
             } catch (SQLException e) {
                 Logger.getLogger(ServicioUsuario.class.getName()).log(Level.SEVERE, null, e);
             }

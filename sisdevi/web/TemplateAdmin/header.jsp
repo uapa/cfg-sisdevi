@@ -388,35 +388,35 @@
                         </li>
                         <li>
                             <a href="verreporte.jsp">
-                                <i class="icon-calendar"></i>
+                                <i class="icon-bookmark"></i>
                                 Reportes por Victimas
                                 </a>
                             
                         </li>
                         <li>
                             <a href="verreportetestigo.jsp">
-                                <i class="icon-medkit"></i>
+                                <i class="icon-book"></i>
                                 Reportes por Testigos
                             </a>
                             
                         </li>
                         <li>
                             <a href="estadisticas.jsp">
-                                <i class="icon-book"></i>
+                                <i class="icon-bar-chart"></i>
                                 Estadísticas
                             </a>
                             
                         </li>
                         <li>
                             <a href="contactos.jsp">
-                                <i class="icon-ambulance"></i>
+                                <i class="icon-comment"></i>
                                 Contactos
                             </a>
                             
                         </li>
                         <li>
                             <a href="usuarios.jsp">
-                                <i class="icon-linux"></i>
+                                <i class="icon-group"></i>
                                 Usuarios
                             </a>
                             

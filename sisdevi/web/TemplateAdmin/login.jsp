@@ -109,6 +109,7 @@
                 <!-- Register Formular (hidden by default) -->
                 <form class="form-vertical register-form" action="/sisdevi/UsuarioServlet" method="post" style="display: none;">
                     <!-- Title -->
+                    <input name="idEstado" type="hidden" value="1">
                     <h3 class="form-title">Regístrate</h3>
 
                     <!-- Input Fields -->
@@ -127,7 +128,7 @@
                     
                     <div class="form-group">
                         <div class="input-icon">
-                            <i class="icon-user"></i>
+                            <i class="icon-envelope"></i>
                             <input type="text" name="correo" class="form-control" placeholder="Correo" data-rule-required="true" />
                         </div>
                     </div>
@@ -192,7 +193,7 @@
                         <!-- /Input Fields -->
 
                         <button type="submit" class="submit btn btn-default btn-block">
-                            Reset your Password
+                            Restablecer su contraseña
                         </button>
                     </form>
                     <!-- /Forgot Password Formular -->
@@ -200,7 +201,7 @@
                     <!-- Shows up if reset-button was clicked -->
                     <div class="forgot-password-done hide-default">
                         <i class="icon-ok success-icon"></i> <!-- Error-Alternative: <i class="icon-remove danger-icon"></i> -->
-                        <span>Great. We have sent you an email.</span>
+                        <span>Te hemos enviado un correo electrónico.</span>
                     </div>
                 </div> <!-- /.content -->
             </div>
@@ -214,7 +215,7 @@
 
         <!-- Footer -->
         <div class="footer">
-            <a href="#" class="sign-up">¿No tienes una cuenta todavía? <strong>Solicitar acceso</strong></a>
+            <a href="#" class="sign-up">¿No tienes una cuenta? <strong>Solicitar acceso</strong></a>
         </div>
         <!-- /Footer -->
     </body>

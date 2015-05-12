@@ -44,7 +44,7 @@
                             <td>${usuario.getCorreo()}</td>
                             <td>${usuario.getUsuario()}</td>
                             <td>${usuario.getEstado().getNombre()}</td>
-                            <td><a href="editarcontacto.jsp?id=${usuario.getId()}"><i class="icon-edit"></i></a></td>
+                            <td><a href="editarusuarios.jsp?id=${usuario.getId()}"><i class="icon-edit"></i></a></td>
                            
                             
                         </tr>

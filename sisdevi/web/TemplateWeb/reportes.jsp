@@ -56,8 +56,8 @@
                         <li><a href="#header">TU REPORTE</a></li>
                         <li><a href="index.jsp#services">Como Usar SISDEVI</a></li>
                         <li><a href="index.jsp#clients">Que es SISDEVI</a></li>
-                        <li><a href="index.jsp#works">Noticias</a></li>
-                        <li><a href="index.jsp#team">Administrador</a></li>
+                        
+                        <li><a href="/sisdevi/TemplateAdmin/login.jsp">Administrador</a></li>
                         <li><a href="index.jsp#contact">Contacto</a></li>
                     </ul>
                 </div>
