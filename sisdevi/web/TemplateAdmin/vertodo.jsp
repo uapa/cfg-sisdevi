@@ -17,7 +17,7 @@
     List<Episodio> episodio = ServicioEpisodio.getInstancia().getListadoEpisodio(id);
     Episodio episodios = ServicioEpisodio.getInstancia().getEpisodioPorReporteId(id);
 %>
-<h1>Expediente de caso de violencia </h1>
+<h1>Expediente de caso de violencia</h1>
 <div class="buttons">
     <a class="btn btn-success btn-lg" href="javascript:void(0);" onclick="javascript:window.print();"><i class="icon-print"></i> Imprimir expediente</a>
 </div>

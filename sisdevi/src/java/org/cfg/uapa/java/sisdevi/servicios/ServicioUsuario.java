@@ -51,8 +51,9 @@ public class ServicioUsuario {
                 usuario.setEstado(ServicioEstado.getInstancia().getEstadoPorId(rs.getInt("estado_id")));
                 usuarios.add(usuario);
             }
-            
-                
+            rs.close();
+                stmt.close();
+                //con.close();
 
         } catch (SQLException e) {
             System.out.println("Error en el SQl");
@@ -116,6 +117,11 @@ public class ServicioUsuario {
                 usuario = new Usuario();
                 usuario.setId(rs.getInt("id"));
                 usuario.setNombre(rs.getString("nombre"));
+                usuario.setApellido(rs.getString("apellido"));
+                usuario.setCorreo(rs.getString("correo"));
+                usuario.setUsuario(rs.getString("usuario"));
+                usuario.setClave(rs.getString("clave"));
+                usuario.setEstado(ServicioEstado.getInstancia().getEstadoPorId(rs.getInt("estado_id")));
                 
                 rs.close();
                 stmt.close();
@@ -127,6 +133,64 @@ public class ServicioUsuario {
 
             return usuario;
         }
+    }
+    public boolean crearUsuario(Usuario usuario) {
+
+        boolean estado;
+
+        String sql = "insert into usuarios(nombre,apellido,correo,usuario,clave,estado_id) values(?,?,?,?,?,?)";
+
+        try (Connection con = Coneccion.getInstancia().getConeccion()) {
+
+            try (PreparedStatement stmt = con.prepareStatement(sql)) {
+
+                stmt.setString(1, usuario.getNombre());
+                stmt.setString(2, usuario.getApellido());
+                stmt.setString(3, usuario.getCorreo());
+                stmt.setString(4, usuario.getUsuario());
+                stmt.setString(5, usuario.getClave());
+                stmt.setInt(6, usuario.getEstado().getId());
+
+                stmt.executeUpdate();
+
+                estado = true;
+
+            }
+        } catch (SQLException e) {
+            estado = false;
+            Logger.getLogger(ServicioContacto.class.getName()).log(Level.SEVERE, null, e);
+        }
+
+        return estado;
+
+    }
+    public boolean actualizarUsuario(Usuario usuario) {
+        boolean estado;
+
+        String sql = "update usuarios set nombre=?,apellido=?,correo=?,usuario=?,estado_id=? where id=?";
+
+        try (Connection con = Coneccion.getInstancia().getConeccion()) {
+
+            try (PreparedStatement stmt = con.prepareStatement(sql)) {
+
+                stmt.setString(1, usuario.getNombre());
+                stmt.setString(2, usuario.getApellido());
+                stmt.setString(3, usuario.getCorreo());
+                stmt.setString(4, usuario.getUsuario());
+                stmt.setInt(5, usuario.getEstado().getId());
+                stmt.setInt(6, usuario.getId());
+                stmt.executeUpdate();
+
+                estado = true;
+
+            }
+        } catch (SQLException e) {
+            estado = false;
+            Logger.getLogger(ServicioContacto.class.getName()).log(Level.SEVERE, null, e);
+        }
+
+        return estado;
+
     }
 
 }

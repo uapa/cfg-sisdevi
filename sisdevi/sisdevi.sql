@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50532
 File Encoding         : 65001
 
-Date: 2015-05-01 00:29:23
+Date: 2015-05-11 22:04:19
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -34,19 +34,22 @@ CREATE TABLE `agresor` (
   `reporte_id` int(11) DEFAULT NULL,
   `fecha_creacion` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
+  UNIQUE KEY `agresor_reporte_unique` (`reporte_id`) USING BTREE,
   KEY `agresor_genero_fk` (`genero_id`),
   KEY `agresor_provincia_fk` (`provincia_id`),
   KEY `agresor_estadocivil_fk` (`estadocivil_id`),
-  KEY `agresor_reporte_fk` (`reporte_id`),
-  CONSTRAINT `agresor_reporte_fk` FOREIGN KEY (`reporte_id`) REFERENCES `reporte` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `agresor_estadocivil_fk` FOREIGN KEY (`estadocivil_id`) REFERENCES `estadocivil` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `agresor_genero_fk` FOREIGN KEY (`genero_id`) REFERENCES `genero` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `agresor_provincia_fk` FOREIGN KEY (`provincia_id`) REFERENCES `provincias` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+  CONSTRAINT `agresor_provincia_fk` FOREIGN KEY (`provincia_id`) REFERENCES `provincias` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `agresor_reporte_fk` FOREIGN KEY (`reporte_id`) REFERENCES `reporte` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- ----------------------------
 -- Records of agresor
 -- ----------------------------
+INSERT INTO `agresor` VALUES ('1', 'Juan', 'Perez', '2', 'St 79', '6', '(809)-333-3333', '(809)-333-3333', '1', '1988-04-20', '031-1234567-8', '1', '2015-05-04 19:01:55');
+INSERT INTO `agresor` VALUES ('2', 'Jose', 'Rodriguez', '2', 'sdfsdf', '1', '809999999', '809999999', '2', '2015-04-29', '031455566666', '2', '2015-05-02 23:16:40');
+INSERT INTO `agresor` VALUES ('3', 'Hugo', 'Marin', '2', 'Calle espana #7', '1', '(809)-999-9999', '(809)-999-9999', '1', '1988-05-07', '798-7987987-9', '7', '2015-05-05 22:56:19');
 
 -- ----------------------------
 -- Table structure for `agresortestigo`
@@ -67,19 +70,42 @@ CREATE TABLE `agresortestigo` (
   `reporte_id` int(11) DEFAULT NULL,
   `fecha_creacion` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
+  UNIQUE KEY `atestigo_reporte_unique` (`reporte_id`),
   KEY `agresortestigo_genero_fk` (`genero_id`),
   KEY `agresortestigo_provincia_fk` (`provincia_id`),
   KEY `agresortestigo_estadocivil_fk` (`estadocivil_id`),
   KEY `agresortestigo_reporte_fk` (`reporte_id`),
-  CONSTRAINT `agresortestigo_reporte_fk` FOREIGN KEY (`reporte_id`) REFERENCES `reporte` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `agresortestigo_estadocivil_fk` FOREIGN KEY (`estadocivil_id`) REFERENCES `estadocivil` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `agresortestigo_genero_fk` FOREIGN KEY (`genero_id`) REFERENCES `genero` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `agresortestigo_provincia_fk` FOREIGN KEY (`provincia_id`) REFERENCES `provincias` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `agresortestigo_provincia_fk` FOREIGN KEY (`provincia_id`) REFERENCES `provincias` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `agresortestigo_reporte_fk` FOREIGN KEY (`reporte_id`) REFERENCES `reporte` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- ----------------------------
 -- Records of agresortestigo
 -- ----------------------------
+
+-- ----------------------------
+-- Table structure for `contacto`
+-- ----------------------------
+DROP TABLE IF EXISTS `contacto`;
+CREATE TABLE `contacto` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(222) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `telefono` varchar(222) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `correo` varchar(222) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `mensaje` text COLLATE utf8_spanish_ci,
+  `estado_id` int(11) DEFAULT NULL,
+  `fecha_creacion` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `contacto_estado_fk` (`estado_id`),
+  CONSTRAINT `contacto_estado_fk` FOREIGN KEY (`estado_id`) REFERENCES `estado` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+-- ----------------------------
+-- Records of contacto
+-- ----------------------------
+INSERT INTO `contacto` VALUES ('1', 'Niurby', '(809)-980-9890', 'juan@gmail.com', 'Holaaa', '2', '2015-05-11 17:07:06');
 
 -- ----------------------------
 -- Table structure for `detallesreporte`
@@ -101,25 +127,30 @@ CREATE TABLE `detallesreporte` (
   `ingresos` varchar(77) COLLATE utf8_spanish_ci DEFAULT NULL,
   `fecha_creacion` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
+  UNIQUE KEY `detalle_reporte_unique` (`reporte_id`),
   KEY `detalles_genero_fk` (`genero_id`),
   KEY `detalles_estadocivil_fk` (`estadocivil_id`),
   KEY `detalles_vinculo_fk` (`vinculo_id`),
   KEY `tipodeviolencia_detalle_fk` (`tipodeviolencia_id`) USING BTREE,
-  KEY `detalles_reporte_fk` (`reporte_id`),
   CONSTRAINT `detalles_estadocivil_fk` FOREIGN KEY (`estadocivil_id`) REFERENCES `estadocivil` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `detalles_genero_fk` FOREIGN KEY (`genero_id`) REFERENCES `genero` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `detalles_reporte_fk` FOREIGN KEY (`reporte_id`) REFERENCES `reporte` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `detalles_tipodeviolencia_fk` FOREIGN KEY (`tipodeviolencia_id`) REFERENCES `tipodeviolencia` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `detalles_vinculo_fk` FOREIGN KEY (`vinculo_id`) REFERENCES `vinculo` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- ----------------------------
 -- Records of detallesreporte
 -- ----------------------------
-INSERT INTO `detallesreporte` VALUES ('1', '1', '2', '2015-04-29', '03100011', '4', '7', 'okok', '1', 'Educación Superior', '88', 'Ama', 'De 7,000 a 15,000', '2015-04-30 19:09:19');
+INSERT INTO `detallesreporte` VALUES ('1', '1', '2', '2015-04-29', '013-1111111-1', '4', '7', 'okok', '1', 'Educación Superior', '88', 'Ama', 'De 7,000 a 15,000', '2015-05-04 19:28:53');
 INSERT INTO `detallesreporte` VALUES ('2', '1', '2', '2015-04-29', '031455566666', '5', '7', 'Me golpeo', '3', 'Educación Secundaria', '2', 'Estudiante', 'De 3,000 a 7,000', '2015-04-29 20:20:28');
 INSERT INTO `detallesreporte` VALUES ('3', '1', '1', '2015-04-29', '031455566666', '1', '1', 'Todo Bien', '4', 'Educación Superior', '7', 'Estudiante', 'De 15,000 a 25,000', '2015-04-30 23:31:19');
-INSERT INTO `detallesreporte` VALUES ('4', '1', '1', '2015-04-29', '031455566666', '1', '1', 'Todo Bien', '4', 'Educación Superior', '7', 'Estudiante', 'De 15,000 a 25,000', '2015-04-30 23:32:23');
+INSERT INTO `detallesreporte` VALUES ('4', '1', '1', '2015-04-29', '031455566666', '1', '1', 'Todo Bien', '2', 'Educación Superior', '7', 'Estudiante', 'De 15,000 a 25,000', '2015-05-11 20:24:45');
+INSERT INTO `detallesreporte` VALUES ('5', '2', '1', '1999-04-11', '031-1234588-7', '1', '2', 'Todo Mal', '7', 'Educación Primaria', '7', 'Estudiante', 'De 3,000 a 7,000', '2015-05-07 18:22:43');
+INSERT INTO `detallesreporte` VALUES ('6', '2', '1', '1988-04-20', '011-1111111-1', '3', '6', 'de todo', '5', 'Educación Secundaria', '4', 'Estudiante', 'De 7,000 a 15,000', '2015-05-07 18:26:19');
+INSERT INTO `detallesreporte` VALUES ('7', '1', '1', '1988-12-12', '999-9999999-9', '3', '2', 'ok', '8', 'Educación Primaria', '7', 'Estudiante', 'Mayor a 25,000', '2015-05-08 16:12:19');
+INSERT INTO `detallesreporte` VALUES ('8', '1', '1', '1988-09-09', '999-9999999-9', '2', '2', 'ok', '6', 'Educación Superior', '7', 'Estudiante', 'De 0 a 3,000', '2015-05-08 16:17:02');
+INSERT INTO `detallesreporte` VALUES ('9', '1', '2', '1988-08-08', '031-0000000-0', '5', '4', 'ok', '9', 'Pre Escolar', '7', 'Estudiante', 'Mayor a 25,000', '2015-05-11 21:57:06');
 
 -- ----------------------------
 -- Table structure for `detallesreportetestigo`
@@ -141,6 +172,7 @@ CREATE TABLE `detallesreportetestigo` (
   `ingresos` varchar(77) COLLATE utf8_spanish_ci DEFAULT NULL,
   `fecha_creacion` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
+  UNIQUE KEY `detalletestigo_reporte_unique` (`reporte_id`),
   KEY `detallestestigo_genero_fk` (`genero_id`),
   KEY `detallestestigo_estadocivil_fk` (`estadocivil_id`),
   KEY `detallestestigo_vinculo_fk` (`vinculo_id`),
@@ -173,11 +205,16 @@ CREATE TABLE `episodios` (
   KEY `episodios_reporte_fk` (`reporte_id`),
   CONSTRAINT `episodios_reporte_fk` FOREIGN KEY (`reporte_id`) REFERENCES `reporte` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `episodios_tipodeviolencia_fk` FOREIGN KEY (`tipodeviolencia_id`) REFERENCES `tipodeviolencia` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- ----------------------------
 -- Records of episodios
 -- ----------------------------
+INSERT INTO `episodios` VALUES ('1', '2015-05-04', '2', 'Me Golpeo Fuerte', '1', '2015-05-05 18:16:07');
+INSERT INTO `episodios` VALUES ('2', '2015-02-02', '3', 'Todo mal', '2', '2015-05-05 18:20:01');
+INSERT INTO `episodios` VALUES ('3', '2000-10-10', '1', 'Todo Mal', '7', '2015-05-05 22:57:42');
+INSERT INTO `episodios` VALUES ('4', '2010-10-11', '2', 'La violencia1 es el tipo de interacción entre sujetos que se manifiesta en aquellas conductas o situaciones que, de forma deliberada, aprendida o imitada,2 provocan o amenazan con hacer daño o sometimiento grave (físico, sexual, verbal o psicológico) a un individuo o a una colectividad;3 o los afectan de tal manera que limitan sus potencialidades presentes o las futuras.4 Puede producirse a través de acciones y lenguajes, pero también de silencios e inacciones.', '7', '2015-05-05 23:00:28');
+INSERT INTO `episodios` VALUES ('5', '1988-07-03', '1', 'Hola', '4', '2015-05-06 20:52:07');
 
 -- ----------------------------
 -- Table structure for `episodiostesdigo`
@@ -318,15 +355,20 @@ CREATE TABLE `reporte` (
   KEY `reporte_estado_fk` (`estado_id`),
   CONSTRAINT `reporte_estado_fk` FOREIGN KEY (`estado_id`) REFERENCES `estado` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `reporte_provincia_fk` FOREIGN KEY (`provincia_id`) REFERENCES `provincias` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- ----------------------------
 -- Records of reporte
 -- ----------------------------
-INSERT INTO `reporte` VALUES ('1', 'Josefina', 'Perez', 'Urb Los Prados c/14 #9', '8093178156', '809999999', '13', 'juan@gmail.com', '2015-04-30 21:59:40', '2');
-INSERT INTO `reporte` VALUES ('2', 'Persa', 'Almonte', 'Urb Los Prados c/14 #9', '8093178156', '809999999', '3', 'juan@gmail.com', '2015-04-28 20:43:58', '1');
-INSERT INTO `reporte` VALUES ('3', 'prueba2', 'prueba2', 'Urb Los Prados c/14 #9', '8093178156', '809999999', '9', 'juan@gmail.com', '2015-04-29 12:38:08', '1');
+INSERT INTO `reporte` VALUES ('1', 'Josefina', 'Perez', 'Urb Los Prados c/14 #9', '(809)-317-8156', '(999)-999-9999', '13', 'juan@gmail.com', '2015-05-06 21:41:13', '3');
+INSERT INTO `reporte` VALUES ('2', 'Persa', 'Almonte', 'Urb Los Prados c/14 #9', '8093178156', '809999999', '3', 'Persa@gmail.com', '2015-05-01 21:41:21', '2');
+INSERT INTO `reporte` VALUES ('3', 'Niurby', 'Molina', 'Urb Los Prados c/14 #9', '8093178156', '809999999', '9', 'Niurby@gmail.com', '2015-05-01 20:21:11', '2');
 INSERT INTO `reporte` VALUES ('4', 'Gris', 'Mercado', 'La Zursa', '809999999', '8099999999', '14', 'gris@hotmail.com', '2015-04-30 23:29:02', '2');
+INSERT INTO `reporte` VALUES ('5', 'Maria', 'Rodriguez', 'Calle 7', '809999999', '809999999', '28', 'maria@gmail.com', '2015-05-01 21:00:14', '1');
+INSERT INTO `reporte` VALUES ('6', 'Carla', 'Hilario', 'Calle 7', '(899)-989-8989', '(809)-999-9999', '15', 'juan@gmail.com', '2015-05-04 19:45:33', '2');
+INSERT INTO `reporte` VALUES ('7', 'Katia', 'Arrua', 'Calle espana #7', '(809)-999-9999', '(809)-999-9999', '1', 'katia@gmail.com', '2015-05-05 22:51:35', '2');
+INSERT INTO `reporte` VALUES ('8', 'Viviana', 'Reyes', 'ok', null, null, '3', null, '2015-05-08 00:33:58', '1');
+INSERT INTO `reporte` VALUES ('9', 'Carmen', 'Nolasco', 'Calle espana #7', '(809)-999-9999', '(898)-888-8888', '17', 'juan@gmail.com', '2015-05-11 21:54:03', '1');
 
 -- ----------------------------
 -- Table structure for `reportetestigo`
@@ -395,13 +437,19 @@ CREATE TABLE `usuarios` (
   `correo` varchar(255) COLLATE utf8_spanish_ci DEFAULT NULL,
   `usuario` varchar(77) COLLATE utf8_spanish_ci DEFAULT NULL,
   `clave` varchar(77) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `estado_id` int(11) DEFAULT '1',
   `fecha_creacion` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `usuario_unique` (`usuario`),
+  KEY `usuario_estado_fk` (`estado_id`),
+  CONSTRAINT `usuario_estado_fk` FOREIGN KEY (`estado_id`) REFERENCES `estado` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- ----------------------------
 -- Records of usuarios
 -- ----------------------------
+INSERT INTO `usuarios` VALUES ('1', 'Alberto', 'Martinez', 'albertojmv@gmail.com', 'albertojmv', '1234', '1', '2015-05-11 20:18:18');
+INSERT INTO `usuarios` VALUES ('2', 'Victor', 'Almonte', 'victor@gmail.com', 'victor', '1234', '1', '2015-05-11 20:26:43');
 
 -- ----------------------------
 -- Table structure for `vinculo`
