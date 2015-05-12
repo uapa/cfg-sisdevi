@@ -239,4 +239,108 @@ public class ServicioEstadistica {
             return estadistica;
         }
     }
+     public Estadistica getTotalReportesdelDia() throws SQLException {
+
+        String sql = "SELECT COUNT(id) contador FROM reporte WHERE DAY(fecha_reporte) = DAY(NOW())";
+
+        Estadistica estadistica = null;
+
+        try (Connection con = Coneccion.getInstancia().getConeccion()) {
+
+            try (PreparedStatement stmt = con.prepareStatement(sql)) {
+
+                //stmt.setInt(1, id);
+                try (ResultSet rs = stmt.executeQuery()) {
+
+                    rs.next();
+                    estadistica = new Estadistica();
+                    estadistica.setTotal(rs.getInt("contador"));
+                    
+
+                }
+            } catch (SQLException e) {
+                Logger.getLogger(ServicioEstadistica.class.getName()).log(Level.SEVERE, null, e);
+            }
+
+            return estadistica;
+        }
+    }
+     public Estadistica getTotalReportesdeAyer() throws SQLException {
+
+        String sql = "SELECT COUNT(id) contador FROM reporte WHERE DAY(fecha_reporte) = DAY(NOW())-1";
+
+        Estadistica estadistica = null;
+
+        try (Connection con = Coneccion.getInstancia().getConeccion()) {
+
+            try (PreparedStatement stmt = con.prepareStatement(sql)) {
+
+                //stmt.setInt(1, id);
+                try (ResultSet rs = stmt.executeQuery()) {
+
+                    rs.next();
+                    estadistica = new Estadistica();
+                    estadistica.setTotal(rs.getInt("contador"));
+                    
+
+                }
+            } catch (SQLException e) {
+                Logger.getLogger(ServicioEstadistica.class.getName()).log(Level.SEVERE, null, e);
+            }
+
+            return estadistica;
+        }
+    }
+     public Estadistica getTotalReportesdeSemana() throws SQLException {
+
+        String sql = "SELECT COUNT(id) contador FROM reporte WHERE WEEK(fecha_reporte)= WEEK(NOW())";
+
+        Estadistica estadistica = null;
+
+        try (Connection con = Coneccion.getInstancia().getConeccion()) {
+
+            try (PreparedStatement stmt = con.prepareStatement(sql)) {
+
+                //stmt.setInt(1, id);
+                try (ResultSet rs = stmt.executeQuery()) {
+
+                    rs.next();
+                    estadistica = new Estadistica();
+                    estadistica.setTotal(rs.getInt("contador"));
+                    
+
+                }
+            } catch (SQLException e) {
+                Logger.getLogger(ServicioEstadistica.class.getName()).log(Level.SEVERE, null, e);
+            }
+
+            return estadistica;
+        }
+    }
+     public Estadistica getTotalReportesdelMes() throws SQLException {
+
+        String sql = "SELECT COUNT(id) contador FROM reporte WHERE MONTH(fecha_reporte)= MONTH(NOW())";
+
+        Estadistica estadistica = null;
+
+        try (Connection con = Coneccion.getInstancia().getConeccion()) {
+
+            try (PreparedStatement stmt = con.prepareStatement(sql)) {
+
+                //stmt.setInt(1, id);
+                try (ResultSet rs = stmt.executeQuery()) {
+
+                    rs.next();
+                    estadistica = new Estadistica();
+                    estadistica.setTotal(rs.getInt("contador"));
+                    
+
+                }
+            } catch (SQLException e) {
+                Logger.getLogger(ServicioEstadistica.class.getName()).log(Level.SEVERE, null, e);
+            }
+
+            return estadistica;
+        }
+    }
 }

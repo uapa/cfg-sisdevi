@@ -18,6 +18,7 @@ public class Usuario {
     private String usuario;
     private String clave;
     private String fecha_creacion;
+    private Estado estado;
 
     public Integer getId() {
         return id;
@@ -73,6 +74,20 @@ public class Usuario {
 
     public void setFecha_creacion(String fecha_creacion) {
         this.fecha_creacion = fecha_creacion;
+    }
+
+    /**
+     * @return the estado
+     */
+    public Estado getEstado() {
+        return estado;
+    }
+
+    /**
+     * @param estado the estado to set
+     */
+    public void setEstado(Estado estado) {
+        this.estado = estado;
     }
 
 }

@@ -29,7 +29,7 @@ public class ServicioUsuario {
     public ServicioUsuario() {
     }
 
-    public List<Usuario> getListadoCliente() {
+    public List<Usuario> getListadoUsuarios() {
 
         List<Usuario> usuarios = new ArrayList<>();
 
@@ -37,7 +37,7 @@ public class ServicioUsuario {
 
             Statement stmt = Coneccion.getInstancia().getConeccion().createStatement();
 
-            ResultSet rs = stmt.executeQuery("select * from cliente");
+            ResultSet rs = stmt.executeQuery("select * from usuarios");
 
             while (rs.next()) {
 
@@ -45,13 +45,14 @@ public class ServicioUsuario {
                 usuario.setId(rs.getInt("id"));
                 usuario.setNombre(rs.getString("nombre"));
                 usuario.setApellido(rs.getString("apellido"));
+                usuario.setCorreo(rs.getString("correo"));
                 usuario.setUsuario(rs.getString("usuario"));
                 usuario.setClave(rs.getString("clave"));
+                usuario.setEstado(ServicioEstado.getInstancia().getEstadoPorId(rs.getInt("estado_id")));
                 usuarios.add(usuario);
             }
-            rs.close();
-                stmt.close();
-                //con.close();
+            
+                
 
         } catch (SQLException e) {
             System.out.println("Error en el SQl");
@@ -97,9 +98,9 @@ public class ServicioUsuario {
         return usuario1;
     }
 
-    public Usuario getClientePorId(int id) throws SQLException {
+    public Usuario getUsuariosPorId(int id) throws SQLException {
 
-        String sql = "select * from cliente where id=?";
+        String sql = "select * from usuarios where id=?";
 
         Connection con = Coneccion.getInstancia().getConeccion();
         Usuario usuario = null;

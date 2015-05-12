@@ -123,7 +123,7 @@
                                 <!--<label for="username">Username:</label>-->
                                 <div class="input-icon">
                                     <i class="icon-user"></i>
-                                    <input type="text" name="name" class="form-control" placeholder="Nombres" autofocus="autofocus" data-rule-required="true"  />
+                                    <input type="text" name="name" class="form-control" placeholder="Nombres" data-rule-required="true"  />
                                 </div>
                             </div>
                             <div class="form-group">

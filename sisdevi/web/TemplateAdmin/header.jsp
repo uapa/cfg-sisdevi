@@ -1,9 +1,22 @@
+<%@ page import="org.cfg.uapa.java.sisdevi.entidades.Usuario"%>
+
+<% if (session.getAttribute("currentSessionUser")==null){%>
+<script type="text/javascript">  
+ 
+      window.location ="login.jsp";
+      
+ </script>
+<%}else{
+%>
+<% 
+    Usuario currentUser =  (Usuario) session.getAttribute("currentSessionUser");
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-	<title>Sisdevi</title>
+	<title>SISDEVI</title>
 
 	<!--=== CSS ===-->
 
@@ -196,15 +209,14 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <!--<img alt="" src="assets/img/avatar1_small.jpg" />-->
                             <i class="icon-male"></i>
-                            <span class="username">Alberto Martinez</span>
+                            <span class="username"><%= currentUser.getNombre() + " " + currentUser.getApellido() %></span>
                             <i class="icon-caret-down small"></i>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="pages_user_profile.html"><i class="icon-user"></i> My Profile</a></li>
-                            <li><a href="pages_calendar.html"><i class="icon-calendar"></i> My Calendar</a></li>
-                            <li><a href="#"><i class="icon-tasks"></i> My Tasks</a></li>
+                            <li><a href="#"><i class="icon-user"></i> My Profile</a></li>
+                            
                             <li class="divider"></li>
-                            <li><a href="login.jsp"><i class="icon-key"></i> Log Out</a></li>
+                            <li><a href="logout.jsp"><i class="icon-key"></i> Log Out</a></li>
                         </ul>
                     </li>
                     <!-- /user login dropdown -->
@@ -444,7 +456,7 @@
                  <!-- /.row -->
 
                 <!--Contenido -->
-                
-                
+          
+<%}%>        
                 
                 

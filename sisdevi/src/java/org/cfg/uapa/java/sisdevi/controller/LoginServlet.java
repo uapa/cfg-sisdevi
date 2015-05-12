@@ -45,7 +45,7 @@ public class LoginServlet extends HttpServlet {
         
          
          session.setAttribute("currentSessionUser",usu); 
-         response.sendRedirect("index.jsp");
+         response.sendRedirect("TemplateAdmin/index.jsp");
          
      }else{
          
