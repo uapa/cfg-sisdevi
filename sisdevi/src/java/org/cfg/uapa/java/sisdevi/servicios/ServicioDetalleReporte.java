@@ -35,34 +35,33 @@ public class ServicioDetalleReporte {
 
         String sql = "select * from detallesreporte where reporte_id=?";
 
-        try (Connection con = Coneccion.getInstancia().getConeccion()){
+        try (Connection con = Coneccion.getInstancia().getConeccion()) {
 
-        DetalleReporte detalle = null;
+            DetalleReporte detalle = null;
 
-        try (PreparedStatement stmt = con.prepareStatement(sql)) {
+            try (PreparedStatement stmt = con.prepareStatement(sql)) {
 
-            stmt.setInt(1, id);
-            try (ResultSet rs = stmt.executeQuery()) {
+                stmt.setInt(1, id);
+                try (ResultSet rs = stmt.executeQuery()) {
 
-                rs.next();
-                detalle = new DetalleReporte();
-                detalle.setId(rs.getInt("id"));
-                detalle.setGenero(ServicioGenero.getInstancia().getGeneroPorId(rs.getInt("genero_id")));
-                detalle.setEstadocivil(ServicioEstadoCivil.getInstancia().getEstadoCivilPorId(rs.getInt("estadocivil_id")));
-                detalle.setFecha_nacimiento(rs.getString("fecha_nacimiento"));
-                detalle.setCedula(rs.getString("cedula"));
-                detalle.setTipodeviolencia(ServicioTipodeViolencia.getInstancia().getTipodeViolenciaPorId(rs.getInt("tipodeviolencia_id")));
-                detalle.setVinculo(ServicioVinculo.getInstancia().getVinculoPorId(rs.getInt("vinculo_id")));
-                detalle.setNotas(rs.getString("notas"));
-                detalle.setReporte(ServicioReporte.getInstancia().getReportePorId(rs.getInt("reporte_id")));
-                detalle.setGradoacademico(rs.getString("gradoacademico"));
-                detalle.setCantidadhijos(rs.getString("cantidadhijos"));
-                detalle.setOcupacion(rs.getString("ocupacion"));
-                detalle.setIngresos(rs.getString("ingresos"));
-                detalle.setFecha_creacion(rs.getString("fecha_creacion"));
+                    rs.next();
+                    detalle = new DetalleReporte();
+                    detalle.setId(rs.getInt("id"));
+                    detalle.setGenero(ServicioGenero.getInstancia().getGeneroPorId(rs.getInt("genero_id")));
+                    detalle.setEstadocivil(ServicioEstadoCivil.getInstancia().getEstadoCivilPorId(rs.getInt("estadocivil_id")));
+                    detalle.setFecha_nacimiento(rs.getString("fecha_nacimiento"));
+                    detalle.setCedula(rs.getString("cedula"));
+                    detalle.setTipodeviolencia(ServicioTipodeViolencia.getInstancia().getTipodeViolenciaPorId(rs.getInt("tipodeviolencia_id")));
+                    detalle.setVinculo(ServicioVinculo.getInstancia().getVinculoPorId(rs.getInt("vinculo_id")));
+                    detalle.setNotas(rs.getString("notas"));
+                    detalle.setReporte(ServicioReporte.getInstancia().getReportePorId(rs.getInt("reporte_id")));
+                    detalle.setGradoacademico(rs.getString("gradoacademico"));
+                    detalle.setCantidadhijos(rs.getString("cantidadhijos"));
+                    detalle.setOcupacion(rs.getString("ocupacion"));
+                    detalle.setIngresos(rs.getString("ingresos"));
+                    detalle.setFecha_creacion(rs.getString("fecha_creacion"));
 
-                
-            }
+                }
             } catch (SQLException e) {
                 Logger.getLogger(ServicioDetalleReporte.class.getName()).log(Level.SEVERE, null, e);
             }
@@ -291,6 +290,177 @@ public class ServicioDetalleReporte {
         }
 
         return detalle1;
+    }
+    //Detalle Testigo-----------------------------------------------------------------------
+
+    public DetalleReporte getDetalleTestigoPorId(int id) {
+
+        String sql = "select * from detallesreportetestigo where reporte_id=?";
+
+        Connection con = Coneccion.getInstancia().getConeccion();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        DetalleReporte detallet = null;
+
+        try {
+
+            stmt = con.prepareStatement(sql);
+            stmt.setInt(1, id);
+
+            rs = stmt.executeQuery();
+
+            rs.next();
+
+            detallet = new DetalleReporte();
+            detallet.setId(rs.getInt("id"));
+            detallet.setGenero(ServicioGenero.getInstancia().getGeneroPorId(rs.getInt("genero_id")));
+            detallet.setEstadocivil(ServicioEstadoCivil.getInstancia().getEstadoCivilPorId(rs.getInt("estadocivil_id")));
+            detallet.setFecha_nacimiento(rs.getString("fecha_nacimiento"));
+            detallet.setCedula(rs.getString("cedula"));
+            detallet.setTipodeviolencia(ServicioTipodeViolencia.getInstancia().getTipodeViolenciaPorId(rs.getInt("tipodeviolencia_id")));
+            detallet.setVinculo(ServicioVinculo.getInstancia().getVinculoPorId(rs.getInt("vinculo_id")));
+            detallet.setNotas(rs.getString("notas"));
+            detallet.setReporteTestigo(ServicioReporteTestigo.getInstancia().getReporteTestigoPorId(rs.getInt("reporte_id")));
+            detallet.setGradoacademico(rs.getString("gradoacademico"));
+            detallet.setCantidadhijos(rs.getString("cantidadhijos"));
+            detallet.setOcupacion(rs.getString("ocupacion"));
+            detallet.setIngresos(rs.getString("ingresos"));
+            detallet.setFecha_creacion(rs.getString("fecha_creacion"));
+
+        } catch (SQLException e) {
+            Logger.getLogger(ServicioDetalleReporte.class.getName()).log(Level.SEVERE, null, e);
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (stmt != null) {
+                    stmt.close();
+                }
+                if (con != null) {
+                    con.close();
+                }
+            } catch (SQLException e) {
+                Logger.getLogger(ServicioDetalleReporte.class.getName()).log(Level.SEVERE, null, e);
+            }
+        }
+
+        return detallet;
+    }
+
+    public DetalleReporte getDetalleTestigoPorDetalleId(int id) throws SQLException {
+
+        String sql = "select * from detallesreportetestigo where id=?";
+
+        Connection con = Coneccion.getInstancia().getConeccion();
+
+        DetalleReporte detallereportet = null;
+
+        try (PreparedStatement stmt = con.prepareStatement(sql)) {
+
+            stmt.setInt(1, id);
+            try (ResultSet rs = stmt.executeQuery()) {
+
+                rs.next();
+                detallereportet = new DetalleReporte();
+                detallereportet.setId(rs.getInt("id"));
+                detallereportet.setGenero(ServicioGenero.getInstancia().getGeneroPorId(rs.getInt("genero_id")));
+                detallereportet.setEstadocivil(ServicioEstadoCivil.getInstancia().getEstadoCivilPorId(rs.getInt("estadocivil_id")));
+                detallereportet.setFecha_nacimiento(rs.getString("fecha_nacimiento"));
+                detallereportet.setCedula(rs.getString("cedula"));
+                detallereportet.setTipodeviolencia(ServicioTipodeViolencia.getInstancia().getTipodeViolenciaPorId(rs.getInt("tipodeviolencia_id")));
+                detallereportet.setVinculo(ServicioVinculo.getInstancia().getVinculoPorId(rs.getInt("vinculo_id")));
+                detallereportet.setNotas(rs.getString("notas"));
+                detallereportet.setReporteTestigo(ServicioReporteTestigo.getInstancia().getReporteTestigoPorId(rs.getInt("reporte_id")));
+                detallereportet.setGradoacademico(rs.getString("gradoacademico"));
+                detallereportet.setCantidadhijos(rs.getString("cantidadhijos"));
+                detallereportet.setOcupacion(rs.getString("ocupacion"));
+                detallereportet.setIngresos(rs.getString("ingresos"));
+                rs.close();
+                stmt.close();
+                con.close();
+
+            } catch (SQLException e) {
+                Logger.getLogger(ServicioDetalleReporte.class.getName()).log(Level.SEVERE, null, e);
+            }
+
+            return detallereportet;
+        }
+    }
+    public boolean crearDetalleReporteTestigo(DetalleReporte detallereporte) {
+
+        boolean estado;
+
+        String sql = "insert into detallesreportetestigo(genero_id,estadocivil_id,fecha_nacimiento,cedula,tipodeviolencia_id,vinculo_id,notas,reporte_id,gradoacademico,cantidadhijos,ocupacion,ingresos) values(?,?,?,?,?,?,?,?,?,?,?,?)";
+
+        Connection con = Coneccion.getInstancia().getConeccion();
+
+        try (PreparedStatement stmt = con.prepareStatement(sql)) {
+
+            stmt.setInt(1, detallereporte.getGenero().getId());
+            stmt.setInt(2, detallereporte.getEstadocivil().getId());
+            stmt.setString(3, detallereporte.getFecha_nacimiento());
+            stmt.setString(4, detallereporte.getCedula());
+            stmt.setInt(5, detallereporte.getTipodeviolencia().getId());
+            stmt.setInt(6, detallereporte.getVinculo().getId());
+            stmt.setString(7, detallereporte.getNotas());
+            stmt.setInt(8, detallereporte.getReporteTestigo().getId());
+            stmt.setString(9, detallereporte.getGradoacademico());
+            stmt.setString(10, detallereporte.getCantidadhijos());
+            stmt.setString(11, detallereporte.getOcupacion());
+            stmt.setString(12, detallereporte.getIngresos());
+
+            stmt.executeUpdate();
+
+            estado = true;
+            //rs.close();
+            stmt.close();
+            con.close();
+
+        } catch (SQLException e) {
+            estado = false;
+            Logger.getLogger(ServicioDetalleReporte.class.getName()).log(Level.SEVERE, null, e);
+        }
+
+        return estado;
+
+    }
+public boolean actualizarDetalleTestigo(DetalleReporte detallereporte) {
+        boolean estado;
+
+        String sql = "update detallesreportetestigo set genero_id=?,estadocivil_id=?,fecha_nacimiento=?,cedula=?,tipodeviolencia_id=?,vinculo_id=?,notas=?,reporte_id=?,gradoacademico=?,cantidadhijos=?,ocupacion=?,ingresos=? where id=?";
+
+        Connection con = Coneccion.getInstancia().getConeccion();
+
+        try (PreparedStatement stmt = con.prepareStatement(sql)) {
+
+            stmt.setInt(1, detallereporte.getGenero().getId());
+            stmt.setInt(2, detallereporte.getEstadocivil().getId());
+            stmt.setString(3, detallereporte.getFecha_nacimiento());
+            stmt.setString(4, detallereporte.getCedula());
+            stmt.setInt(5, detallereporte.getTipodeviolencia().getId());
+            stmt.setInt(6, detallereporte.getVinculo().getId());
+            stmt.setString(7, detallereporte.getNotas());
+            stmt.setInt(8, detallereporte.getReporteTestigo().getId());
+            stmt.setString(9, detallereporte.getGradoacademico());
+            stmt.setString(10, detallereporte.getCantidadhijos());
+            stmt.setString(11, detallereporte.getOcupacion());
+            stmt.setString(12, detallereporte.getIngresos());
+            stmt.setInt(13, detallereporte.getId());
+            stmt.executeUpdate();
+
+            estado = true;
+            //rs.close();
+            stmt.close();
+            con.close();
+
+        } catch (SQLException e) {
+            estado = false;
+            Logger.getLogger(ServicioDetalleReporte.class.getName()).log(Level.SEVERE, null, e);
+        }
+
+        return estado;
+
     }
 
 }

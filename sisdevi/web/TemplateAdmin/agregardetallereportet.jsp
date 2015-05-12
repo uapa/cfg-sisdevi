@@ -8,26 +8,23 @@
 <%@ page import="org.cfg.uapa.java.sisdevi.entidades.TipodeViolencia"%>
 <%@ page import="org.cfg.uapa.java.sisdevi.servicios.ServicioVinculo"%>
 <%@ page import="org.cfg.uapa.java.sisdevi.entidades.Vinculo"%>
-<%@ page import="org.cfg.uapa.java.sisdevi.servicios.ServicioDetalleReporte"%>
-<%@ page import="org.cfg.uapa.java.sisdevi.entidades.DetalleReporte"%>
 
 <jsp:include page="header.jsp"/>
 <%
     int id = Integer.parseInt(request.getParameter("id"));
-    DetalleReporte detalle = ServicioDetalleReporte.getInstancia().getDetallePorDetalleId(id);
     List<Genero> genero = ServicioGenero.getInstancia().getListadoGeneros();
     List<EstadoCivil> estadocivil = ServicioEstadoCivil.getInstancia().getListadoEstadoCivil();
     List<TipodeViolencia> tipodeviolencia = ServicioTipodeViolencia.getInstancia().getListadoTipodeViolencia();
     List<Vinculo> vinculo = ServicioVinculo.getInstancia().getListadoVinculos();
 %>
-<form class="form-vertical login-form" action="/sisdevi/DetalleReporteServlet" method="post">
+<form class="form-vertical login-form" action="/sisdevi/DetalleReporteTestigoServlet" method="post">
 
-    <h3 class="form-title">Editar Detalles Reporte</h3>
+    <h3 class="form-title">Agregar Detalles Reporte</h3>
 
 
     <div class="form-group">
         <select class="form-control" id="inputGenero" name="inputGenero">
-            <option value="<%=detalle.getGenero().getId()%>"><%=detalle.getGenero().getNombre()%></option>
+            <option value="1" selected="selected">Seleccione el Genero</option>
             
             <c:forEach items="<%=genero%>" var="genero">
                 <option value="${genero.getId()}">${genero.getNombre()}</option>
@@ -36,7 +33,7 @@
     </div>
     <div class="form-group">
         <select class="form-control" id="inputEstadocivil" name="inputEstadocivil">
-            <option value="<%=detalle.getEstadocivil().getId()%>"><%=detalle.getEstadocivil().getNombre()%></option>
+            <option value="1" selected="selected">Seleccione el Estado civil</option>
             
             <c:forEach items="<%=estadocivil%>" var="estadocivil">
                 <option value="${estadocivil.getId()}">${estadocivil.getNombre()}</option>
@@ -48,7 +45,7 @@
     <div class="form-group">
         <div class="input-icon">
             <i class="icon-calendar"></i>
-            <input type="text" name="inputFecha" class="form-control" value="<%=detalle.getFecha_nacimiento()%>" data-mask="9999-99-99" />
+            <input type="text" name="inputFecha" class="form-control" data-mask="9999-99-99" placeholder="Fecha de Nacimiento" />
         </div>
     </div>
 
@@ -57,13 +54,13 @@
 
         <div class="input-icon">
             <i class="icon-credit-card"></i>
-            <input type="text" name="cedula" class="form-control" placeholder="Cedula"  data-rule-required="true" value="<%=detalle.getCedula()%>" data-mask="999-9999999-9" />
+            <input type="text" name="cedula" class="form-control" placeholder="Cedula"  data-rule-required="true" data-mask="999-9999999-9" />
         </div>
     </div>
 
     <div class="form-group">
         <select class="form-control" id="inputTipoviolencia" name="inputTipoviolencia">
-            <option value="<%=detalle.getTipodeviolencia().getId()%>"><%=detalle.getTipodeviolencia().getNombre()%></option>
+            <option value="1" selected="selected">Seleccione el Tipo de Violencia</option>
             
             <c:forEach items="<%=tipodeviolencia%>" var="tipodeviolencia">
                 <option value="${tipodeviolencia.getId()}">${tipodeviolencia.getNombre()}</option>
@@ -73,7 +70,7 @@
 
     <div class="form-group">
         <select class="form-control" id="inputVinculo" name="inputVinculo">
-            <option value="<%=detalle.getVinculo().getId()%>"><%=detalle.getVinculo().getNombre()%></option>
+            <option value="1" selected="selected">Seleccione el Vinculo con el Agresor</option>
             
             <c:forEach items="<%=vinculo%>" var="vinculo">
                 <option value="${vinculo.getId()}">${vinculo.getNombre()}</option>
@@ -82,8 +79,7 @@
     </div>
     <div class="form-group">
         <select class="form-control" id="inputGrado" name="inputGrado">
-            
-            <option value="<%=detalle.getGradoacademico()%>"><%=detalle.getGradoacademico()%></option>
+            <option value="Educación Primaria" selected="selected">Seleccione el Grado Academico</option>
             <option value="Pre Escolar">Pre Escolar</option>
             <option value="Educación Primaria">Educación Primaria</option>
             <option value="Educación Secundaria">Educación Secundaria</option>
@@ -94,20 +90,20 @@
     <div class="form-group">
         <div class="input-icon">
             <i class="icon-group"></i>
-            <input type="text" name="hijos" class="form-control" placeholder="Cantidad de Hijos"  value="<%=detalle.getCantidadhijos()%>"/>
+            <input type="text" name="hijos" class="form-control" placeholder="Cantidad de Hijos"  />
         </div>
     </div>
     <div class="form-group">
         <div class="input-icon">
             <i class="icon-suitcase"></i>
-            <input type="text" name="ocupacion" class="form-control" placeholder="Ocupacion"  value="<%=detalle.getOcupacion()%>"/>
+            <input type="text" name="ocupacion" class="form-control" placeholder="Ocupacion"  />
         </div>
     </div>
 
 
     <div class="form-group">
-        <select class="form-control" id="inputIngresos" name="inputIngresos">
-            <option value="<%=detalle.getIngresos()%>"><%=detalle.getIngresos()%></option>
+        <select class="form-control" id="Provincia" name="inputIngresos">
+            <option value="De 0 a 3,000" selected="selected">Seleccione su Ingreso</option>
             <option value="De 0 a 3,000">De 0 a 3,000</option>
             <option value="De 3,000 a 7,000">De 3,000 a 7,000</option>
             <option value="De 7,000 a 15,000">De 7,000 a 15,000</option>
@@ -115,14 +111,13 @@
             <option value="Mayor a 25,000">Mayor a 25,000</option>
         </select>
     </div>
-    <label for="notas">Breve relato de los hechos</label>
+    <label for="notas">Breve Relato de los hechos</label>
     <div class="form-group">
-        <textarea rows="3" cols="5" name="notas" class="form-control"><%=detalle.getNotas()%></textarea>
+        <textarea rows="3" cols="5" name="notas" class="form-control"></textarea>
     </div>
 
 
-    <input name="idDetalle" type="hidden" value="<%=detalle.getId()%>">
-    <input name="inputReporteid" type="hidden" value="<%=detalle.getReporte().getId()%>">
+    <input name="inputReporteid" type="hidden" value="<%=id%>">
 
     <div class="form-actions">
         <button type="submit" class="submit btn btn-primary pull-right">

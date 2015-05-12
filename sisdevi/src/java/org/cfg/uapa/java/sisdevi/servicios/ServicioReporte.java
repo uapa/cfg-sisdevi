@@ -143,7 +143,7 @@ public class ServicioReporte {
 
         String sql = "update reporte set nombre=?,apellido=?,direccion=?,provincia_id=?,telefono=?,celular=?,correo=?,estado_id=? where id=?";
 
-        Connection con = Coneccion.getInstancia().getConeccion();
+        try (Connection con = Coneccion.getInstancia().getConeccion()){
 
         try (PreparedStatement stmt = con.prepareStatement(sql)) {
 
@@ -160,9 +160,7 @@ public class ServicioReporte {
             stmt.executeUpdate();
 
             estado = true;
-            //rs.close();
-            stmt.close();
-            con.close();
+        }
 
         } catch (SQLException e) {
             estado = false;

@@ -24,6 +24,7 @@ public class DetalleReporte {
     private String ocupacion;
     private String ingresos;
     private String fecha_creacion;
+    private ReporteTestigo reporteTestigo;
 
     /**
      * @return the id
@@ -219,6 +220,20 @@ public class DetalleReporte {
      */
     public void setFecha_creacion(String fecha_creacion) {
         this.fecha_creacion = fecha_creacion;
+    }
+
+    /**
+     * @return the reporteTestigo
+     */
+    public ReporteTestigo getReporteTestigo() {
+        return reporteTestigo;
+    }
+
+    /**
+     * @param reporteTestigo the reporteTestigo to set
+     */
+    public void setReporteTestigo(ReporteTestigo reporteTestigo) {
+        this.reporteTestigo = reporteTestigo;
     }
     
 

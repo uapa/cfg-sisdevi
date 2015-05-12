@@ -177,4 +177,149 @@ public class ServicioEpisodio {
             return lista;
         }
     }
+    // Servicio Testigo -----------------------------------------
+    public Episodio getEpisodioTestigoPorReporteId(int id) throws SQLException {
+
+        String sql = "select * from episodiostestigo where reporte_id=?";
+
+        Episodio episodio = null;
+
+        try (Connection con = Coneccion.getInstancia().getConeccion()) {
+
+            try (PreparedStatement stmt = con.prepareStatement(sql)) {
+
+                stmt.setInt(1, id);
+                try (ResultSet rs = stmt.executeQuery()) {
+
+                    rs.next();
+                    episodio = new Episodio();
+                    episodio.setId(rs.getInt("id"));
+                    episodio.setFecha_episodio(rs.getString("fecha_episodio"));
+                    episodio.setDescripcion(rs.getString("descripcion"));
+                    episodio.setTipodeviolencia(ServicioTipodeViolencia.getInstancia().getTipodeViolenciaPorId(rs.getInt("tipodeviolencia_id")));
+                    episodio.setReporteTestigo(ServicioReporteTestigo.getInstancia().getReporteTestigoPorId(rs.getInt("reporte_id")));
+                    episodio.setFecha_creacion(rs.getString("fecha_creacion"));
+                }
+            } catch (SQLException e) {
+                Logger.getLogger(ServicioEpisodio.class.getName()).log(Level.SEVERE, null, e);
+            }
+
+            return episodio;
+        }
+    }
+    public boolean crearEpisodioTestigo(Episodio episodio) {
+
+        boolean estado;
+
+        String sql = "insert into episodiostestigo(fecha_episodio,descripcion,tipodeviolencia_id,reporte_id) values(?,?,?,?)";
+
+        try (Connection con = Coneccion.getInstancia().getConeccion()) {
+
+            try (PreparedStatement stmt = con.prepareStatement(sql)) {
+
+                stmt.setString(1, episodio.getFecha_episodio());
+                stmt.setString(2, episodio.getDescripcion());
+                stmt.setInt(3, episodio.getTipodeviolencia().getId());
+                stmt.setInt(4, episodio.getReporteTestigo().getId());
+
+                stmt.executeUpdate();
+
+                estado = true;
+
+            }
+        } catch (SQLException e) {
+            estado = false;
+            Logger.getLogger(ServicioEpisodio.class.getName()).log(Level.SEVERE, null, e);
+        }
+
+        return estado;
+
+    }
+    public boolean actualizarEpisodioTestigo(Episodio episodio) {
+        boolean estado;
+
+        String sql = "update episodiostestigo set fecha_episodio=?,descripcion=?,tipodeviolencia_id=?,reporte_id=? where id=?";
+
+        try (Connection con = Coneccion.getInstancia().getConeccion()) {
+
+            try (PreparedStatement stmt = con.prepareStatement(sql)) {
+
+                stmt.setString(1, episodio.getFecha_episodio());
+                stmt.setString(2, episodio.getDescripcion());
+                stmt.setInt(3, episodio.getTipodeviolencia().getId());
+                stmt.setInt(4, episodio.getReporteTestigo().getId());
+                stmt.setInt(5, episodio.getId());
+                stmt.executeUpdate();
+
+                estado = true;
+
+            }
+        } catch (SQLException e) {
+            estado = false;
+            Logger.getLogger(ServicioEpisodio.class.getName()).log(Level.SEVERE, null, e);
+        }
+
+        return estado;
+
+    }
+    public Episodio getEpisodioTestigoPorId(int id) throws SQLException {
+
+        String sql = "select * from episodiostestigo where id=?";
+
+        Episodio episodio = null;
+
+        try (Connection con = Coneccion.getInstancia().getConeccion()) {
+
+            try (PreparedStatement stmt = con.prepareStatement(sql)) {
+
+                stmt.setInt(1, id);
+                try (ResultSet rs = stmt.executeQuery()) {
+
+                    rs.next();
+                    episodio = new Episodio();
+                    episodio.setId(rs.getInt("id"));
+                    episodio.setFecha_episodio(rs.getString("fecha_episodio"));
+                    episodio.setDescripcion(rs.getString("descripcion"));
+                    episodio.setTipodeviolencia(ServicioTipodeViolencia.getInstancia().getTipodeViolenciaPorId(rs.getInt("tipodeviolencia_id")));
+                    episodio.setReporteTestigo(ServicioReporteTestigo.getInstancia().getReporteTestigoPorId(rs.getInt("reporte_id")));
+                    episodio.setFecha_creacion(rs.getString("fecha_creacion"));
+                }
+            } catch (SQLException e) {
+                Logger.getLogger(ServicioEpisodio.class.getName()).log(Level.SEVERE, null, e);
+            }
+
+            return episodio;
+        }
+    }
+    public List<Episodio> getListadoEpisodioTestigo(int id) throws SQLException {
+
+        List<Episodio> lista = new ArrayList<>();
+
+        String sql = "select * from episodiostestigo where reporte_id=?";
+
+       try (Connection con = Coneccion.getInstancia().getConeccion()){
+
+        try (PreparedStatement stmt = con.prepareStatement(sql)) {
+                stmt.setInt(1, id);
+            try (ResultSet rs = stmt.executeQuery()) {
+                    
+                while (rs.next()) {
+                    Episodio episodio = new Episodio();
+                    episodio.setId(rs.getInt("id"));
+                    episodio.setFecha_episodio(rs.getString("fecha_episodio"));
+                    episodio.setDescripcion(rs.getString("descripcion"));
+                    episodio.setTipodeviolencia(ServicioTipodeViolencia.getInstancia().getTipodeViolenciaPorId(rs.getInt("tipodeviolencia_id")));
+                    episodio.setReporteTestigo(ServicioReporteTestigo.getInstancia().getReporteTestigoPorId(rs.getInt("reporte_id")));
+                    episodio.setFecha_creacion(rs.getString("fecha_creacion"));
+                    lista.add(episodio);
+                }
+                
+            }
+            } catch (SQLException e) {
+                Logger.getLogger(ServicioEpisodio.class.getName()).log(Level.SEVERE, null, e);
+            }
+
+            return lista;
+        }
+    }
 }

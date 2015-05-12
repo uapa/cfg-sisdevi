@@ -242,7 +242,7 @@
                             <input type="text" name="celularv" class="form-control" placeholder="Celular"  data-rule-required="true" data-mask="(999)-999-9999"/>
                         </div>
                     </div>
-                    <label for="notas">Notas:</label>
+                    <label for="notas">Breve relato de los hechos</label>
                     <div class="form-group">
                         <textarea rows="3" cols="5" name="notas" class="form-control"></textarea>
                     </div>

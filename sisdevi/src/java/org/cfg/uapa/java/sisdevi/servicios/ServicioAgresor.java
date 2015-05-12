@@ -173,5 +173,147 @@ public class ServicioAgresor {
             return agresor;
         }
     }
+  // Testigo--------------------------  
+public Agresor getAgresorTestigoPorReporteId(int id) throws SQLException {
 
+        String sql = "select * from agresortestigo where reporte_id=?";
+
+        Agresor agresor = null;
+
+        try (Connection con = Coneccion.getInstancia().getConeccion()) {
+
+            try (PreparedStatement stmt = con.prepareStatement(sql)) {
+
+                stmt.setInt(1, id);
+                try (ResultSet rs = stmt.executeQuery()) {
+
+                    rs.next();
+                    agresor = new Agresor();
+                    agresor.setId(rs.getInt("id"));
+                    agresor.setNombre(rs.getString("nombre"));
+                    agresor.setApellido(rs.getString("apellido"));
+                    agresor.setGenero(ServicioGenero.getInstancia().getGeneroPorId(rs.getInt("genero_id")));
+                    agresor.setDireccion(rs.getString("direccion"));
+                    agresor.setProvincia(ServicioProvincia.getInstancia().getProvinciaPorId(rs.getInt("provincia_id")));
+                    agresor.setTelefono(rs.getString("telefono"));
+                    agresor.setCelular(rs.getString("celular"));
+                    agresor.setEstadocivil(ServicioEstadoCivil.getInstancia().getEstadoCivilPorId(rs.getInt("estadocivil_id")));
+                    agresor.setFecha_nacimiento(rs.getString("fecha_nacimiento"));
+                    agresor.setCedula(rs.getString("cedula"));
+                    agresor.setReporte(ServicioReporte.getInstancia().getReportePorId(rs.getInt("reporte_id")));
+                    agresor.setFecha_creacion(rs.getString("fecha_creacion"));
+
+                }
+            } catch (SQLException e) {
+                Logger.getLogger(ServicioAgresor.class.getName()).log(Level.SEVERE, null, e);
+            }
+
+            return agresor;
+        }
+    }
+    public boolean crearAgresorTestigo(Agresor agresor) {
+
+        boolean estado;
+
+        String sql = "insert into agresortestigo(nombre,apellido,genero_id,direccion,provincia_id,telefono,celular,estadocivil_id,fecha_nacimiento,cedula,reporte_id) values(?,?,?,?,?,?,?,?,?,?,?)";
+
+        try (Connection con = Coneccion.getInstancia().getConeccion()) {
+
+            try (PreparedStatement stmt = con.prepareStatement(sql)) {
+
+                stmt.setString(1, agresor.getNombre());
+                stmt.setString(2, agresor.getApellido());
+                stmt.setInt(3, agresor.getGenero().getId());
+                stmt.setString(4, agresor.getDireccion());
+                stmt.setInt(5, agresor.getProvincia().getId());
+                stmt.setString(6, agresor.getTelefono());
+                stmt.setString(7, agresor.getCelular());
+                stmt.setInt(8, agresor.getEstadocivil().getId());
+                stmt.setString(9, agresor.getFecha_nacimiento());
+                stmt.setString(10, agresor.getCedula());
+                stmt.setInt(11, agresor.getReporte().getId());
+
+                stmt.executeUpdate();
+
+                estado = true;
+
+            }
+        } catch (SQLException e) {
+            estado = false;
+            Logger.getLogger(ServicioAgresor.class.getName()).log(Level.SEVERE, null, e);
+        }
+
+        return estado;
+
+    }
+    public boolean actualizarAgresorTestigo(Agresor agresor) {
+        boolean estado;
+
+        String sql = "update agresortestigo set nombre=?,apellido=?,genero_id=?,direccion=?,provincia_id=?,telefono=?,celular=?,estadocivil_id=?,fecha_nacimiento=?,cedula=?,reporte_id=? where id=?";
+
+        try (Connection con = Coneccion.getInstancia().getConeccion()) {
+
+            try (PreparedStatement stmt = con.prepareStatement(sql)) {
+
+                stmt.setString(1, agresor.getNombre());
+                stmt.setString(2, agresor.getApellido());
+                stmt.setInt(3, agresor.getGenero().getId());
+                stmt.setString(4, agresor.getDireccion());
+                stmt.setInt(5, agresor.getProvincia().getId());
+                stmt.setString(6, agresor.getTelefono());
+                stmt.setString(7, agresor.getCelular());
+                stmt.setInt(8, agresor.getEstadocivil().getId());
+                stmt.setString(9, agresor.getFecha_nacimiento());
+                stmt.setString(10, agresor.getCedula());
+                stmt.setInt(11, agresor.getReporte().getId());
+                stmt.setInt(12, agresor.getId());
+                stmt.executeUpdate();
+
+                estado = true;
+
+            }
+        } catch (SQLException e) {
+            estado = false;
+            Logger.getLogger(ServicioAgresor.class.getName()).log(Level.SEVERE, null, e);
+        }
+
+        return estado;
+
+    }
+    public Agresor getAgresorTestigoPorId(int id) throws SQLException {
+
+        String sql = "select * from agresortestigo where id=?";
+
+        Agresor agresor = null;
+
+        try (Connection con = Coneccion.getInstancia().getConeccion()) {
+
+            try (PreparedStatement stmt = con.prepareStatement(sql)) {
+
+                stmt.setInt(1, id);
+                try (ResultSet rs = stmt.executeQuery()) {
+
+                    rs.next();
+                    agresor = new Agresor();
+                    agresor.setId(rs.getInt("id"));
+                    agresor.setNombre(rs.getString("nombre"));
+                    agresor.setApellido(rs.getString("apellido"));
+                    agresor.setGenero(ServicioGenero.getInstancia().getGeneroPorId(rs.getInt("genero_id")));
+                    agresor.setDireccion(rs.getString("direccion"));
+                    agresor.setProvincia(ServicioProvincia.getInstancia().getProvinciaPorId(rs.getInt("provincia_id")));
+                    agresor.setTelefono(rs.getString("telefono"));
+                    agresor.setCelular(rs.getString("celular"));
+                    agresor.setEstadocivil(ServicioEstadoCivil.getInstancia().getEstadoCivilPorId(rs.getInt("estadocivil_id")));
+                    agresor.setFecha_nacimiento(rs.getString("fecha_nacimiento"));
+                    agresor.setCedula(rs.getString("cedula"));
+                    agresor.setReporte(ServicioReporte.getInstancia().getReportePorId(rs.getInt("reporte_id")));
+
+                }
+            } catch (SQLException e) {
+                Logger.getLogger(ServicioAgresor.class.getName()).log(Level.SEVERE, null, e);
+            }
+
+            return agresor;
+        }
+    }
 }

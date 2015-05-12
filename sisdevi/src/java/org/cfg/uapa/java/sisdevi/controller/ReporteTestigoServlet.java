@@ -14,12 +14,14 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.cfg.uapa.java.sisdevi.entidades.Estado;
 import org.cfg.uapa.java.sisdevi.servicios.ServicioProvincia;
 import org.cfg.uapa.java.sisdevi.entidades.Provincia;
 import org.cfg.uapa.java.sisdevi.servicios.ServicioReporteTestigo;
 import org.cfg.uapa.java.sisdevi.entidades.ReporteTestigo;
 import org.cfg.uapa.java.sisdevi.servicios.ServicioVinculo;
 import org.cfg.uapa.java.sisdevi.entidades.Vinculo;
+import org.cfg.uapa.java.sisdevi.servicios.ServicioEstado;
 
 /**
  *
@@ -44,7 +46,7 @@ public class ReporteTestigoServlet extends HttpServlet {
         String celular = request.getParameter("celular");
         String correo = request.getParameter("correo");
         String inputVinculo = request.getParameter("inputVinculo");
-        
+
         String nombrev = request.getParameter("namev");
         String apellidov = request.getParameter("lastnamev");
         String direccionv = request.getParameter("direccionv");
@@ -52,39 +54,75 @@ public class ReporteTestigoServlet extends HttpServlet {
         String telefonov = request.getParameter("telefonov");
         String celularv = request.getParameter("celularv");
         String notas = request.getParameter("notas");
-        
+        String inputEstado = request.getParameter("inputEstado");
+        String idReporte = request.getParameter("idReporte");
+
         Provincia provincia = ServicioProvincia.getInstancia().getProvinciaPorId(Integer.valueOf(inputProvinciav));
         Vinculo vinculo = ServicioVinculo.getInstancia().getVinculoPorId(Integer.valueOf(inputVinculo));
-        
-        ReporteTestigo reporte = new ReporteTestigo();
-        reporte.setNombre(nombre);
-        reporte.setApellido(apellido);
-        reporte.setTelefono(telefono);
-        reporte.setCelular(celular);
-        reporte.setCorreo(correo);
-        reporte.setVinculo(vinculo);
-        
-        reporte.setNombre_victima(nombrev);
-        reporte.setApellido_victima(apellidov);
-        reporte.setDireccion_victima(direccionv);
-        reporte.setProvincia(provincia);
-        reporte.setTelefono_victima(telefonov);
-        reporte.setCelular_victima(celularv);
-        reporte.setNotas(notas);
-        
-         boolean isCreado = ServicioReporteTestigo.getInstancia().crearReporteTestigo(reporte);
-        
-        if (isCreado) {
+
+        if (null != idReporte) {
+            Estado estado = ServicioEstado.getInstancia().getEstadoPorId(Integer.valueOf(inputEstado));
+            ReporteTestigo reporte = new ReporteTestigo();
+            reporte.setNombre(nombre);
+            reporte.setApellido(apellido);
+            reporte.setTelefono(telefono);
+            reporte.setCelular(celular);
+            reporte.setCorreo(correo);
+            reporte.setVinculo(vinculo);
+
+            reporte.setNombre_victima(nombrev);
+            reporte.setApellido_victima(apellidov);
+            reporte.setDireccion_victima(direccionv);
+            reporte.setProvincia(provincia);
+            reporte.setTelefono_victima(telefonov);
+            reporte.setCelular_victima(celularv);
+            reporte.setNotas(notas);
+            reporte.setEstado(estado);
+            reporte.setId(Integer.parseInt(idReporte));
+            
+             boolean isActualizado = ServicioReporteTestigo.getInstancia().actualizarReportet(reporte);
+
+        if (isActualizado) {
 
             response.sendRedirect("TemplateAdmin/verreportetestigo.jsp");
 
         } else {
 
-            response.sendRedirect("TemplateWeb/reportes.jsp#testigo");
+            response.sendRedirect("TemplateAdmin/editarreportet.jsp?id="+ Integer.valueOf(idReporte));
 
         }
-        
-        
+
+        } else {
+
+            ReporteTestigo reporte = new ReporteTestigo();
+            reporte.setNombre(nombre);
+            reporte.setApellido(apellido);
+            reporte.setTelefono(telefono);
+            reporte.setCelular(celular);
+            reporte.setCorreo(correo);
+            reporte.setVinculo(vinculo);
+
+            reporte.setNombre_victima(nombrev);
+            reporte.setApellido_victima(apellidov);
+            reporte.setDireccion_victima(direccionv);
+            reporte.setProvincia(provincia);
+            reporte.setTelefono_victima(telefonov);
+            reporte.setCelular_victima(celularv);
+            reporte.setNotas(notas);
+
+            boolean isCreado = ServicioReporteTestigo.getInstancia().crearReporteTestigo(reporte);
+
+            if (isCreado) {
+
+                response.sendRedirect("TemplateWeb/reportes.jsp#enviado");
+
+            } else {
+
+                response.sendRedirect("TemplateWeb/reportes.jsp#testigo");
+
+            }
+
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

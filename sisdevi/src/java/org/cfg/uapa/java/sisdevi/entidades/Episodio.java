@@ -8,6 +8,7 @@ public class Episodio {
     private String descripcion;
     private Reporte reporte;
     private String fecha_creacion;
+    private ReporteTestigo reporteTestigo;
 
     /**
      * @return the id
@@ -91,6 +92,20 @@ public class Episodio {
      */
     public void setFecha_creacion(String fecha_creacion) {
         this.fecha_creacion = fecha_creacion;
+    }
+
+    /**
+     * @return the reporteTestigo
+     */
+    public ReporteTestigo getReporteTestigo() {
+        return reporteTestigo;
+    }
+
+    /**
+     * @param reporteTestigo the reporteTestigo to set
+     */
+    public void setReporteTestigo(ReporteTestigo reporteTestigo) {
+        this.reporteTestigo = reporteTestigo;
     }
     
 }

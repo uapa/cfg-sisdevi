@@ -26,6 +26,7 @@ public class ReporteTestigo {
     private String celular_victima;
     private String notas;
     private String fecha_reporte;
+    private Estado estado;
 
     /**
      * @return the id
@@ -235,6 +236,20 @@ public class ReporteTestigo {
      */
     public void setFecha_reporte(String fecha_reporte) {
         this.fecha_reporte = fecha_reporte;
+    }
+
+    /**
+     * @return the estado
+     */
+    public Estado getEstado() {
+        return estado;
+    }
+
+    /**
+     * @param estado the estado to set
+     */
+    public void setEstado(Estado estado) {
+        this.estado = estado;
     }
 
     

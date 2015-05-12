@@ -14,13 +14,13 @@
 <jsp:include page="header.jsp"/>
 <%
     int id = Integer.parseInt(request.getParameter("id"));
-    DetalleReporte detalle = ServicioDetalleReporte.getInstancia().getDetallePorDetalleId(id);
+    DetalleReporte detalle = ServicioDetalleReporte.getInstancia().getDetalleTestigoPorDetalleId(id);
     List<Genero> genero = ServicioGenero.getInstancia().getListadoGeneros();
     List<EstadoCivil> estadocivil = ServicioEstadoCivil.getInstancia().getListadoEstadoCivil();
     List<TipodeViolencia> tipodeviolencia = ServicioTipodeViolencia.getInstancia().getListadoTipodeViolencia();
     List<Vinculo> vinculo = ServicioVinculo.getInstancia().getListadoVinculos();
 %>
-<form class="form-vertical login-form" action="/sisdevi/DetalleReporteServlet" method="post">
+<form class="form-vertical login-form" action="/sisdevi/DetalleReporteTestigoServlet" method="post">
 
     <h3 class="form-title">Editar Detalles Reporte</h3>
 
