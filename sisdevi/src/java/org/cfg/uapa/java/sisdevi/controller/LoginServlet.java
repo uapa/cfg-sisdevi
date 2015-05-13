@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-
+import org.apache.commons.codec.digest.DigestUtils;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.http.HttpSession;
@@ -37,7 +37,7 @@ public class LoginServlet extends HttpServlet {
             throws ServletException, IOException {
         
         String usuario = request.getParameter("username");
-     String clave = request.getParameter("password");
+     String clave = DigestUtils.md5Hex(request.getParameter("password"));
 
 
     //Hacer una consulta a la base de datos para determinar si el usuario esta registrado       

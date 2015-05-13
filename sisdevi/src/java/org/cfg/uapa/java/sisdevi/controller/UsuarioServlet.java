@@ -18,7 +18,7 @@ import org.cfg.uapa.java.sisdevi.entidades.Estado;
 import org.cfg.uapa.java.sisdevi.servicios.ServicioEstado;
 import org.cfg.uapa.java.sisdevi.entidades.Usuario;
 import org.cfg.uapa.java.sisdevi.servicios.ServicioUsuario;
-
+import org.apache.commons.codec.digest.DigestUtils;
 /**
  *
  * @author NAM
@@ -40,7 +40,7 @@ public class UsuarioServlet extends HttpServlet {
         String apellido = request.getParameter("lastname");
         String correo = request.getParameter("correo");
         String username = request.getParameter("username");
-        String clave = request.getParameter("password");
+        String clave = DigestUtils.md5Hex(request.getParameter("password"));
         String idEstado = request.getParameter("idEstado");
         String idUsuario = request.getParameter("idUsuario");
 
