@@ -164,7 +164,7 @@ public class ServicioEstadistica {
 
         List<Estadistica> lista = new ArrayList<>();
 
-        String sql = "SELECT provincia_id,COUNT(id) contador FROM reporte WHERE provincia_id IN (SELECT id FROM provincias)GROUP BY provincia_id";
+        String sql = "SELECT provincia_id,COUNT(id) contador FROM reporte WHERE provincia_id IN (SELECT id FROM provincias)GROUP BY provincia_id ORDER BY contador DESC";
 
         try (Connection con = Coneccion.getInstancia().getConeccion()){
 

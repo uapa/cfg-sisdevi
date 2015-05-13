@@ -46,18 +46,18 @@
     <%session.invalidate();%>
 	<!--=== Error Title ===-->
 	<div class="title">
-		<h1>Usted cerró session.</h1> <!-- You can use something like <h1 class="red">500</h1> for other error codes -->
+		<h1>Usted cerró sesión.</h1> <!-- You can use something like <h1 class="red">500</h1> for other error codes -->
 	</div>
 	<!-- /Error Title -->
 
 	<div class="actions">
 		<div class="list-group">
 			<li class="list-group-item list-group-header align-center">
-				Usted cerr&oacute; session.
+				Usted cerr&oacute; sesión.
 			</li>
 			<a href="login.jsp" class="list-group-item"><i class="icon-home"></i> Acceder nuevamente <i class="icon-angle-right align-right"></i></a>
-			<a href="javascript:void(0);" class="list-group-item"><i class="icon-question"></i> Support <i class="icon-angle-right align-right"></i></a>
-			<a href="javascript:void(0);" class="list-group-item"><i class="icon-phone"></i> Call us <i class="icon-angle-right align-right"></i> <span class="badge">021-215-584</span></a>
+			<a href="javascript:void(0);" class="list-group-item"><i class="icon-question"></i> Soporte <i class="icon-angle-right align-right"></i></a>
+			<a href="javascript:void(0);" class="list-group-item"><i class="icon-phone"></i> Llámenos <i class="icon-angle-right align-right"></i> <span class="badge">809-999-9999</span></a>
 		</div>
 	</div>
 

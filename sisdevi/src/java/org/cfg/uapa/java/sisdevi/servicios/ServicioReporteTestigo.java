@@ -76,7 +76,7 @@ public class ServicioReporteTestigo {
 
         List<ReporteTestigo> lista = new ArrayList<>();
 
-        String sql = "select * from reportetestigo";
+        String sql = "select * from reportetestigo ORDER BY id DESC";
 
         try (Connection con = Coneccion.getInstancia().getConeccion()){
 

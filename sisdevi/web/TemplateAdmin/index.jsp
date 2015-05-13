@@ -14,7 +14,7 @@
 <div class="page-header">
     <div class="page-title">
         <h3>Dashboard</h3>
-        <span>Good morning, John!</span>
+        
     </div>
 </div>
 
