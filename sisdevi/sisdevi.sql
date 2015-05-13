@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50532
 File Encoding         : 65001
 
-Date: 2015-05-11 22:04:19
+Date: 2015-05-12 21:37:47
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -79,11 +79,14 @@ CREATE TABLE `agresortestigo` (
   CONSTRAINT `agresortestigo_genero_fk` FOREIGN KEY (`genero_id`) REFERENCES `genero` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `agresortestigo_provincia_fk` FOREIGN KEY (`provincia_id`) REFERENCES `provincias` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `agresortestigo_reporte_fk` FOREIGN KEY (`reporte_id`) REFERENCES `reporte` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- ----------------------------
 -- Records of agresortestigo
 -- ----------------------------
+INSERT INTO `agresortestigo` VALUES ('1', 'Willy Jose', 'Fernandez', '2', 'Calle espana #7', '2', '(809)-999-9999', '(809)-999-9999', '1', '1988-09-09', '031-0000000-0', '1', '2015-05-12 18:33:42');
+INSERT INTO `agresortestigo` VALUES ('2', 'Ricardo', 'Perez', '2', 'Calle espana #7', '6', '(809)-999-9999', '(809)-999-9999', '2', '1988-09-09', '031-0000000-0', '3', '2015-05-12 20:47:22');
+INSERT INTO `agresortestigo` VALUES ('4', 'Bernardo', 'Molina', '2', 'St 79', '4', '(000)-000-0000', '(000)-000-0000', '1', '1999-01-01', '000-0000000-0', '2', '2015-05-12 21:32:26');
 
 -- ----------------------------
 -- Table structure for `contacto`
@@ -183,11 +186,14 @@ CREATE TABLE `detallesreportetestigo` (
   CONSTRAINT `detallestestigo_reporte_fk` FOREIGN KEY (`reporte_id`) REFERENCES `reporte` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `detallestestigo_tipodeviolencia_fk` FOREIGN KEY (`tipodeviolencia_id`) REFERENCES `tipodeviolencia` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `detallestestigo_vinculo_fk` FOREIGN KEY (`vinculo_id`) REFERENCES `vinculo` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- ----------------------------
 -- Records of detallesreportetestigo
 -- ----------------------------
+INSERT INTO `detallesreportetestigo` VALUES ('1', '1', '1', '1988-08-08', '031-0000000-0', '1', '6', 'Todo Mal', '1', 'Educación Superior', '3', 'Estudiante', 'De 0 a 3,000', '2015-05-12 18:34:49');
+INSERT INTO `detallesreportetestigo` VALUES ('2', '1', '1', '1988-09-09', '031-0000000-0', '1', '4', 'ok', '3', 'Educación Primaria', '3', 'Estudiante', 'De 7,000 a 15,000', '2015-05-12 20:46:14');
+INSERT INTO `detallesreportetestigo` VALUES ('3', '2', '1', '1020-01-01', '000-0000000-0', '1', '2', 'okok', '2', 'Educación Primaria', '3', 'Estudiante', 'De 7,000 a 15,000', '2015-05-12 21:31:21');
 
 -- ----------------------------
 -- Table structure for `episodios`
@@ -217,10 +223,10 @@ INSERT INTO `episodios` VALUES ('4', '2010-10-11', '2', 'La violencia1 es el tip
 INSERT INTO `episodios` VALUES ('5', '1988-07-03', '1', 'Hola', '4', '2015-05-06 20:52:07');
 
 -- ----------------------------
--- Table structure for `episodiostesdigo`
+-- Table structure for `episodiostestigo`
 -- ----------------------------
-DROP TABLE IF EXISTS `episodiostesdigo`;
-CREATE TABLE `episodiostesdigo` (
+DROP TABLE IF EXISTS `episodiostestigo`;
+CREATE TABLE `episodiostestigo` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `fecha_episodio` date DEFAULT NULL,
   `tipodeviolencia_id` int(11) DEFAULT NULL,
@@ -232,11 +238,13 @@ CREATE TABLE `episodiostesdigo` (
   KEY `episodiostesdigo_reporte_fk` (`reporte_id`),
   CONSTRAINT `episodiostesdigo_reporte_fk` FOREIGN KEY (`reporte_id`) REFERENCES `reporte` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `episodiostesdigo_tipodeviolencia_fk` FOREIGN KEY (`tipodeviolencia_id`) REFERENCES `tipodeviolencia` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- ----------------------------
--- Records of episodiostesdigo
+-- Records of episodiostestigo
 -- ----------------------------
+INSERT INTO `episodiostestigo` VALUES ('1', '2015-05-08', '1', 'Mal', '3', '2015-05-12 20:59:20');
+INSERT INTO `episodiostestigo` VALUES ('2', '1999-09-09', '1', 'okok', '2', '2015-05-12 21:33:08');
 
 -- ----------------------------
 -- Table structure for `estado`
@@ -398,13 +406,14 @@ CREATE TABLE `reportetestigo` (
   CONSTRAINT `reportetestigo_estado_fk` FOREIGN KEY (`estado_id`) REFERENCES `estado` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `reporte_provincias_fk` FOREIGN KEY (`provincia_id`) REFERENCES `provincias` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `reporte_vinculo_fk` FOREIGN KEY (`vinculo_id`) REFERENCES `vinculo` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- ----------------------------
 -- Records of reportetestigo
 -- ----------------------------
 INSERT INTO `reportetestigo` VALUES ('1', 'ok', 'ok', '898989', '898989', 'adasdas', '5', 'OK', 'ok', 'yhyhy', '4', '8093178156', '80989999', 'okoo', '2015-04-25 19:58:20', '1');
-INSERT INTO `reportetestigo` VALUES ('2', 'Azul', 'Guzman', '8093178156', '809999999', 'juan@gmail.com', '7', 'Juana', 'Martinez', 'Av. 77', '28', '999999999', '0999999999', 'okoko', '2015-04-25 21:43:44', '1');
+INSERT INTO `reportetestigo` VALUES ('2', 'Chris', 'Guzman', '(809)-317-8156', '(809)-999-9999', 'juan@gmail.com', '7', 'Juana', 'Martinez', 'Av. 77', '28', '999999999', '0999999999', 'okoko', '2015-05-12 17:17:03', '2');
+INSERT INTO `reportetestigo` VALUES ('3', 'Bernardo', 'Almonte', '(809)-999-9999', '(809)-999-9999', 'juan@gmail.com', '3', 'Sofia', 'Perez', 'Av. 77', '1', '(809)-999-9999', '(809)-999-9999', 'La Golpeo', '2015-05-12 20:45:23', '1');
 
 -- ----------------------------
 -- Table structure for `tipodeviolencia`
@@ -443,13 +452,15 @@ CREATE TABLE `usuarios` (
   UNIQUE KEY `usuario_unique` (`usuario`),
   KEY `usuario_estado_fk` (`estado_id`),
   CONSTRAINT `usuario_estado_fk` FOREIGN KEY (`estado_id`) REFERENCES `estado` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- ----------------------------
 -- Records of usuarios
 -- ----------------------------
-INSERT INTO `usuarios` VALUES ('1', 'Alberto', 'Martinez', 'albertojmv@gmail.com', 'albertojmv', '1234', '1', '2015-05-11 20:18:18');
-INSERT INTO `usuarios` VALUES ('2', 'Victor', 'Almonte', 'victor@gmail.com', 'victor', '1234', '1', '2015-05-11 20:26:43');
+INSERT INTO `usuarios` VALUES ('1', 'Alberto', 'Martinez', 'albertojmv@gmail.com', 'albertojmv', '1234', '2', '2015-05-12 14:05:31');
+INSERT INTO `usuarios` VALUES ('2', 'Victor', 'Almonte', 'victor@gmail.com', 'victor', '1234', '2', '2015-05-12 14:22:45');
+INSERT INTO `usuarios` VALUES ('3', 'Bernardo', 'Cid', 'bernardo@gmail.com', 'bernardo', '1234', '2', '2015-05-12 14:02:05');
+INSERT INTO `usuarios` VALUES ('5', 'Admin', '', 'admin@admin.com', '', 'admin', '2', '2015-05-12 15:01:57');
 
 -- ----------------------------
 -- Table structure for `vinculo`

@@ -17,13 +17,13 @@ import javax.servlet.http.HttpServletResponse;
 import org.cfg.uapa.java.sisdevi.entidades.EstadoCivil;
 import org.cfg.uapa.java.sisdevi.entidades.Genero;
 import org.cfg.uapa.java.sisdevi.entidades.Provincia;
-import org.cfg.uapa.java.sisdevi.entidades.Reporte;
+import org.cfg.uapa.java.sisdevi.entidades.ReporteTestigo;
 
 import org.cfg.uapa.java.sisdevi.entidades.Agresor;
 import org.cfg.uapa.java.sisdevi.servicios.ServicioEstadoCivil;
 import org.cfg.uapa.java.sisdevi.servicios.ServicioGenero;
 import org.cfg.uapa.java.sisdevi.servicios.ServicioProvincia;
-import org.cfg.uapa.java.sisdevi.servicios.ServicioReporte;
+import org.cfg.uapa.java.sisdevi.servicios.ServicioReporteTestigo;
 import org.cfg.uapa.java.sisdevi.servicios.ServicioAgresor;
 /**
  *
@@ -58,7 +58,7 @@ public class AgresorTestigoServlet extends HttpServlet {
         Genero genero = ServicioGenero.getInstancia().getGeneroPorId(Integer.valueOf(inputGenero));
         EstadoCivil estadocivil = ServicioEstadoCivil.getInstancia().getEstadoCivilPorId(Integer.valueOf(inputEstadocivil));
         Provincia provincia = ServicioProvincia.getInstancia().getProvinciaPorId(Integer.valueOf(inputProvincia));
-        Reporte reporte = ServicioReporte.getInstancia().getReportePorId(Integer.valueOf(idReporte));
+        ReporteTestigo reporte = ServicioReporteTestigo.getInstancia().getReporteTestigoPorId(Integer.valueOf(idReporte));
 
         if (null != idAgresor) {
             Agresor agresor = new Agresor();
@@ -72,7 +72,7 @@ public class AgresorTestigoServlet extends HttpServlet {
             agresor.setEstadocivil(estadocivil);
             agresor.setFecha_nacimiento(inputFecha);
             agresor.setCedula(cedula);
-            agresor.setReporte(reporte);
+            agresor.setReporteTestigo(reporte);
             agresor.setId(Integer.parseInt(idAgresor));
             boolean isActualizado = ServicioAgresor.getInstancia().actualizarAgresorTestigo(agresor);
             if (isActualizado) {
@@ -96,7 +96,7 @@ public class AgresorTestigoServlet extends HttpServlet {
             agresor.setEstadocivil(estadocivil);
             agresor.setFecha_nacimiento(inputFecha);
             agresor.setCedula(cedula);
-            agresor.setReporte(reporte);
+            agresor.setReporteTestigo(reporte);
             boolean isCreado = ServicioAgresor.getInstancia().crearAgresorTestigo(agresor);
 
             if (isCreado) {

@@ -13,7 +13,7 @@
     List<TipodeViolencia> tipodeviolencia = ServicioTipodeViolencia.getInstancia().getListadoTipodeViolencia();
 %>
 <form class="form-vertical login-form" action="/sisdevi/EpisodioTestigoServlet" method="post">
-    <input name="idReporte" type="hidden" value="<%=episodio.getReporte().getId()%>">
+    <input name="idReporte" type="hidden" value="<%=episodio.getReporteTestigo().getId()%>">
     <input name="idEpisodio" type="hidden" value="<%=episodio.getId()%>">
     <h3 class="form-title">Editar Episodio</h3>
 

@@ -200,7 +200,7 @@ public Agresor getAgresorTestigoPorReporteId(int id) throws SQLException {
                     agresor.setEstadocivil(ServicioEstadoCivil.getInstancia().getEstadoCivilPorId(rs.getInt("estadocivil_id")));
                     agresor.setFecha_nacimiento(rs.getString("fecha_nacimiento"));
                     agresor.setCedula(rs.getString("cedula"));
-                    agresor.setReporte(ServicioReporte.getInstancia().getReportePorId(rs.getInt("reporte_id")));
+                    agresor.setReporteTestigo(ServicioReporteTestigo.getInstancia().getReporteTestigoPorId(rs.getInt("reporte_id")));
                     agresor.setFecha_creacion(rs.getString("fecha_creacion"));
 
                 }
@@ -231,7 +231,7 @@ public Agresor getAgresorTestigoPorReporteId(int id) throws SQLException {
                 stmt.setInt(8, agresor.getEstadocivil().getId());
                 stmt.setString(9, agresor.getFecha_nacimiento());
                 stmt.setString(10, agresor.getCedula());
-                stmt.setInt(11, agresor.getReporte().getId());
+                stmt.setInt(11, agresor.getReporteTestigo().getId());
 
                 stmt.executeUpdate();
 
@@ -265,7 +265,7 @@ public Agresor getAgresorTestigoPorReporteId(int id) throws SQLException {
                 stmt.setInt(8, agresor.getEstadocivil().getId());
                 stmt.setString(9, agresor.getFecha_nacimiento());
                 stmt.setString(10, agresor.getCedula());
-                stmt.setInt(11, agresor.getReporte().getId());
+                stmt.setInt(11, agresor.getReporteTestigo().getId());
                 stmt.setInt(12, agresor.getId());
                 stmt.executeUpdate();
 
@@ -306,7 +306,7 @@ public Agresor getAgresorTestigoPorReporteId(int id) throws SQLException {
                     agresor.setEstadocivil(ServicioEstadoCivil.getInstancia().getEstadoCivilPorId(rs.getInt("estadocivil_id")));
                     agresor.setFecha_nacimiento(rs.getString("fecha_nacimiento"));
                     agresor.setCedula(rs.getString("cedula"));
-                    agresor.setReporte(ServicioReporte.getInstancia().getReportePorId(rs.getInt("reporte_id")));
+                    agresor.setReporteTestigo(ServicioReporteTestigo.getInstancia().getReporteTestigoPorId(rs.getInt("reporte_id")));
 
                 }
             } catch (SQLException e) {

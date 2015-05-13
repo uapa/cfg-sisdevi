@@ -122,7 +122,7 @@
 
 
     <input name="idDetalle" type="hidden" value="<%=detalle.getId()%>">
-    <input name="inputReporteid" type="hidden" value="<%=detalle.getReporte().getId()%>">
+    <input name="inputReporteid" type="hidden" value="<%=detalle.getReporteTestigo().getId()%>">
 
     <div class="form-actions">
         <button type="submit" class="submit btn btn-primary pull-right">

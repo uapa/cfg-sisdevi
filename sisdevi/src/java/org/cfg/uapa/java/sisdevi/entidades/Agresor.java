@@ -24,6 +24,7 @@ public class Agresor {
     private String notas;
     private Reporte reporte;
     private String fecha_creacion;
+    private ReporteTestigo reporteTestigo;
 
     public Integer getId() {
         return id;
@@ -141,6 +142,20 @@ public class Agresor {
      */
     public void setFecha_creacion(String fecha_creacion) {
         this.fecha_creacion = fecha_creacion;
+    }
+
+    /**
+     * @return the reporteTestigo
+     */
+    public ReporteTestigo getReporteTestigo() {
+        return reporteTestigo;
+    }
+
+    /**
+     * @param reporteTestigo the reporteTestigo to set
+     */
+    public void setReporteTestigo(ReporteTestigo reporteTestigo) {
+        this.reporteTestigo = reporteTestigo;
     }
     
     

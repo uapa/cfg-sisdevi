@@ -16,10 +16,6 @@
         <servlet-class>org.cfg.uapa.java.sisdevi.controller.DetalleReporteServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>AgresorServlet</servlet-name>
-        <servlet-class>org.cfg.uapa.java.sisdevi.controller.AgresorServlet</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>EpisodioServlet</servlet-name>
         <servlet-class>org.cfg.uapa.java.sisdevi.controller.EpisodioServlet</servlet-class>
     </servlet>
@@ -47,6 +43,10 @@
         <servlet-name>EpisodioTestigoServlet</servlet-name>
         <servlet-class>org.cfg.uapa.java.sisdevi.controller.EpisodioTestigoServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AgresorServlet</servlet-name>
+        <servlet-class>org.cfg.uapa.java.sisdevi.controller.AgresorServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ReporteVictimaServlet</servlet-name>
         <url-pattern>/ReporteVictimaServlet</url-pattern>
@@ -58,10 +58,6 @@
     <servlet-mapping>
         <servlet-name>DetalleReporteServlet</servlet-name>
         <url-pattern>/DetalleReporteServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>AgresorServlet</servlet-name>
-        <url-pattern>/AgresorServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>EpisodioServlet</servlet-name>
@@ -90,6 +86,10 @@
     <servlet-mapping>
         <servlet-name>EpisodioTestigoServlet</servlet-name>
         <url-pattern>/EpisodioTestigoServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AgresorServlet</servlet-name>
+        <url-pattern>/AgresorServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

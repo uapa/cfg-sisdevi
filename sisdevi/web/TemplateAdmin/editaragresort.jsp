@@ -18,7 +18,7 @@
     List<Provincia> provincia = ServicioProvincia.getInstancia().getListadoProvincias();
 %>
 <form class="form-vertical login-form" action="/sisdevi/AgresorTestigoServlet" method="post">
-    <input name="idReporte" type="hidden" value="<%=agresor.getReporte().getId()%>">
+    <input name="idReporte" type="hidden" value="<%=agresor.getReporteTestigo().getId()%>">
     <input name="idAgresor" type="hidden" value="<%=agresor.getId()%>">
     <h3 class="form-title">Editar Agresor</h3>
     <div class="form-group">

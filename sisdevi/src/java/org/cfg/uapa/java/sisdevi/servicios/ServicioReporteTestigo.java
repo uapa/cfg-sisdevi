@@ -145,7 +145,7 @@ public class ServicioReporteTestigo {
                 reporte.setTelefono_victima(rs.getString("telefono_victima"));
                 reporte.setCelular_victima(rs.getString("celular_victima"));
                 reporte.setNotas(rs.getString("notas"));
-                
+                reporte.setFecha_reporte(rs.getString("fecha_reporte"));
                 reporte.setEstado(ServicioEstado.getInstancia().getEstadoPorId(rs.getInt("estado_id")));
                 
                 
@@ -190,7 +190,7 @@ public class ServicioReporteTestigo {
 
         } catch (SQLException e) {
             estado = false;
-            Logger.getLogger(ServicioReporte.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(ServicioReporteTestigo.class.getName()).log(Level.SEVERE, null, e);
         }
 
         return estado;
