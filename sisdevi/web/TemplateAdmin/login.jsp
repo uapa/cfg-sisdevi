@@ -129,7 +129,7 @@
                     <div class="form-group">
                         <div class="input-icon">
                             <i class="icon-envelope"></i>
-                            <input type="text" name="correo" class="form-control" placeholder="Correo" data-rule-required="true" required/>
+                            <input type="email" name="correo" class="form-control" placeholder="Correo" data-rule-required="true" required/>
                         </div>
                     </div>
                     

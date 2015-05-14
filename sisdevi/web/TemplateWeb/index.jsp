@@ -164,7 +164,7 @@
                                                                                                                                 <div class="form-group">
                                                                                                                                     <div class="input-icon">
                                                                                                                                         <i class="icon-envelope"></i>
-                                                                                                                                        <input type="text" name="correo" class="form-control" placeholder="Correo electrónico" data-rule-email="true" required/>
+                                                                                                                                        <input type="email" name="correo" class="form-control" placeholder="Correo electrónico" data-rule-email="true" required/>
                                                                                                                                     </div>
                                                                                                                                 </div>
                                                                                                                                 <label for="notas">Mensaje:</label>

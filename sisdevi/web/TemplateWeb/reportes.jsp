@@ -111,8 +111,8 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <select class="form-control" id="Provincia" name="inputProvincia" required>
-                            <option>Seleccione su Provincia</option>
+                        <select class="form-control" id="Provincia" name="inputProvincia" title="Seleccione su Provincia" required>
+                            <option value="">Seleccione su Provincia</option>
                             <c:forEach items="<%=provincia%>" var="provincia">
                                 <option value="${provincia.getId()}">${provincia.getNombre()}</option>
                             </c:forEach>
@@ -133,7 +133,7 @@
                     <div class="form-group">
                         <div class="input-icon">
                             <i class="icon-envelope"></i>
-                            <input type="text" name="correo" class="form-control" placeholder="Correo electrónico" data-rule-email="true" />
+                            <input type="email" name="correo" class="form-control" placeholder="Correo electrónico" data-rule-email="true" />
                         </div>
                     </div>
 
@@ -188,12 +188,12 @@
                     <div class="form-group">
                         <div class="input-icon">
                             <i class="icon-envelope"></i>
-                            <input type="text" name="correo" class="form-control" placeholder="Correo electrónico" data-rule-email="true" />
+                            <input type="email" name="correo" class="form-control" placeholder="Correo electrónico" data-rule-email="true" />
                         </div>
                     </div>
                     <div class="form-group">
-                        <select class="form-control" id="vinculo" name="inputVinculo">
-                            <option>Su Relacion con la victima</option>
+                        <select class="form-control" id="vinculo" name="inputVinculo" title="Su Relacion con la victima" required>
+                            <option value="">Su Relacion con la victima</option>
                             <c:forEach items="<%=vinculo%>" var="vinculo">
                                 <option value="${vinculo.getId()}">${vinculo.getNombre()}</option>
                             </c:forEach>
@@ -223,8 +223,8 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <select class="form-control" id="Provincia" name="inputProvinciav">
-                            <option>Seleccione su Provincia</option>
+                        <select class="form-control" id="Provincia" name="inputProvinciav" title="Seleccione su Provincia" required>
+                            <option value="">Seleccione su Provincia</option>
                             <c:forEach items="<%=provincia%>" var="provincia">
                                 <option value="${provincia.getId()}">${provincia.getNombre()}</option>
                             </c:forEach>
