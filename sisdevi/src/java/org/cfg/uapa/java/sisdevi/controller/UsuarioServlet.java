@@ -40,7 +40,7 @@ public class UsuarioServlet extends HttpServlet {
         String apellido = request.getParameter("lastname");
         String correo = request.getParameter("correo");
         String username = request.getParameter("username");
-        String clave = DigestUtils.md5Hex(request.getParameter("password"));
+        
         String idEstado = request.getParameter("idEstado");
         String idUsuario = request.getParameter("idUsuario");
 
@@ -69,6 +69,7 @@ public class UsuarioServlet extends HttpServlet {
             }
 
         } else {
+            String clave = DigestUtils.md5Hex(request.getParameter("password"));
             Usuario usuario1 = new Usuario();
             usuario1.setNombre(nombre);
             usuario1.setApellido(apellido);
