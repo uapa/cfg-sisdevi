@@ -36,7 +36,7 @@
                             <th>Detalles</th>
                             <th>Agresor</th>
                             <th>Episodios</th>
-                            <th>Imprimir</th>
+                            <th>Ver</th>
                         </tr>
                     </thead>
                     <tbody>

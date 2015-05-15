@@ -58,7 +58,7 @@ public class LoginServlet extends HttpServlet {
          
         //Enviando mensaje a la pagina de login
          session.setAttribute("loginFailed","Usuario no registrado"); 
-         response.sendRedirect("TemplateAdmin/login.jsp");
+         response.sendRedirect("TemplateAdmin/login.jsp?id=1");
          
      }
         
