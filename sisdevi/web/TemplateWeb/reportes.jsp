@@ -47,8 +47,8 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">
-                        <img src="/assets/img/logo.png"  alt=""/>
+                    <a class="navbar-brand" href="index.jsp">
+                        <img src="assets/img/logo.png"  alt="sisdevi"/>
                     </a>
                 </div>
                 <div class="navbar-collapse collapse">
